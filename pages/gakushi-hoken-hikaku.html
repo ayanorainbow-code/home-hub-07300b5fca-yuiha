@@ -1,491 +1,267 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>学資保険 比較ノート｜主要8社</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --navy:#16233d;
-    --navy-deep:#0e1729;
-    --panel:#1d2e4d;
-    --panel-line:#33486f;
-    --cream:#f4eee0;
-    --cream-dim:#cdc6b4;
-    --gold:#c9a35f;
-    --gold-soft:#e8d3a0;
-    --sage:#8aab84;
-    --coral:#bf6a52;
-    --stamp-red:#a13f33;
-    --radius:14px;
-  }
-  *{box-sizing:border-box;}
-  html,body{margin:0;padding:0;}
-  body{
-    background:var(--navy-deep);
-    color:var(--cream);
-    font-family:'Noto Sans JP',sans-serif;
-    line-height:1.7;
-    -webkit-font-smoothing:antialiased;
-  }
-  .page{
-    max-width:880px;
-    margin:0 auto;
-    padding:28px 18px 64px;
-  }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>学資保険 比較ノート | ふたりのハブ</title>
+  <link rel="stylesheet" href="../assets/style.css" />
+  <style>
+    .tabs-controller input { display: none; }
 
-  /* ---- Header : passbook cover ---- */
-  header.cover{
-    background:linear-gradient(155deg,var(--navy) 0%,var(--navy-deep) 100%);
-    border:1px solid var(--panel-line);
-    border-radius:var(--radius);
-    padding:30px 24px 26px;
-    margin-bottom:22px;
-    position:relative;
-    overflow:hidden;
-  }
-  header.cover::before{
-    content:"";
-    position:absolute;
-    inset:8px;
-    border:1px solid rgba(201,163,95,0.35);
-    border-radius:9px;
-    pointer-events:none;
-  }
-  .eyebrow{
-    font-size:12px;
-    letter-spacing:.28em;
-    color:var(--gold-soft);
-    text-transform:uppercase;
-    margin:0 0 10px;
-  }
-  h1{
-    font-family:'Noto Serif JP',serif;
-    font-weight:700;
-    font-size:clamp(24px,6vw,32px);
-    margin:0 0 8px;
-    color:var(--cream);
-    letter-spacing:.02em;
-  }
-  .cover-sub{
-    margin:0;
-    font-size:13.5px;
-    color:var(--cream-dim);
-  }
-  .cover-meta{
-    display:flex;
-    gap:18px;
-    margin-top:18px;
-    padding-top:16px;
-    border-top:1px dashed rgba(201,163,95,0.35);
-    font-size:12px;
-    color:var(--cream-dim);
-    flex-wrap:wrap;
-  }
-  .cover-meta b{ color:var(--gold-soft); font-weight:500; }
+    .tab-nav {
+      display: flex;
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      margin: 24px 0 -1px;
+      scrollbar-width: thin;
+    }
+    .tab-nav::-webkit-scrollbar { height: 3px; }
+    .tab-nav label {
+      flex: 0 0 auto;
+      cursor: pointer;
+      padding: 10px 16px;
+      font-family: ui-monospace, "SFMono-Regular", "JetBrains Mono", Menlo,
+        Consolas, monospace;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--ink-soft);
+      border-right: 1px solid var(--line);
+      white-space: nowrap;
+      transition: color 0.12s ease, background-color 0.12s ease;
+    }
+    .tab-nav label:last-child { border-right: none; }
+    .tab-nav label:hover { color: var(--ink); background: #fafafa; }
 
-  /* ---- Tabs ---- */
-  .tabs-controller input{ display:none; }
-  .tab-nav{
-    display:flex;
-    gap:8px;
-    overflow-x:auto;
-    padding:4px 2px 14px;
-    margin-bottom:6px;
-    scrollbar-width:thin;
-  }
-  .tab-nav::-webkit-scrollbar{ height:5px; }
-  .tab-nav::-webkit-scrollbar-thumb{ background:var(--panel-line); border-radius:4px; }
-  .tab-nav label{
-    flex:0 0 auto;
-    cursor:pointer;
-    padding:9px 15px;
-    border-radius:999px;
-    border:1px solid var(--panel-line);
-    background:var(--panel);
-    color:var(--cream-dim);
-    font-size:13px;
-    font-weight:500;
-    white-space:nowrap;
-    transition:all .15s ease;
-  }
-  .tab-nav label:hover{ color:var(--cream); border-color:var(--gold); }
+    #t-overview:checked ~ .tab-nav label[for="t-overview"],
+    #t-prenatal:checked ~ .tab-nav label[for="t-prenatal"],
+    #t-return:checked ~ .tab-nav label[for="t-return"],
+    #t-waiver:checked ~ .tab-nav label[for="t-waiver"],
+    #t-cover:checked ~ .tab-nav label[for="t-cover"],
+    #t-payout:checked ~ .tab-nav label[for="t-payout"],
+    #t-age:checked ~ .tab-nav label[for="t-age"],
+    #t-fit:checked ~ .tab-nav label[for="t-fit"] {
+      color: var(--accent);
+      background: #fafafa;
+    }
 
-  #t-overview:checked ~ .tab-nav label[for="t-overview"],
-  #t-prenatal:checked ~ .tab-nav label[for="t-prenatal"],
-  #t-return:checked ~ .tab-nav label[for="t-return"],
-  #t-waiver:checked ~ .tab-nav label[for="t-waiver"],
-  #t-cover:checked ~ .tab-nav label[for="t-cover"],
-  #t-payout:checked ~ .tab-nav label[for="t-payout"],
-  #t-age:checked ~ .tab-nav label[for="t-age"],
-  #t-fit:checked ~ .tab-nav label[for="t-fit"]{
-    background:var(--gold);
-    border-color:var(--gold);
-    color:var(--navy-deep);
-    font-weight:700;
-  }
+    .panel { display: none; }
+    #t-overview:checked ~ #p-overview,
+    #t-prenatal:checked ~ #p-prenatal,
+    #t-return:checked ~ #p-return,
+    #t-waiver:checked ~ #p-waiver,
+    #t-cover:checked ~ #p-cover,
+    #t-payout:checked ~ #p-payout,
+    #t-age:checked ~ #p-age,
+    #t-fit:checked ~ #p-fit { display: block; }
 
-  .panel{ display:none; animation:fade .25s ease; }
-  #t-overview:checked ~ #p-overview,
-  #t-prenatal:checked ~ #p-prenatal,
-  #t-return:checked ~ #p-return,
-  #t-waiver:checked ~ #p-waiver,
-  #t-cover:checked ~ #p-cover,
-  #t-payout:checked ~ #p-payout,
-  #t-age:checked ~ #p-age,
-  #t-fit:checked ~ #p-fit{ display:block; }
-  @keyframes fade{ from{opacity:0; transform:translateY(4px);} to{opacity:1; transform:none;} }
-
-  .panel-head{
-    margin:6px 0 16px;
-  }
-  .panel-head h2{
-    font-family:'Noto Serif JP',serif;
-    font-size:19px;
-    margin:0 0 4px;
-    color:var(--gold-soft);
-  }
-  .panel-head p{
-    margin:0;
-    font-size:13px;
-    color:var(--cream-dim);
-  }
-
-  /* ---- Overview table ---- */
-  .table-wrap{
-    overflow-x:auto;
-    border:1px solid var(--panel-line);
-    border-radius:var(--radius);
-    background:var(--panel);
-  }
-  table{
-    border-collapse:collapse;
-    width:100%;
-    min-width:760px;
-    font-size:12.5px;
-  }
-  th,td{
-    padding:10px 12px;
-    text-align:left;
-    border-bottom:1px solid var(--panel-line);
-    vertical-align:top;
-  }
-  thead th{
-    font-family:'Noto Serif JP',serif;
-    font-weight:500;
-    color:var(--gold-soft);
-    background:rgba(201,163,95,0.08);
-    position:sticky;
-    top:0;
-  }
-  tbody tr:last-child td{ border-bottom:none; }
-  tbody tr:hover{ background:rgba(255,255,255,0.02); }
-  td.company{ font-weight:700; color:var(--cream); white-space:nowrap; }
-  td.company small{ display:block; font-weight:400; color:var(--cream-dim); font-size:11px; margin-top:2px;}
-
-  /* ---- Cards ---- */
-  .card-grid{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:12px;
-  }
-  @media (min-width:620px){
-    .card-grid{ grid-template-columns:1fr 1fr; }
-  }
-  .card{
-    background:var(--panel);
-    border:1px solid var(--panel-line);
-    border-radius:var(--radius);
-    padding:16px 16px 14px;
-    position:relative;
-  }
-  .card-top{
-    display:flex;
-    align-items:flex-start;
-    gap:12px;
-    margin-bottom:10px;
-  }
-  .stamp{
-    flex:0 0 auto;
-    width:36px;height:36px;
-    border-radius:50%;
-    border:2px solid var(--stamp-red);
-    color:var(--stamp-red);
-    display:flex;align-items:center;justify-content:center;
-    font-family:'Noto Serif JP',serif;
-    font-weight:700;
-    font-size:14px;
-    transform:rotate(-6deg);
-    opacity:.9;
-  }
-  .card-co{
-    font-family:'Noto Serif JP',serif;
-    font-weight:700;
-    font-size:14.5px;
-    color:var(--cream);
-    margin:0;
-  }
-  .card-co small{
-    display:block;
-    font-family:'Noto Sans JP',sans-serif;
-    font-weight:400;
-    font-size:11.5px;
-    color:var(--cream-dim);
-    margin-top:2px;
-  }
-  .card p.body{
-    margin:0;
-    font-size:13px;
-    color:var(--cream-dim);
-  }
-  .badge{
-    display:inline-block;
-    font-size:11px;
-    font-weight:700;
-    padding:3px 10px;
-    border-radius:999px;
-    margin-bottom:8px;
-  }
-  .badge.high{ background:rgba(138,171,132,0.18); color:var(--sage); border:1px solid var(--sage); }
-  .badge.mid{ background:rgba(201,163,95,0.18); color:var(--gold-soft); border:1px solid var(--gold); }
-  .badge.low{ background:rgba(191,106,82,0.18); color:var(--coral); border:1px solid var(--coral); }
-
-  .foot-note{
-    margin-top:24px;
-    padding:14px 16px;
-    border-left:3px solid var(--gold);
-    background:rgba(201,163,95,0.06);
-    border-radius:0 8px 8px 0;
-    font-size:12.5px;
-    color:var(--cream-dim);
-  }
-  .foot-note b{ color:var(--gold-soft); }
-
-  footer.sign{
-    margin-top:30px;
-    text-align:center;
-    font-size:11.5px;
-    color:var(--cream-dim);
-    letter-spacing:.06em;
-  }
-</style>
+    .panel-desc {
+      color: var(--ink-soft);
+      font-size: 0.85rem;
+      margin: 0 0 20px;
+    }
+  </style>
 </head>
-<body>
-<div class="page">
+<body data-page="gakushi-hoken-hikaku">
+  <div class="page">
+    <header class="site-header">
+      <div>
+        <span class="kicker">02</span>
+        <h1>学資保険 比較ノート</h1>
+      </div>
+      <a class="back" href="../index.html">← トップへ</a>
+    </header>
+    <p class="lead">
+      出生前加入を前提とした、国内主要8社の横並び比較です。ソニー生命／フコク生命／明治安田生命／日本生命／JA共済／かんぽ生命／アフラック／東京海上日動あんしん生命を対象にしています。
+    </p>
 
-  <header class="cover">
-    <p class="eyebrow">Education Insurance Ledger</p>
-    <h1>学資保険 比較ノート</h1>
-    <p class="cover-sub">出生前加入を前提とした、国内主要8社の横並び比較</p>
-    <div class="cover-meta">
-      <span><b>対象</b>：ソニー生命／フコク生命／明治安田生命／日本生命／JA共済／かんぽ生命／アフラック／東京海上日動あんしん生命</span>
-    </div>
-  </header>
+    <div class="tabs-controller">
+      <input type="radio" name="tab" id="t-overview" checked>
+      <input type="radio" name="tab" id="t-prenatal">
+      <input type="radio" name="tab" id="t-return">
+      <input type="radio" name="tab" id="t-waiver">
+      <input type="radio" name="tab" id="t-cover">
+      <input type="radio" name="tab" id="t-payout">
+      <input type="radio" name="tab" id="t-age">
+      <input type="radio" name="tab" id="t-fit">
 
-  <div class="tabs-controller">
-    <input type="radio" name="tab" id="t-overview" checked>
-    <input type="radio" name="tab" id="t-prenatal">
-    <input type="radio" name="tab" id="t-return">
-    <input type="radio" name="tab" id="t-waiver">
-    <input type="radio" name="tab" id="t-cover">
-    <input type="radio" name="tab" id="t-payout">
-    <input type="radio" name="tab" id="t-age">
-    <input type="radio" name="tab" id="t-fit">
+      <nav class="tab-nav">
+        <label for="t-overview">総合早見表</label>
+        <label for="t-prenatal">出生前加入</label>
+        <label for="t-return">返戻率</label>
+        <label for="t-waiver">払込免除</label>
+        <label for="t-cover">医療・死亡保障</label>
+        <label for="t-payout">受取方法</label>
+        <label for="t-age">加入年齢</label>
+        <label for="t-fit">向いている人</label>
+      </nav>
 
-    <nav class="tab-nav">
-      <label for="t-overview">総合早見表</label>
-      <label for="t-prenatal">出生前加入</label>
-      <label for="t-return">返戻率</label>
-      <label for="t-waiver">払込免除</label>
-      <label for="t-cover">医療・死亡保障</label>
-      <label for="t-payout">受取方法</label>
-      <label for="t-age">加入年齢</label>
-      <label for="t-fit">向いている人</label>
-    </nav>
-
-    <!-- ===== 総合早見表 ===== -->
-    <section id="p-overview" class="panel">
-      <div class="panel-head">
+      <!-- ===== 総合早見表 ===== -->
+      <section id="p-overview" class="panel block">
         <h2>総合早見表</h2>
-        <p>8社の特徴を1枚で横断比較。詳細は各タブを参照してください。</p>
-      </div>
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>会社・商品</th>
-              <th>出生前加入</th>
-              <th>返戻率</th>
-              <th>主契約の保障</th>
-              <th>受取の軸</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td class="company">ソニー生命<small>学資金準備スクエア</small></td><td>140日前〜（Ⅲ型91日前）</td><td>高い（106〜127%目安）</td><td>払込免除のみ</td><td>大学集中〜中学進学まで選択式</td></tr>
-            <tr><td class="company">フコク生命<small>みらいのつばさ</small></td><td>140日前〜</td><td>高い（最大130%超）</td><td>払込免除＋兄弟割引</td><td>入園入学ごと／大学重点の2型</td></tr>
-            <tr><td class="company">明治安田生命<small>つみたて学資</small></td><td>140日前〜・診査不要</td><td>高い（一括129.2%／月払115%前後）</td><td>払込免除のみ</td><td>18〜21歳の4年間のみ</td></tr>
-            <tr><td class="company">日本生命<small>ニッセイ学資保険</small></td><td>出生前可（契約上0歳扱い）</td><td>中〜高（108%前後）</td><td>払込免除＋祝金選択制</td><td>大学集中型／小中高分割型</td></tr>
-            <tr><td class="company">JA共済<small>こども共済</small></td><td>140日前〜</td><td>中〜低（大学プランで100%超、他は元本割れ傾向）</td><td>子の死亡・後遺障害保障込み</td><td>中学／高校／大学プラン選択</td></tr>
-            <tr><td class="company">かんぽ生命<small>はじめのかんぽ</small></td><td>140日前〜（特約は出生後）</td><td>低（94%台の例も）</td><td>払込免除＋災害・医療特約可</td><td>3コースから選択</td></tr>
-            <tr><td class="company">アフラック<small>夢みるこどもの学資保険</small></td><td>140日前〜（母親契約は180万円上限）</td><td>低（元本割れが一般的）</td><td>払込免除のみ</td><td>高校入学時＋大学4年間</td></tr>
-            <tr><td class="company">東京海上日動あんしん生命<small>5年ごと利差配当付こども保険</small></td><td>140日以内</td><td>低〜中（保障重視で見劣り）</td><td>養育年金＋子の死亡保障が手厚い</td><td>小中高大の入学時に祝金</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="foot-note">
-        <b>見方のコツ：</b>「返戻率」を最優先するか「保障の手厚さ」を優先するかで、選ぶべき会社は大きく変わります。数値は契約者の年齢・性別・払込方法によって変動するため、最終判断の前に必ず本人の条件でシミュレーションしてください。
-      </div>
-    </section>
+        <p class="panel-desc">8社の特徴を1枚で横断比較。詳細は各タブを参照してください。</p>
+        <div class="table-wrap">
+          <table class="compare" style="min-width:760px">
+            <thead>
+              <tr>
+                <th>会社・商品</th>
+                <th>出生前加入</th>
+                <th>返戻率</th>
+                <th>主契約の保障</th>
+                <th>受取の軸</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="company">ソニー生命<small>学資金準備スクエア</small></td><td>140日前〜（Ⅲ型91日前）</td><td>高い（106〜127%目安）</td><td>払込免除のみ</td><td>大学集中〜中学進学まで選択式</td></tr>
+              <tr><td class="company">フコク生命<small>みらいのつばさ</small></td><td>140日前〜</td><td>高い（最大130%超）</td><td>払込免除＋兄弟割引</td><td>入園入学ごと／大学重点の2型</td></tr>
+              <tr><td class="company">明治安田生命<small>つみたて学資</small></td><td>140日前〜・診査不要</td><td>高い（一括129.2%／月払115%前後）</td><td>払込免除のみ</td><td>18〜21歳の4年間のみ</td></tr>
+              <tr><td class="company">日本生命<small>ニッセイ学資保険</small></td><td>出生前可（契約上0歳扱い）</td><td>中〜高（108%前後）</td><td>払込免除＋祝金選択制</td><td>大学集中型／小中高分割型</td></tr>
+              <tr><td class="company">JA共済<small>こども共済</small></td><td>140日前〜</td><td>中〜低（大学プランで100%超、他は元本割れ傾向）</td><td>子の死亡・後遺障害保障込み</td><td>中学／高校／大学プラン選択</td></tr>
+              <tr><td class="company">かんぽ生命<small>はじめのかんぽ</small></td><td>140日前〜（特約は出生後）</td><td>低（94%台の例も）</td><td>払込免除＋災害・医療特約可</td><td>3コースから選択</td></tr>
+              <tr><td class="company">アフラック<small>夢みるこどもの学資保険</small></td><td>140日前〜（母親契約は180万円上限）</td><td>低（元本割れが一般的）</td><td>払込免除のみ</td><td>高校入学時＋大学4年間</td></tr>
+              <tr><td class="company">東京海上日動あんしん生命<small>5年ごと利差配当付こども保険</small></td><td>140日以内</td><td>低〜中（保障重視で見劣り）</td><td>養育年金＋子の死亡保障が手厚い</td><td>小中高大の入学時に祝金</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout">
+          <b>見方のコツ：</b>「返戻率」を最優先するか「保障の手厚さ」を優先するかで、選ぶべき会社は大きく変わります。数値は契約者の年齢・性別・払込方法によって変動するため、最終判断の前に必ず本人の条件でシミュレーションしてください。
+        </div>
+      </section>
 
-    <!-- ===== 出生前加入 ===== -->
-    <section id="p-prenatal" class="panel">
-      <div class="panel-head">
+      <!-- ===== 出生前加入 ===== -->
+      <section id="p-prenatal" class="panel block">
         <h2>出生前加入のタイミング・条件</h2>
-        <p>全社が出産予定日140日前後から加入可能ですが、特約の扱いに差があります。</p>
-      </div>
-      <div class="card-grid">
-        <div class="card"><div class="card-top"><div class="stamp">ソ</div><p class="card-co">ソニー生命<small>学資金準備スクエア</small></p></div><p class="body">Ⅰ・Ⅱ型は140日前、Ⅲ型は91日前から加入可。契約者は両親いずれか。流産・死産時は契約無効で保険料は返金。</p></div>
-        <div class="card"><div class="card-top"><div class="stamp">富</div><p class="card-co">フコク生命<small>みらいのつばさ</small></p></div><p class="body">出産予定日140日前から加入可。出生前契約の場合は医療保険のパック付加ができない点に注意。</p></div>
-        <div class="card"><div class="card-top"><div class="stamp">明</div><p class="card-co">明治安田生命<small>つみたて学資</small></p></div><p class="body">140日前から申込可。医師の診査は不要で健康状態の告知のみ。万一流産・死産の場合は契約無効・保険料返金。</p></div>
-        <div class="card"><div class="card-top"><div class="stamp">日</div><p class="card-co">日本生命<small>ニッセイ学資保険</small></p></div><p class="body">出生前加入可。契約上は契約日に0歳で加入したものとして保険期間を計算するため、学資年金の開始年齢と実年齢にズレが出ることがある。</p></div>
-        <div class="card"><div class="card-top"><div class="stamp">共</div><p class="card-co">JA共済<small>こども共済</small></p></div><p class="body">出産予定日140日前から加入可能。組合員になる必要があり、JAバンク口座の用意が前提となる点が他社と異なる。</p></div>
-        <div class="card"><div class="card-top"><div class="stamp">郵</div><p class="card-co">かんぽ生命<small>はじめのかんぽ</small></p></div><p class="body">140日前から加入可だが、出生前は災害特約・医療特約を付加できず、出生後に改めて中途付加する必要がある。</p></div>
-        <div class="card"><div class="card-top"><div class="stamp">AF</div><p class="card-co">アフラック<small>夢みるこどもの学資保険</small></p></div><p class="body">140日前から申込可。ただし契約者が母親の場合、選べるプランは受取総額180万円までに制限される。</p></div>
-        <div class="card"><div class="card-top"><div class="stamp">東</div><p class="card-co">東京海上日動あんしん生命<small>5年ごと利差配当付こども保険</small></p></div><p class="body">出生予定日が140日以内であれば出生前加入特則を付加可能。流産・死産時は契約無効・保険料返金。</p></div>
-      </div>
-    </section>
+        <p class="panel-desc">全社が出産予定日140日前後から加入可能ですが、特約の扱いに差があります。</p>
+        <div class="card-grid">
+          <div class="card"><span class="index mono">ソ</span><h2>ソニー生命<span class="subtitle">学資金準備スクエア</span></h2><p>Ⅰ・Ⅱ型は140日前、Ⅲ型は91日前から加入可。契約者は両親いずれか。流産・死産時は契約無効で保険料は返金。</p></div>
+          <div class="card"><span class="index mono">富</span><h2>フコク生命<span class="subtitle">みらいのつばさ</span></h2><p>出産予定日140日前から加入可。出生前契約の場合は医療保険のパック付加ができない点に注意。</p></div>
+          <div class="card"><span class="index mono">明</span><h2>明治安田生命<span class="subtitle">つみたて学資</span></h2><p>140日前から申込可。医師の診査は不要で健康状態の告知のみ。万一流産・死産の場合は契約無効・保険料返金。</p></div>
+          <div class="card"><span class="index mono">日</span><h2>日本生命<span class="subtitle">ニッセイ学資保険</span></h2><p>出生前加入可。契約上は契約日に0歳で加入したものとして保険期間を計算するため、学資年金の開始年齢と実年齢にズレが出ることがある。</p></div>
+          <div class="card"><span class="index mono">共</span><h2>JA共済<span class="subtitle">こども共済</span></h2><p>出産予定日140日前から加入可能。組合員になる必要があり、JAバンク口座の用意が前提となる点が他社と異なる。</p></div>
+          <div class="card"><span class="index mono">郵</span><h2>かんぽ生命<span class="subtitle">はじめのかんぽ</span></h2><p>140日前から加入可だが、出生前は災害特約・医療特約を付加できず、出生後に改めて中途付加する必要がある。</p></div>
+          <div class="card"><span class="index mono">AF</span><h2>アフラック<span class="subtitle">夢みるこどもの学資保険</span></h2><p>140日前から申込可。ただし契約者が母親の場合、選べるプランは受取総額180万円までに制限される。</p></div>
+          <div class="card"><span class="index mono">東</span><h2>東京海上日動あんしん生命<span class="subtitle">5年ごと利差配当付こども保険</span></h2><p>出生予定日が140日以内であれば出生前加入特則を付加可能。流産・死産時は契約無効・保険料返金。</p></div>
+        </div>
+      </section>
 
-    <!-- ===== 返戻率 ===== -->
-    <section id="p-return" class="panel">
-      <div class="panel-head">
+      <!-- ===== 返戻率 ===== -->
+      <section id="p-return" class="panel block">
         <h2>返戻率の目安</h2>
-        <p>契約者30歳・子0歳・年払いなど好条件モデルでの目安。月払いや短い払込期間では下がる点に注意。</p>
-      </div>
-      <div class="card-grid">
-        <div class="card"><span class="badge high">高い</span><div class="card-top"><div class="stamp">ソ</div><p class="card-co">ソニー生命</p></div><p class="body">条件次第で106〜127%程度。貯蓄性に特化し、保障を絞ることで高返戻率を実現。年払い・短期払込でさらに上昇。</p></div>
-        <div class="card"><span class="badge high">高い</span><div class="card-top"><div class="stamp">富</div><p class="card-co">フコク生命</p></div><p class="body">プランによっては130%以上と業界トップクラス。兄弟割引適用でさらに有利になる。</p></div>
-        <div class="card"><span class="badge high">高い</span><div class="card-top"><div class="stamp">明</div><p class="card-co">明治安田生命</p></div><p class="body">一括払いで最大129.2%。月払い・10年払いでも115%前後と高水準だが、受取は大学進学期に限定。</p></div>
-        <div class="card"><span class="badge mid">中</span><div class="card-top"><div class="stamp">日</div><p class="card-co">日本生命</p></div><p class="body">108%前後が目安。祝金ありプランを選ぶと返戻率はやや下がる。安定した大手としての信頼感が強み。</p></div>
-        <div class="card"><span class="badge mid">中〜低</span><div class="card-top"><div class="stamp">共</div><p class="card-co">JA共済</p></div><p class="body">大学プランでようやく100%超え（101%前後）。中学・高校プランや養育年金特則付きは元本割れしやすい。</p></div>
-        <div class="card"><span class="badge low">低い</span><div class="card-top"><div class="stamp">郵</div><p class="card-co">かんぽ生命</p></div><p class="body">契約者30代で94%台という試算例もあり、主要他社と比べて低水準。元本割れする契約パターンもある。</p></div>
-        <div class="card"><span class="badge low">低い</span><div class="card-top"><div class="stamp">AF</div><p class="card-co">アフラック</p></div><p class="body">全プランで元本割れする水準が一般的。返戻率より受取タイミングの設計や保障とのバランスを重視した商品。</p></div>
-        <div class="card"><span class="badge low">低〜中</span><div class="card-top"><div class="stamp">東</div><p class="card-co">東京海上日動あんしん生命</p></div><p class="body">同条件のソニー生命と比べて大きく見劣りする水準。保障を厚くした分、貯蓄性は犠牲になっている。</p></div>
-      </div>
-    </section>
+        <p class="panel-desc">契約者30歳・子0歳・年払いなど好条件モデルでの目安。月払いや短い払込期間では下がる点に注意。</p>
+        <div class="card-grid">
+          <div class="card"><span class="tag">高い</span><h2>ソニー生命</h2><p>条件次第で106〜127%程度。貯蓄性に特化し、保障を絞ることで高返戻率を実現。年払い・短期払込でさらに上昇。</p></div>
+          <div class="card"><span class="tag">高い</span><h2>フコク生命</h2><p>プランによっては130%以上と業界トップクラス。兄弟割引適用でさらに有利になる。</p></div>
+          <div class="card"><span class="tag">高い</span><h2>明治安田生命</h2><p>一括払いで最大129.2%。月払い・10年払いでも115%前後と高水準だが、受取は大学進学期に限定。</p></div>
+          <div class="card"><span class="tag muted">中</span><h2>日本生命</h2><p>108%前後が目安。祝金ありプランを選ぶと返戻率はやや下がる。安定した大手としての信頼感が強み。</p></div>
+          <div class="card"><span class="tag muted">中〜低</span><h2>JA共済</h2><p>大学プランでようやく100%超え（101%前後）。中学・高校プランや養育年金特則付きは元本割れしやすい。</p></div>
+          <div class="card"><span class="tag muted">低い</span><h2>かんぽ生命</h2><p>契約者30代で94%台という試算例もあり、主要他社と比べて低水準。元本割れする契約パターンもある。</p></div>
+          <div class="card"><span class="tag muted">低い</span><h2>アフラック</h2><p>全プランで元本割れする水準が一般的。返戻率より受取タイミングの設計や保障とのバランスを重視した商品。</p></div>
+          <div class="card"><span class="tag muted">低〜中</span><h2>東京海上日動あんしん生命</h2><p>同条件のソニー生命と比べて大きく見劣りする水準。保障を厚くした分、貯蓄性は犠牲になっている。</p></div>
+        </div>
+      </section>
 
-    <!-- ===== 払込免除 ===== -->
-    <section id="p-waiver" class="panel">
-      <div class="panel-head">
+      <!-- ===== 払込免除 ===== -->
+      <section id="p-waiver" class="panel block">
         <h2>保険料払込免除</h2>
-        <p>契約者（親）に万一があった場合、以後の保険料が不要になる仕組み。8社すべてに基本的な免除制度がありますが、対象範囲に差があります。</p>
-      </div>
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th>会社</th><th>免除の対象</th><th>免除後の扱い</th></tr></thead>
-          <tbody>
-            <tr><td class="company">ソニー生命</td><td>死亡・高度障害・180日以内の身体障害</td><td>保障継続、学資金は100%受取</td></tr>
-            <tr><td class="company">フコク生命</td><td>死亡・高度障害</td><td>祝金・満期金は払込済みとして受取</td></tr>
-            <tr><td class="company">明治安田生命</td><td>死亡・身体障害表1級2級（Ⅱ型は範囲が拡大）</td><td>保障継続、教育資金を予定どおり受取</td></tr>
-            <tr><td class="company">日本生命</td><td>死亡・高度障害等の一般的な範囲</td><td>祝金・学資年金とも継続支給</td></tr>
-            <tr><td class="company">JA共済</td><td>死亡・第1級後遺障害・重度要介護等</td><td>不担保特則で外すことも可能（その分掛金は下がる）</td></tr>
-            <tr><td class="company">かんぽ生命</td><td>死亡など一般的な範囲</td><td>学資金は予定通りの金額を受取</td></tr>
-            <tr><td class="company">アフラック</td><td>死亡・高度障害・180日以内の身体障害</td><td>学資一時金・学資年金とも継続</td></tr>
-            <tr><td class="company">東京海上日動あんしん生命</td><td>死亡・高度障害</td><td>免除に加えて毎年「養育年金」も支給される点が特徴</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
+        <p class="panel-desc">契約者（親）に万一があった場合、以後の保険料が不要になる仕組み。8社すべてに基本的な免除制度がありますが、対象範囲に差があります。</p>
+        <div class="table-wrap">
+          <table class="compare">
+            <thead><tr><th>会社</th><th>免除の対象</th><th>免除後の扱い</th></tr></thead>
+            <tbody>
+              <tr><td class="company">ソニー生命</td><td>死亡・高度障害・180日以内の身体障害</td><td>保障継続、学資金は100%受取</td></tr>
+              <tr><td class="company">フコク生命</td><td>死亡・高度障害</td><td>祝金・満期金は払込済みとして受取</td></tr>
+              <tr><td class="company">明治安田生命</td><td>死亡・身体障害表1級2級（Ⅱ型は範囲が拡大）</td><td>保障継続、教育資金を予定どおり受取</td></tr>
+              <tr><td class="company">日本生命</td><td>死亡・高度障害等の一般的な範囲</td><td>祝金・学資年金とも継続支給</td></tr>
+              <tr><td class="company">JA共済</td><td>死亡・第1級後遺障害・重度要介護等</td><td>不担保特則で外すことも可能（その分掛金は下がる）</td></tr>
+              <tr><td class="company">かんぽ生命</td><td>死亡など一般的な範囲</td><td>学資金は予定通りの金額を受取</td></tr>
+              <tr><td class="company">アフラック</td><td>死亡・高度障害・180日以内の身体障害</td><td>学資一時金・学資年金とも継続</td></tr>
+              <tr><td class="company">東京海上日動あんしん生命</td><td>死亡・高度障害</td><td>免除に加えて毎年「養育年金」も支給される点が特徴</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
 
-    <!-- ===== 医療・死亡保障 ===== -->
-    <section id="p-cover" class="panel">
-      <div class="panel-head">
+      <!-- ===== 医療・死亡保障 ===== -->
+      <section id="p-cover" class="panel block">
         <h2>医療保障・子の死亡保障</h2>
-        <p>貯蓄性（返戻率）と保障の手厚さはトレードオフの関係にあります。</p>
-      </div>
-      <div class="card-grid">
-        <div class="card"><div class="card-top"><div class="stamp">ソ</div><p class="card-co">ソニー生命</p></div><p class="body">医療・死亡保障の特約は一切付加できない設計。自治体の子ども医療費助成制度を前提に、貯蓄性に全振りしている。</p></div>
-        <div class="card"><div class="card-top"><div class="stamp">富</div><p class="card-co">フコク生命</p></div><p class="body">主契約に医療保障はないが、別商品「ワイド・プロテクト」をパックして同時加入できる。付加すると返戻率は下がる。</p></div>
-        <div class="card"><div class="card-top"><div class="stamp">明</div><p class="card-co">明治安田生命</p></div><p class="body">付加できる特約は一切なし。教育資金の積立に特化したシンプル設計。</p></div>
-        <div class="card"><div class="card-top"><div class="stamp">日</div><p class="card-co">日本生命</p></div><p class="body">こども祝金あり／なしの2パターンのみとシンプル。医療特約は主軸ではない。</p></div>
-        <div class="card"><div class="card-top"><div class="stamp">共</div><p class="card-co">JA共済</p></div><p class="body">主契約に子の死亡・後遺障害保障が組み込まれた「保障型」。別途「特定損傷特約」で骨折等も保障可能。</p></div>
-        <div class="card"><div class="card-top"><div class="stamp">郵</div><p class="card-co">かんぽ生命</p></div><p class="body">災害特約・総合医療特約を付加可能（出生後のみ）。保障を手厚くする分、返戻率はさらに下がる。</p></div>
-        <div class="card"><div class="card-top"><div class="stamp">AF</div><p class="card-co">アフラック</p></div><p class="body">学資保険自体に医療保障特約はなし。子ども向け医療保険は別商品として用意されている。</p></div>
-        <div class="card"><div class="card-top"><div class="stamp">東</div><p class="card-co">東京海上日動あんしん生命</p></div><p class="body">8社の中で子の死亡保障が最も手厚い。災害死亡保険金は基準祝金額の200%相当。保障重視派の本命。</p></div>
-      </div>
-    </section>
+        <p class="panel-desc">貯蓄性（返戻率）と保障の手厚さはトレードオフの関係にあります。</p>
+        <div class="card-grid">
+          <div class="card"><span class="index mono">ソ</span><h2>ソニー生命</h2><p>医療・死亡保障の特約は一切付加できない設計。自治体の子ども医療費助成制度を前提に、貯蓄性に全振りしている。</p></div>
+          <div class="card"><span class="index mono">富</span><h2>フコク生命</h2><p>主契約に医療保障はないが、別商品「ワイド・プロテクト」をパックして同時加入できる。付加すると返戻率は下がる。</p></div>
+          <div class="card"><span class="index mono">明</span><h2>明治安田生命</h2><p>付加できる特約は一切なし。教育資金の積立に特化したシンプル設計。</p></div>
+          <div class="card"><span class="index mono">日</span><h2>日本生命</h2><p>こども祝金あり／なしの2パターンのみとシンプル。医療特約は主軸ではない。</p></div>
+          <div class="card"><span class="index mono">共</span><h2>JA共済</h2><p>主契約に子の死亡・後遺障害保障が組み込まれた「保障型」。別途「特定損傷特約」で骨折等も保障可能。</p></div>
+          <div class="card"><span class="index mono">郵</span><h2>かんぽ生命</h2><p>災害特約・総合医療特約を付加可能（出生後のみ）。保障を手厚くする分、返戻率はさらに下がる。</p></div>
+          <div class="card"><span class="index mono">AF</span><h2>アフラック</h2><p>学資保険自体に医療保障特約はなし。子ども向け医療保険は別商品として用意されている。</p></div>
+          <div class="card"><span class="index mono">東</span><h2>東京海上日動あんしん生命</h2><p>8社の中で子の死亡保障が最も手厚い。災害死亡保険金は基準祝金額の200%相当。保障重視派の本命。</p></div>
+        </div>
+      </section>
 
-    <!-- ===== 受取方法 ===== -->
-    <section id="p-payout" class="panel">
-      <div class="panel-head">
+      <!-- ===== 受取方法 ===== -->
+      <section id="p-payout" class="panel block">
         <h2>受取方法・タイミング</h2>
-        <p>「大学進学に一点集中」か「入園入学のたびに分割」かで、家計へのフィット感が変わります。</p>
-      </div>
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th>会社</th><th>受取の型</th><th>主な受取時期</th></tr></thead>
-          <tbody>
-            <tr><td class="company">ソニー生命</td><td>選択式（Ⅰ/Ⅱ/Ⅲ型）</td><td>中学進学までの分割〜大学集中まで幅広く選択可</td></tr>
-            <tr><td class="company">フコク生命</td><td>S型／J型の2択</td><td>S型は入園入学ごと、J型は大学進学に重点</td></tr>
-            <tr><td class="company">明治安田生命</td><td>大学集中型のみ</td><td>18〜21歳の4年間、毎年10月に受取。中高には使えない</td></tr>
-            <tr><td class="company">日本生命</td><td>祝金あり／なしの2択</td><td>祝金ありは小中高入学時にも一部受取可</td></tr>
-            <tr><td class="company">JA共済</td><td>中学／高校／大学プラン</td><td>進学先のタイミングに合わせて満期を設定</td></tr>
-            <tr><td class="company">かんぽ生命</td><td>3コース選択式</td><td>大学入学時のみ／小中高+大学／大学入学+在学中</td></tr>
-            <tr><td class="company">アフラック</td><td>高校＋大学型</td><td>高校入学時に一時金、17または18歳から大学4年間の年金</td></tr>
-            <tr><td class="company">東京海上日動あんしん生命</td><td>小中高大の都度祝金</td><td>進学の節目ごとに祝金、5年ごとに配当金の可能性も</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
+        <p class="panel-desc">「大学進学に一点集中」か「入園入学のたびに分割」かで、家計へのフィット感が変わります。</p>
+        <div class="table-wrap">
+          <table class="compare">
+            <thead><tr><th>会社</th><th>受取の型</th><th>主な受取時期</th></tr></thead>
+            <tbody>
+              <tr><td class="company">ソニー生命</td><td>選択式（Ⅰ/Ⅱ/Ⅲ型）</td><td>中学進学までの分割〜大学集中まで幅広く選択可</td></tr>
+              <tr><td class="company">フコク生命</td><td>S型／J型の2択</td><td>S型は入園入学ごと、J型は大学進学に重点</td></tr>
+              <tr><td class="company">明治安田生命</td><td>大学集中型のみ</td><td>18〜21歳の4年間、毎年10月に受取。中高には使えない</td></tr>
+              <tr><td class="company">日本生命</td><td>祝金あり／なしの2択</td><td>祝金ありは小中高入学時にも一部受取可</td></tr>
+              <tr><td class="company">JA共済</td><td>中学／高校／大学プラン</td><td>進学先のタイミングに合わせて満期を設定</td></tr>
+              <tr><td class="company">かんぽ生命</td><td>3コース選択式</td><td>大学入学時のみ／小中高+大学／大学入学+在学中</td></tr>
+              <tr><td class="company">アフラック</td><td>高校＋大学型</td><td>高校入学時に一時金、17または18歳から大学4年間の年金</td></tr>
+              <tr><td class="company">東京海上日動あんしん生命</td><td>小中高大の都度祝金</td><td>進学の節目ごとに祝金、5年ごとに配当金の可能性も</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
 
-    <!-- ===== 加入年齢 ===== -->
-    <section id="p-age" class="panel">
-      <div class="panel-head">
+      <!-- ===== 加入年齢 ===== -->
+      <section id="p-age" class="panel block">
         <h2>加入可能年齢</h2>
-        <p>子の加入上限年齢と、祖父母が契約者になれるかどうかも要チェックです。</p>
-      </div>
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th>会社</th><th>子の加入上限</th><th>祖父母契約</th></tr></thead>
-          <tbody>
-            <tr><td class="company">ソニー生命</td><td>0〜3歳までと比較的狭い</td><td>可（親権者の自署が必要、年齢上限あり）</td></tr>
-            <tr><td class="company">フコク生命</td><td>出生前〜満7歳</td><td>可（同居・扶養の証明書類が必要）</td></tr>
-            <tr><td class="company">明治安田生命</td><td>満6歳以下（2歳以上は契約者上限40歳）</td><td>原則は親が契約者</td></tr>
-            <tr><td class="company">日本生命</td><td>商品により異なる</td><td>可（払込期間5年型なら契約者上限67歳まで）</td></tr>
-            <tr><td class="company">JA共済</td><td>0〜12歳と幅広い</td><td>契約者は18〜75歳まで、祖父母も加入しやすい</td></tr>
-            <tr><td class="company">かんぽ生命</td><td>0〜12歳</td><td>契約者は65歳まで可能</td></tr>
-            <tr><td class="company">アフラック</td><td>出生前〜7歳</td><td>可（親としてもしくは祖父母として加入可）</td></tr>
-            <tr><td class="company">東京海上日動あんしん生命</td><td>0〜9歳</td><td>契約者は20〜60歳</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
+        <p class="panel-desc">子の加入上限年齢と、祖父母が契約者になれるかどうかも要チェックです。</p>
+        <div class="table-wrap">
+          <table class="compare">
+            <thead><tr><th>会社</th><th>子の加入上限</th><th>祖父母契約</th></tr></thead>
+            <tbody>
+              <tr><td class="company">ソニー生命</td><td>0〜3歳までと比較的狭い</td><td>可（親権者の自署が必要、年齢上限あり）</td></tr>
+              <tr><td class="company">フコク生命</td><td>出生前〜満7歳</td><td>可（同居・扶養の証明書類が必要）</td></tr>
+              <tr><td class="company">明治安田生命</td><td>満6歳以下（2歳以上は契約者上限40歳）</td><td>原則は親が契約者</td></tr>
+              <tr><td class="company">日本生命</td><td>商品により異なる</td><td>可（払込期間5年型なら契約者上限67歳まで）</td></tr>
+              <tr><td class="company">JA共済</td><td>0〜12歳と幅広い</td><td>契約者は18〜75歳まで、祖父母も加入しやすい</td></tr>
+              <tr><td class="company">かんぽ生命</td><td>0〜12歳</td><td>契約者は65歳まで可能</td></tr>
+              <tr><td class="company">アフラック</td><td>出生前〜7歳</td><td>可（親としてもしくは祖父母として加入可）</td></tr>
+              <tr><td class="company">東京海上日動あんしん生命</td><td>0〜9歳</td><td>契約者は20〜60歳</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
 
-    <!-- ===== 向いている人 ===== -->
-    <section id="p-fit" class="panel">
-      <div class="panel-head">
+      <!-- ===== 向いている人 ===== -->
+      <section id="p-fit" class="panel block">
         <h2>こんな人に向いている</h2>
-        <p>優先したい軸から、候補を絞り込むための早見ガイドです。</p>
-      </div>
-      <div class="card-grid">
-        <div class="card"><span class="badge high">返戻率最優先</span><div class="card-top"><div class="stamp">ソ富明</div><p class="card-co">ソニー生命／フコク生命／明治安田生命</p></div><p class="body">保障を最小限にして貯蓄性を高めたい人。とにかく増やして大学資金を確実に用意したい家庭向け。</p></div>
-        <div class="card"><span class="badge mid">兄弟がいる家庭</span><div class="card-top"><div class="stamp">富</div><p class="card-co">フコク生命</p></div><p class="body">兄弟割引があるのは8社の中でも珍しい特徴。2人目以降の保険料を抑えたい場合に有利。</p></div>
-        <div class="card"><span class="badge mid">大手の安心感重視</span><div class="card-top"><div class="stamp">日</div><p class="card-co">日本生命</p></div><p class="body">保有契約数3,400万件超の最大手。24時間育児相談ホットラインなどサポート面も評価したい人向け。</p></div>
-        <div class="card"><span class="badge mid">祖父母も加入したい</span><div class="card-top"><div class="stamp">共</div><p class="card-co">JA共済</p></div><p class="body">契約者75歳まで、子12歳まで加入可と年齢幅が広い。組合員加入が前提になる点は留意。</p></div>
-        <div class="card"><span class="badge mid">窓口でじっくり相談したい</span><div class="card-top"><div class="stamp">郵</div><p class="card-co">かんぽ生命</p></div><p class="body">全国の郵便局で対面相談しやすい。返戻率より安心して相談できる窓口の多さを重視する人向け。</p></div>
-        <div class="card"><span class="badge low">受取時期の柔軟性重視</span><div class="card-top"><div class="stamp">AF</div><p class="card-co">アフラック</p></div><p class="body">高校・大学の出費が重い時期に厚く配分。返戻率より「使う時期に使う分だけ」の設計を優先したい人向け。</p></div>
-        <div class="card"><span class="badge low">子の死亡保障も重視</span><div class="card-top"><div class="stamp">東</div><p class="card-co">東京海上日動あんしん生命</p></div><p class="body">教育資金の積立と同時に、子ども自身の万一の保障もしっかり持っておきたい家庭向け。格付も高水準。</p></div>
-      </div>
-    </section>
+        <p class="panel-desc">優先したい軸から、候補を絞り込むための早見ガイドです。</p>
+        <div class="card-grid">
+          <div class="card"><span class="kicker">返戻率最優先</span><h2>ソニー生命／フコク生命／明治安田生命</h2><p>保障を最小限にして貯蓄性を高めたい人。とにかく増やして大学資金を確実に用意したい家庭向け。</p></div>
+          <div class="card"><span class="kicker">兄弟がいる家庭</span><h2>フコク生命</h2><p>兄弟割引があるのは8社の中でも珍しい特徴。2人目以降の保険料を抑えたい場合に有利。</p></div>
+          <div class="card"><span class="kicker">大手の安心感重視</span><h2>日本生命</h2><p>保有契約数3,400万件超の最大手。24時間育児相談ホットラインなどサポート面も評価したい人向け。</p></div>
+          <div class="card"><span class="kicker">祖父母も加入したい</span><h2>JA共済</h2><p>契約者75歳まで、子12歳まで加入可と年齢幅が広い。組合員加入が前提になる点は留意。</p></div>
+          <div class="card"><span class="kicker">窓口でじっくり相談したい</span><h2>かんぽ生命</h2><p>全国の郵便局で対面相談しやすい。返戻率より安心して相談できる窓口の多さを重視する人向け。</p></div>
+          <div class="card"><span class="kicker">受取時期の柔軟性重視</span><h2>アフラック</h2><p>高校・大学の出費が重い時期に厚く配分。返戻率より「使う時期に使う分だけ」の設計を優先したい人向け。</p></div>
+          <div class="card"><span class="kicker">子の死亡保障も重視</span><h2>東京海上日動あんしん生命</h2><p>教育資金の積立と同時に、子ども自身の万一の保障もしっかり持っておきたい家庭向け。格付も高水準。</p></div>
+        </div>
+      </section>
 
+    </div>
+
+    <div class="callout">
+      <b>注意：</b>返戻率・保険料は契約者の年齢・性別・払込方法（月払/年払）・払込期間によって大きく変動し、各社改定も頻繁にあります。本ノートはあくまで目安です。最終判断の前に、候補2〜3社に絞った上で本人の条件での見積りシミュレーションを取ることをおすすめします。
+    </div>
+
+    <footer class="site-footer">内容は今後の商品改定に合わせて更新予定です。</footer>
   </div>
-
-  <div class="foot-note">
-    <b>注意：</b>返戻率・保険料は契約者の年齢・性別・払込方法（月払/年払）・払込期間によって大きく変動し、各社改定も頻繁にあります。本ノートはあくまで目安です。最終判断の前に、候補2〜3社に絞った上で本人の条件での見積りシミュレーションを取ることをおすすめします。
-  </div>
-
-  <footer class="sign">学資保険 比較ノート — 主要8社横断比較</footer>
-</div>
 </body>
 </html>

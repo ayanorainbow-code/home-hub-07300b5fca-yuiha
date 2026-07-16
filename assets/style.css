@@ -244,6 +244,19 @@ table.compare tbody tr:hover {
   background: #fafafa;
 }
 
+table.compare td.company {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+table.compare td.company small {
+  display: block;
+  font-weight: 400;
+  color: var(--ink-soft);
+  font-size: 0.75rem;
+  margin-top: 2px;
+}
+
 .table-wrap {
   overflow-x: auto;
 }
@@ -258,6 +271,35 @@ table.compare tbody tr:hover {
   font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 0.04em;
+}
+
+.tag.muted {
+  border-color: var(--line);
+  color: var(--ink-soft);
+}
+
+.card h2 .subtitle {
+  display: block;
+  font-family: ui-monospace, "SFMono-Regular", "JetBrains Mono", Menlo,
+    Consolas, monospace;
+  font-weight: 400;
+  font-size: 0.72rem;
+  color: var(--ink-faint);
+  letter-spacing: 0.02em;
+  margin-top: 3px;
+}
+
+.callout {
+  margin-top: 24px;
+  padding: 14px 16px;
+  border-left: 2px solid var(--accent);
+  background: #fafafa;
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+}
+
+.callout b {
+  color: var(--ink);
 }
 
 footer.site-footer {
