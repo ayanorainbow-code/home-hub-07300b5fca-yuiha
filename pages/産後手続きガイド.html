@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>産後手続き完全ガイド｜江東区</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F4F6F4;
+    --paper:#FFFFFF;
+    --ink:#152238;
+    --ink-soft:#4B5A70;
+    --line:#DCE2E2;
+    --teal:#1C8478;
+    --teal-soft:#E4F2EF;
+    --amber:#C8842A;
+    --amber-soft:#FBF0DF;
+    --coral:#B8483A;
+    --coral-soft:#FBEAE7;
+    --husband:#2F6FA7;
+    --wife:#B8483A;
+    --tbd:#8A8578;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Noto Sans JP',sans-serif;
+    line-height:1.7;
+  }
+  h1,h2,h3,.disp{
+    font-family:'Zen Kaku Gothic New',sans-serif;
+  }
+  .num{font-family:'Space Grotesk',sans-serif;}
+
+  /* ---------- header ---------- */
+  header{
+    padding:56px 24px 40px;
+    max-width:1040px;
+    margin:0 auto;
+  }
+  .eyebrow{
+    font-size:13px;
+    letter-spacing:.14em;
+    color:var(--teal);
+    font-weight:700;
+    text-transform:uppercase;
+  }
+  h1{
+    font-size:clamp(28px,4.2vw,42px);
+    font-weight:900;
+    margin:10px 0 6px;
+    letter-spacing:-0.01em;
+  }
+  .lead{
+    font-size:15.5px;
+    color:var(--ink-soft);
+    max-width:640px;
+  }
+
+  /* ---------- section shell ---------- */
+  main{max-width:1040px;margin:0 auto;padding:0 24px 80px;}
+  section{margin-top:56px;}
+  .section-title{
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+    margin-bottom:20px;
+  }
+  .section-title .idx{
+    font-size:13px;
+    color:var(--teal);
+    font-weight:700;
+    letter-spacing:.06em;
+  }
+  .section-title h2{
+    font-size:21px;
+    font-weight:700;
+    margin:0;
+  }
+
+  /* ---------- fact-check callout ---------- */
+  .callout{
+    background:var(--coral-soft);
+    border:1px solid #EAC9C2;
+    border-radius:14px;
+    padding:24px 26px;
+  }
+  .callout h2{color:var(--coral);font-size:19px;margin:0 0 14px;}
+  .callout ul{margin:0;padding-left:20px;}
+  .callout li{margin-bottom:12px;font-size:14.5px;}
+  .callout li:last-child{margin-bottom:0;}
+  .callout b{color:var(--ink);}
+
+  /* ---------- timeline strip (signature element) ---------- */
+  .timeline-wrap{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:28px 28px 22px;
+    overflow-x:auto;
+  }
+  .timeline{
+    position:relative;
+    min-width:760px;
+    height:150px;
+    margin-top:20px;
+  }
+  .timeline .axis{
+    position:absolute;
+    top:64px;left:0;right:0;
+    height:2px;
+    background:var(--line);
+  }
+  .tl-point{
+    position:absolute;
+    top:52px;
+    width:26px;height:26px;
+    margin-left:-13px;
+    border-radius:50%;
+    background:var(--paper);
+    border:3px solid var(--teal);
+  }
+  .tl-point.amber{border-color:var(--amber);}
+  .tl-point.coral{border-color:var(--coral);}
+  .tl-label{
+    position:absolute;
+    top:0;
+    width:150px;
+    margin-left:-75px;
+    text-align:center;
+    font-size:12.5px;
+    color:var(--ink-soft);
+    font-weight:500;
+  }
+  .tl-label .day{
+    display:block;
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;
+    font-size:15px;
+    color:var(--ink);
+  }
+  .tl-sub{
+    position:absolute;
+    top:96px;
+    width:150px;
+    margin-left:-75px;
+    text-align:center;
+    font-size:12px;
+    color:var(--ink-soft);
+  }
+  .tl-legend{
+    display:flex;gap:22px;margin-top:16px;flex-wrap:wrap;
+    font-size:12.5px;color:var(--ink-soft);
+  }
+  .tl-legend span{display:inline-flex;align-items:center;gap:6px;}
+  .dot{width:10px;height:10px;border-radius:50%;display:inline-block;}
+
+  /* ---------- task cards ---------- */
+  .task{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:22px 24px;
+    margin-bottom:16px;
+  }
+  .task-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  .task-title{
+    font-size:17px;
+    font-weight:700;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .task-title .num{
+    color:var(--teal);
+    font-size:15px;
+  }
+  .badges{display:flex;gap:8px;flex-wrap:wrap;}
+  .badge{
+    font-size:12px;
+    font-weight:700;
+    padding:4px 11px;
+    border-radius:999px;
+    white-space:nowrap;
+  }
+  .badge.husband{background:#E7F0F8;color:var(--husband);}
+  .badge.wife{background:var(--coral-soft);color:var(--wife);}
+  .badge.tbd{background:#EFEDE7;color:var(--tbd);}
+  .badge.deadline{background:var(--amber-soft);color:var(--amber);}
+  .badge.online{background:var(--teal-soft);color:var(--teal);}
+
+  .task-body{margin-top:14px;font-size:14.5px;}
+  .task-grid{
+    display:grid;
+    grid-template-columns:110px 1fr;
+    gap:8px 14px;
+    margin-top:12px;
+  }
+  .task-grid dt{color:var(--ink-soft);font-size:13px;padding-top:2px;}
+  .task-grid dd{margin:0;}
+  .note{
+    margin-top:14px;
+    background:var(--teal-soft);
+    border-left:3px solid var(--teal);
+    padding:10px 14px;
+    border-radius:0 8px 8px 0;
+    font-size:13.5px;
+    color:#0F5A50;
+  }
+  .warn{
+    margin-top:14px;
+    background:var(--coral-soft);
+    border-left:3px solid var(--coral);
+    padding:10px 14px;
+    border-radius:0 8px 8px 0;
+    font-size:13.5px;
+    color:#8C3125;
+  }
+  .refs{margin-top:14px;font-size:13px;}
+  .refs a{color:var(--husband);text-decoration:none;border-bottom:1px solid #C6D8E8;}
+  .refs a:hover{border-bottom-color:var(--husband);}
+
+  /* ---------- window info table ---------- */
+  .madoguchi{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:14px;
+    overflow:hidden;
+  }
+  table{width:100%;border-collapse:collapse;font-size:14px;}
+  th,td{text-align:left;padding:14px 18px;border-bottom:1px solid var(--line);}
+  th{background:#EFF3F2;color:var(--ink-soft);font-weight:700;font-size:12.5px;letter-spacing:.03em;}
+  tr:last-child td{border-bottom:none;}
+
+  /* ---------- ref list ---------- */
+  .ref-list{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .ref-card{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:14px 16px;
+    font-size:13.5px;
+  }
+  .ref-card a{color:var(--ink);font-weight:700;text-decoration:none;}
+  .ref-card a:hover{color:var(--teal);}
+  .ref-card .url{color:var(--ink-soft);font-size:12px;display:block;margin-top:4px;word-break:break-all;}
+
+  footer{
+    max-width:1040px;margin:0 auto;padding:0 24px 60px;
+    font-size:12.5px;color:var(--ink-soft);
+  }
+
+  @media (max-width:640px){
+    .task-grid{grid-template-columns:90px 1fr;}
+    .ref-list{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">Koto City / Postpartum Procedures</div>
+  <h1>産後手続き完全ガイド</h1>
+  <p class="lead">出生届からマイナ保険証・児童手当・018サポートまで、期限順に整理したタスク一覧です。誰が・いつまでに・何を持って・どこへ、が一目でわかるようにしています。</p>
+</header>
+
+<main>
+
+  <section>
+    <div class="callout">
+      <h2>✓ ご指摘を反映した更新ポイント（v2）</h2>
+      <ul>
+        <li><b>①出生届の期限：</b>「生まれた日を含めて14日以内」に修正しました（出生日を1日目としてカウント）。</li>
+        <li><b>①の届出窓口：</b>通常の病院出産を前提とし、外国籍・国外出生・自宅出産に関する注記は削除しました。</li>
+        <li><b>③出生申請と出産手当金：</b>医師・助産師の証明は退院前に病院へ依頼するのが最短ルートである点を反映しました（産後56日を待つ必要はありません）。また、⑤⑥の出生後15日期限と保険証発行のリードタイムを考慮すると、会社規定の「生後2週間以内」ではなく「出生後1週間程度（なるはや）」での提出が実務上必須であることを明記しました。</li>
+        <li><b>④産前産後休業中の保険料免除：</b>健康保険料・厚生年金保険料は同一の申出書で同時に手続きされる点を追記しました。</li>
+        <li><b>⑦マイナ保険証利用登録：</b>マイナポータルでの操作手順をステップ形式で追記しました（タスク④の社会保険料免除とは別）。</li>
+        <li><b>⑤・⑥児童手当と医療費助成：</b>必要な健康保険証は児童手当は「申請者（受給者）本人のもの」、医療費助成は「子本人の保険情報」と異なります。医療費助成は③完了後に進める必要があります。</li>
+        <li><b>⑤・⑥同時申請：</b>同じ窓口・同じタイミングでまとめて申請できます。</li>
+        <li><b>⑧⑨東京都の給付金：</b>018サポート／赤ちゃんファーストギフトは随時申請可能で、遡り支給があります。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title"><span class="idx">OVERVIEW</span><h2>全体フロー - 依存関係と同時進行</h2></div>
+    <p style="color:var(--ink-soft);margin-bottom:24px;">→ の矢印は「この手続きが完了したら次が進められる」という依存関係。|| は「同時進行できる」を表します。</p>
+    
+    <div style="overflow-x:auto;background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:24px;">
+      <svg viewBox="0 0 1400 550" style="min-width:1400px;height:auto;" preserveAspectRatio="xMidYMid meet">
+        <!-- Define markers for arrows -->
+        <defs>
+          <marker id="arrowHead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+            <polygon points="0 0, 10 3, 0 6" fill="#4B5A70"/>
+          </marker>
+          <marker id="arrowHeadDashed" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+            <polygon points="0 0, 10 3, 0 6" fill="#C8842A"/>
+          </marker>
+        </defs>
+
+        <!-- Title and date labels -->
+        <text x="20" y="25" font-size="13" font-weight="bold" fill="#4B5A70">Day 0</text>
+        <text x="320" y="25" font-size="13" font-weight="bold" fill="#4B5A70">Day 7</text>
+        <text x="520" y="25" font-size="13" font-weight="bold" fill="#4B5A70">Day 14</text>
+        <text x="820" y="25" font-size="13" font-weight="bold" fill="#4B5A70">Day 15</text>
+        <text x="1100" y="25" font-size="13" font-weight="bold" fill="#4B5A70">2027/3/1</text>
+
+        <!-- Timeline axis -->
+        <line x1="20" y1="50" x2="1350" y2="50" stroke="#DCE2E2" stroke-width="2"/>
+        <circle cx="20" cy="50" r="4" fill="#152238"/>
+        <circle cx="120" cy="50" r="3" fill="#DCE2E2"/>
+        <circle cx="220" cy="50" r="3" fill="#DCE2E2"/>
+        <circle cx="320" cy="50" r="3" fill="#DCE2E2"/>
+        <circle cx="420" cy="50" r="3" fill="#DCE2E2"/>
+        <circle cx="520" cy="50" r="3" fill="#DCE2E2"/>
+        <circle cx="820" cy="50" r="3" fill="#DCE2E2"/>
+        <circle cx="1100" cy="50" r="3" fill="#DCE2E2"/>
+        <circle cx="1350" cy="50" r="3" fill="#DCE2E2"/>
+
+        <!-- FLOW LINE 1: ①出生届 (Husband - Blue) -->
+        <rect x="35" y="80" width="140" height="50" rx="6" fill="#D4DFE8" stroke="#2F6FA7" stroke-width="2"/>
+        <text x="105" y="95" font-size="14" font-weight="bold" fill="#2F6FA7" text-anchor="middle">①出生届</text>
+        <text x="105" y="115" font-size="11" fill="#4B5A70" text-anchor="middle">Day 0〜14</text>
+        <text x="105" y="128" font-size="10" fill="#8A8578" text-anchor="middle">担当：夫</text>
+
+        <!-- Arrow from ① -->
+        <line x1="175" y1="105" x2="220" y2="105" stroke="#4B5A70" stroke-width="2" marker-end="url(#arrowHead)"/>
+
+        <!-- Maynumber card (dotted) -->
+        <rect x="220" y="80" width="140" height="50" rx="6" fill="#F5F5F5" stroke="#C8842A" stroke-width="2" stroke-dasharray="5,5"/>
+        <text x="290" y="95" font-size="12" font-weight="bold" fill="#C8842A" text-anchor="middle">マイナンバー</text>
+        <text x="290" y="110" font-size="12" font-weight="bold" fill="#C8842A" text-anchor="middle">カード発行</text>
+        <text x="290" y="128" font-size="10" fill="#8A8578" text-anchor="middle">1〜3週間待ち</text>
+
+        <!-- PARALLEL LINE: ②出生連絡票 (Wife - Red, parallel with ①) -->
+        <rect x="35" y="160" width="140" height="50" rx="6" fill="#FBEAE7" stroke="#B8483A" stroke-width="2"/>
+        <text x="105" y="175" font-size="14" font-weight="bold" fill="#B8483A" text-anchor="middle">②出生連絡票</text>
+        <text x="105" y="195" font-size="11" fill="#4B5A70" text-anchor="middle">Day 0〜120</text>
+        <text x="105" y="208" font-size="10" fill="#8A8578" text-anchor="middle">担当：妻</text>
+
+        <!-- Parallel indicator ||  -->
+        <text x="15" y="140" font-size="18" font-weight="bold" fill="#1C8478" text-anchor="middle">||</text>
+
+        <!-- CRITICAL PATH: ③被扶養者異動届 -->
+        <rect x="35" y="240" width="160" height="50" rx="6" fill="#FBEAE7" stroke="#B8483A" stroke-width="3"/>
+        <text x="115" y="255" font-size="14" font-weight="bold" fill="#B8483A" text-anchor="middle">③被扶養者異動届</text>
+        <text x="115" y="275" font-size="10" fill="#4B5A70" text-anchor="middle">Day 0〜14（推奨Day0-7）</text>
+        <text x="115" y="288" font-size="9" fill="#C8842A" text-anchor="middle">⚠医師署名は退院前に</text>
+
+        <!-- Arrow from ③ to health insurance -->
+        <line x1="195" y1="265" x2="240" y2="265" stroke="#4B5A70" stroke-width="2" marker-end="url(#arrowHead)"/>
+
+        <!-- Health insurance certificate (waiting) -->
+        <rect x="240" y="240" width="140" height="50" rx="6" fill="#F5F5F5" stroke="#C8842A" stroke-width="2" stroke-dasharray="5,5"/>
+        <text x="310" y="255" font-size="12" font-weight="bold" fill="#C8842A" text-anchor="middle">健康保険証</text>
+        <text x="310" y="270" font-size="12" font-weight="bold" fill="#C8842A" text-anchor="middle">発行待ち</text>
+        <text x="310" y="288" font-size="9" fill="#8A8578" text-anchor="middle">3〜7営業日</text>
+
+        <!-- Arrow from health insurance to ⑤⑥ -->
+        <line x1="380" y1="265" x2="440" y2="265" stroke="#4B5A70" stroke-width="2" marker-end="url(#arrowHead)"/>
+
+        <!-- ⑤⑥ 児童手当・医療費助成 -->
+        <rect x="440" y="240" width="160" height="50" rx="6" fill="#E4F2EF" stroke="#1C8478" stroke-width="2"/>
+        <text x="520" y="255" font-size="13" font-weight="bold" fill="#1C8478" text-anchor="middle">⑤⑥児童手当</text>
+        <text x="520" y="270" font-size="13" font-weight="bold" fill="#1C8478" text-anchor="middle">+医療費助成</text>
+        <text x="520" y="288" font-size="10" fill="#4B5A70" text-anchor="middle">Day 1〜15</text>
+
+        <!-- Arrow to ⑦ (from health insurance, not from ⑤⑥) -->
+        <line x1="310" y1="290" x2="310" y2="340" stroke="#4B5A70" stroke-width="2" marker-end="url(#arrowHead)"/>
+        <line x1="310" y1="340" x2="440" y2="340" stroke="#4B5A70" stroke-width="2" marker-end="url(#arrowHead)"/>
+
+        <!-- ⑦マイナ保険証 -->
+        <rect x="440" y="315" width="160" height="50" rx="6" fill="#E4F2EF" stroke="#1C8478" stroke-width="2"/>
+        <text x="520" y="330" font-size="13" font-weight="bold" fill="#1C8478" text-anchor="middle">⑦マイナ保険証</text>
+        <text x="520" y="348" font-size="11" fill="#4B5A70" text-anchor="middle">登録（マイナポータル）</text>
+        <text x="520" y="361" font-size="10" fill="#8A8578" text-anchor="middle">Day 10~制限なし</text>
+
+        <!-- PARALLEL: ⑧018サポート (Amber - parallel with main flow) -->
+        <rect x="35" y="320" width="150" height="50" rx="6" fill="#FBF0DF" stroke="#C8842A" stroke-width="2"/>
+        <text x="110" y="335" font-size="13" font-weight="bold" fill="#C8842A" text-anchor="middle">⑧018サポート</text>
+        <text x="110" y="352" font-size="10" fill="#4B5A70" text-anchor="middle">Day 0〜2027/3/1</text>
+        <text x="110" y="366" font-size="9" fill="#8A8578" text-anchor="middle">遡り支給対応</text>
+
+        <!-- Parallel indicator || -->
+        <text x="15" y="300" font-size="18" font-weight="bold" fill="#1C8478" text-anchor="middle">||</text>
+
+        <!-- Arrow from ⑧ to ⑨ -->
+        <line x1="185" y1="345" x2="260" y2="345" stroke="#C8842A" stroke-width="2" marker-end="url(#arrowHeadDashed)"/>
+
+        <!-- ⑨赤ちゃんファースト -->
+        <rect x="260" y="320" width="150" height="50" rx="6" fill="#FBF0DF" stroke="#C8842A" stroke-width="2"/>
+        <text x="335" y="335" font-size="13" font-weight="bold" fill="#C8842A" text-anchor="middle">⑨赤ちゃん</text>
+        <text x="335" y="350" font-size="13" font-weight="bold" fill="#C8842A" text-anchor="middle">ファースト</text>
+        <text x="335" y="366" font-size="9" fill="#8A8578" text-anchor="middle">同時申請推奨</text>
+
+        <!-- Legend -->
+        <g transform="translate(50, 440)">
+          <text x="0" y="0" font-size="12" font-weight="bold" fill="#152238">凡例：</text>
+          
+          <!-- Blue box -->
+          <rect x="0" y="15" width="20" height="20" rx="3" fill="#D4DFE8" stroke="#2F6FA7" stroke-width="1"/>
+          <text x="30" y="30" font-size="11" fill="#4B5A70">担当：夫</text>
+          
+          <!-- Red box -->
+          <rect x="150" y="15" width="20" height="20" rx="3" fill="#FBEAE7" stroke="#B8483A" stroke-width="1"/>
+          <text x="180" y="30" font-size="11" fill="#4B5A70">担当：妻</text>
+          
+          <!-- Green box -->
+          <rect x="280" y="15" width="20" height="20" rx="3" fill="#E4F2EF" stroke="#1C8478" stroke-width="1"/>
+          <text x="310" y="30" font-size="11" fill="#4B5A70">どちらでも可</text>
+          
+          <!-- Amber box -->
+          <rect x="480" y="15" width="20" height="20" rx="3" fill="#FBF0DF" stroke="#C8842A" stroke-width="1"/>
+          <text x="510" y="30" font-size="11" fill="#4B5A70">随時申請可</text>
+          
+          <!-- Dashed box -->
+          <rect x="640" y="15" width="20" height="20" rx="3" fill="#F5F5F5" stroke="#C8842A" stroke-width="1" stroke-dasharray="3,3"/>
+          <text x="670" y="30" font-size="11" fill="#4B5A70">待機中</text>
+          
+          <!-- Arrow -->
+          <line x1="800" y1="25" x2="830" y2="25" stroke="#4B5A70" stroke-width="2" marker-end="url(#arrowHead)"/>
+          <text x="840" y="30" font-size="11" fill="#4B5A70">依存関係</text>
+        </g>
+      </svg>
+    </div>
+
+    <div style="background:var(--coral-soft);border-left:4px solid var(--coral);padding:16px;margin-top:24px;border-radius:4px;">
+      <p style="margin:0;font-size:13.5px;color:var(--ink);">
+        <b style="color:var(--coral);">⚠ クリティカルパス（最重要）</b><br>
+        ③被扶養者異動届の提出（最優先）→ 健康保険証発行（3〜7営業日待ち）→ ⑤⑥児童手当＋医療費助成（Day15期限）<br>
+        この流れが遅れると、⑤⑥の出生後15日期限に間に合いません。③は<b>Day 0〜7での申請が必須</b>、医師署名は<b>退院前に</b>取得してください。
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title"><span class="idx">STEP 01</span><h2>最優先：生後14日以内に完了</h2></div>
+
+    <div class="task">
+      <div class="task-head">
+        <div class="task-title"><span class="num">01</span>出生届の提出</div>
+        <div class="badges">
+          <span class="badge husband">担当：夫</span>
+          <span class="badge deadline">出生日を含め14日以内</span>
+        </div>
+      </div>
+      <div class="task-body">
+        <dl class="task-grid">
+          <dt>場所</dt><dd>豊洲特別出張所（豊洲シビックセンター3階1番窓口）</dd>
+          <dt>期限</dt><dd><b>生まれた日を含めて14日以内。</b>出生日が1日目としてカウントされます（例：7/16生まれなら7/29が期限）。「生後14日」と数えて1日ずれると過料の対象になりうるので要注意</dd>
+          <dt>持ち物</dt><dd>出生届（出生証明書欄に医師・助産師の記入必須）、母子健康手帳</dd>
+          <dt>同時にできること</dt><dd>マイナンバーカードの特急発行申請（母子手帳を持参すれば法定代理人の来庁確認・本人確認書類の提示が不要）。江東区内で届出すれば約1週間、区外だと発送まで約3週間かかる点に注意</dd>
+        </dl>
+        <div class="note">窓口で⑤児童手当・⑥医療費助成・②出生連絡票（出生通知票）の案内も一緒にもらえるので、その場でオンライン申請の可否や必要書類を確認すると二度手間になりません。</div>
+        <div class="refs">
+          参考：<a href="https://www.city.koto.lg.jp/060302/kurashi/jumin/koseki/5061.html" target="_blank">江東区「出生届」</a> ／
+          <a href="https://www.city.koto.lg.jp/060301/tokkyuu.html" target="_blank">江東区「マイナンバーカード特急発行について」</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="task">
+      <div class="task-head">
+        <div class="task-title"><span class="num">02</span>出生連絡票（出生通知票）の提出</div>
+        <div class="badges">
+          <span class="badge wife">担当：妻を推奨</span>
+          <span class="badge deadline">なるべく早く（生後4ヶ月まで）</span>
+          <span class="badge online">オンライン可</span>
+        </div>
+      </div>
+      <div class="task-body">
+        <dl class="task-grid">
+          <dt>正式名称</dt><dd>出生通知票（お母さんと子の保健バッグに同梱のはがき、または電子申請）</dd>
+          <dt>提出先</dt><dd>城東保健相談所（江東区大島3-1-3）※お住まいの地域が城東南部ではないことを確認済み</dd>
+          <dt>方法</dt><dd>はがき郵送、またはLoGoフォームでの電子申請</dd>
+          <dt>必要情報</dt><dd>在胎週数・出生時体重・母親の情報の記入が必要なため、記入内容の性質上、妻が実施する方がスムーズです</dd>
+        </dl>
+        <div class="note">この届出をもとに助産師・保健師が新生児訪問（無料の家庭訪問相談）を実施してくれます。早めに出すほど訪問の日程調整がしやすくなります。</div>
+        <div class="refs">
+          参考：<a href="https://www.city.koto.lg.jp/261301/kodomo/ninshinshussan/shussan/6880.html" target="_blank">江東区「新生児・産婦訪問指導（出生通知票）」</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="task">
+      <div class="task-head">
+        <div class="task-title"><span class="num">03</span>出生申請（娘の被扶養者異動届／出産手当金支給申請書）</div>
+        <div class="badges">
+          <span class="badge wife">担当：妻</span>
+          <span class="badge deadline">なるはや（最終期限：生後2週間以内）</span>
+        </div>
+      </div>
+      <div class="task-body">
+        <div class="warn">
+          <b>③が遅れると⑤⑥（児童手当・医療費助成）の出生後15日期限に間に合わなくなります。</b>
+          健康保険証発行までに通常3〜7営業日程度かかるので、できるだけ出生直後（遅くとも出生後1週間程度）に会社へ提出する必要があります。
+        </div>
+        <dl class="task-grid">
+          <dt>持ち物</dt>
+          <dd>
+            ・出産手当金支給申請書（会社発行の様式。医師・助産師の証明欄あり — <b>退院前に病院へ持ち込んで記入してもらう</b>）<br>
+            ・住民票（娘さんを含む世帯全員分、マイナンバー記載なし）<br>
+            ・配偶者（夫）の収入証明（源泉徴収票／取得済み）
+          </dd>
+        </dl>
+        <div class="note">
+          医師・助産師の証明は「出産予定日」「実際の出産日」等を確認するだけの内容なので、出産日さえ確定すれば記入可能です。入院中に会社の様式を病院へ渡し、<b>退院までに医師・助産師に記入してもらう</b>のが最も効率的です（病院によっては文書料がかかる場合あり）。
+        </div>
+        <div class="refs">参考：全国健康保険協会（協会けんぽ）「出産手当金」、または加入している健康保険組合の案内</div>
+      </div>
+
+
+  <section>
+    <div class="section-title"><span class="idx">STEP 02</span><h2>出生後15日以内が目安</h2></div>
+
+    <div class="task">
+      <div class="task-head">
+        <div class="task-title"><span class="num">05・06</span>児童手当＋子ども医療費助成（マル乳医療証）を同時申請</div>
+        <div class="badges">
+          <span class="badge tbd">担当：未定</span>
+          <span class="badge deadline">出生日の翌日から15日以内</span>
+          <span class="badge online">オンライン可</span>
+        </div>
+      </div>
+      <div class="task-body">
+        <div class="warn">
+          <b>医療費助成は③（被扶養者異動届）で娘さんが保険に加入し、保険証が発行されてから申請できます。</b>③の提出から保険証発行まで通常3〜7営業日かかるので、出生後15日以内に⑤⑥を完了させるには、③は出生後1週間以内（遅くとも Day 7 程度）に提出が必須です。③が遅れると医療費助成の遡及適用がなくなる可能性があります。
+        </div>
+        <p style="margin:10px 0 10px;">同じ窓口・同じタイミングで申請できます。ただし<b>必要書類が制度ごとに異なる</b>ので、下表で分けて整理します。</p>
+        <dl class="task-grid">
+          <dt>窓口</dt><dd>豊洲特別出張所（豊洲シビックセンター3階7番窓口）または区役所こども家庭支援課給付係。マイナポータルでの電子申請も可（両方まとめて申請可能）</dd>
+          <dt>児童手当の書類</dt><dd>認定請求書、受給者（＝申請する親）名義の口座情報、<b>申請者本人（子ではない）</b>の健康保険証の写し（厚生年金加入者のみ必要。資格情報のお知らせの写しでOK）、マイナンバー確認書類</dd>
+          <dt>医療費助成の書類</dt><dd>申請者本人の確認書類（マイナンバーカード等）、<b>お子さん本人</b>の加入健康保険情報がわかるもの（マイナポータルの健康保険資格情報画面の印刷、または資格情報のお知らせの写し）</dd>
+        </dl>
+        <div class="note">児童手当は「申請者本人」の保険証でよいため、③の会社手続きが完了していなくても申請自体は可能です。一方、医療費助成は「娘さん本人」の保険加入情報が必須なので、③が終わっていないと医療費助成だけ後追いになる可能性があります。①出生届提出時に「娘の保険証が間に合わない場合、医療費助成だけ後日でよいか」を窓口で確認しておくと安心です。</div>
+        <div class="warn">医療費助成の申請が遅れると、退院後すぐの受診で医療費を一旦全額自己負担し、後日払い戻し申請が必要になります。書類が揃わなくても認定請求書・申請書だけ先に提出すれば期限内扱いになるので、書類が未完成でもまず出すのが安全です。</div>
+        <div class="refs">
+          参考：<a href="https://www.city.koto.lg.jp/281011/kodomo/kosodate/teate/jidouteate.html" target="_blank">江東区「児童手当」</a> ／
+          <a href="https://www.city.koto.lg.jp/281011/kodomo/kosodate/teate/5844.html" target="_blank">江東区「子ども医療費助成」</a> ／
+          <a href="https://www.city.koto.lg.jp/281011/20171121.html" target="_blank">江東区「児童手当・子ども医療費助成の電子申請」</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title"><span class="idx">STEP 03</span><h2>健康保険加入が済み次第</h2></div>
+
+    <div class="task">
+      <div class="task-head">
+        <div class="task-title"><span class="num">07</span>マイナ保険証（マイナンバーカードの健康保険証利用登録）</div>
+        <div class="badges">
+          <span class="badge tbd">担当：どちらでも可</span>
+          <span class="badge deadline">③反映後、迅速に</span>
+          <span class="badge online">マイナポータルのみ</span>
+        </div>
+      </div>
+      <div class="task-body">
+        <p style="margin:0 0 6px;">区役所での手続きではなく、国のオンラインサービス「マイナポータル」で保護者が完結できます。区役所に確認する必要はありません。手順は以下の通りです。</p>
+        <ol style="margin:10px 0 14px;padding-left:20px;font-size:14.5px;">
+          <li><b>マイナポータルアプリを準備</b>：保護者のスマホに「マイナポータル」アプリをインストール（すでに親自身の登録で使っている場合は、一度ログアウトしておく）</li>
+          <li><b>娘さんの利用者登録</b>：アプリで娘さんの実物のマイナンバーカードを読み取り、券面の「利用者証明用電子証明書」の4桁の暗証番号を入力して利用者登録を行う</li>
+          <li><b>健康保険証の利用登録</b>：登録後そのままマイナポータルにログインし、ホーム画面「証明書」エリアの「健康保険証」を選択 → 案内に沿って利用登録を申し込む</li>
+          <li><b>登録完了の確認</b>：マイナポータルの健康保険証画面が「登録済み」表示になれば完了。医療機関・薬局で使えるようになるまで即日〜数日かかる場合がある</li>
+          <li>（登録後）<b>スマホを共有している場合の注意</b>：娘さんの登録が終わったら必ずマイナポータルからログアウトし、親自身のアカウントで再ログインし直す（最終ログイン者にプッシュ通知が届く仕組みのため）</li>
+        </ol>
+        <dl class="task-grid">
+          <dt>タイミング</dt><dd>③（被扶養者異動届）の完了後、保険者側でオンライン資格確認システムへの登録が反映された後（数日〜2週間程度かかることがある）</dd>
+        </dl>
+        <div class="note">医療機関・薬局・セブン銀行ATMのカードリーダーからも登録できます。マイナ保険証を使わない場合は「資格確認書」の発行を会社経由で依頼することも可能です。</div>
+        <div class="refs">
+          参考：<a href="https://faq.myna.go.jp/faq/show/3569?category_id=251&site_domain=default" target="_blank">マイナポータル「子供の利用登録はどのように行うのでしょうか」</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title"><span class="idx">STEP 04</span><h2>追加で申請したほうがよいもの（東京都の給付金）</h2></div>
+
+    <div class="task">
+      <div class="task-head">
+        <div class="task-title"><span class="num">08</span>018サポート（東京都）</div>
+        <div class="badges">
+          <span class="badge tbd">担当：どちらでも可</span>
+          <span class="badge deadline">随時申請可・遡り支給あり</span>
+          <span class="badge online">オンライン可</span>
+        </div>
+      </div>
+      <div class="task-body">
+        <p style="margin:0;">都内在住の0〜18歳の子ども1人あたり月額5,000円（年間最大6万円）、所得制限なしで支給される東京都独自の給付金です。申請が遅れても遡って支給されるため急ぎではありませんが、忘れないうちに申請しておくのがおすすめです。</p>
+        <dl class="task-grid">
+          <dt>申請方法</dt><dd>親子ともマイナンバーカードがあればスマホでカードをかざすだけで申請完了。ない場合は018サポートサイトでアカウント登録し、書類をアップロード</dd>
+        </dl>
+        <div class="refs">
+          参考：<a href="https://018support.metro.tokyo.lg.jp/" target="_blank">東京都「018サポート」公式サイト</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="task">
+      <div class="task-head">
+        <div class="task-title"><span class="num">09</span>赤ちゃんファーストギフト（東京都出産・子育て応援事業）</div>
+        <div class="badges">
+          <span class="badge tbd">担当：どちらでも可</span>
+          <span class="badge online">018サポートと同時申請</span>
+        </div>
+      </div>
+      <div class="task-body">
+        <p style="margin:0;">令和7年（2025年）4月1日以降に生まれた子どもが対象で、育児用品や子育て支援サービス等を受け取れるギフトです。018サポートの申請画面から同時に手続きできます。</p>
+        <div class="refs">
+          参考：<a href="https://018support.metro.tokyo.lg.jp/" target="_blank">東京都「018サポート」（赤ちゃんファーストギフトの案内あり）</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title"><span class="idx">CHECK</span><h2>対応不要と判断してよいもの</h2></div>
+    <div class="task">
+      <div class="task-body">
+        <p style="margin:0;"><b>出産育児一時金：</b>病院が「直接支払制度」を利用していれば、記載の通り出産費用から差し引かれる形になり別途申請は不要です。念のため退院時の会計書類で直接支払制度の利用が明記されているか確認しておくと安心です（利用していなかった場合は差額の申請が別途必要になります）。</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title"><span class="idx">INFO</span><h2>窓口の場所・連絡先</h2></div>
+    <div class="madoguchi">
+      <table>
+        <tr><th>窓口</th><th>住所</th><th>電話</th><th>扱える手続き</th></tr>
+        <tr>
+          <td>豊洲特別出張所<br>（豊洲シビックセンター3階）</td>
+          <td>江東区豊洲2-2-18</td>
+          <td>03-5859-0165</td>
+          <td>出生届（病院出産のみ）、マイナンバー特急発行、児童手当、子ども医療費助成</td>
+        </tr>
+        <tr>
+          <td>江東区役所（本庁舎）</td>
+          <td>江東区東陽4-11-28</td>
+          <td>03-3647-4754（こども家庭支援課給付係）</td>
+          <td>出生届（外国籍・国外出生・自宅出産含む全件）、児童手当、子ども医療費助成、児童育成手当</td>
+        </tr>
+        <tr>
+          <td>城東保健相談所</td>
+          <td>江東区大島3-1-3</td>
+          <td>03-3637-3936（代表）</td>
+          <td>出生連絡票（出生通知票）、新生児訪問、乳幼児健診</td>
+        </tr>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title"><span class="idx">LINKS</span><h2>参考サイト一覧</h2></div>
+    <div class="ref-list">
+      <div class="ref-card"><a href="https://www.city.koto.lg.jp/060302/kurashi/jumin/koseki/5061.html" target="_blank">江東区「出生届」</a><span class="url">city.koto.lg.jp/060302</span></div>
+      <div class="ref-card"><a href="https://www.city.koto.lg.jp/060301/tokkyuu.html" target="_blank">江東区「マイナンバーカード特急発行」</a><span class="url">city.koto.lg.jp/060301</span></div>
+      <div class="ref-card"><a href="https://www.city.koto.lg.jp/261301/kodomo/ninshinshussan/shussan/6880.html" target="_blank">江東区「新生児・産婦訪問指導（出生通知票）」</a><span class="url">city.koto.lg.jp/261301</span></div>
+      <div class="ref-card"><a href="https://www.city.koto.lg.jp/281011/kodomo/kosodate/teate/jidouteate.html" target="_blank">江東区「児童手当」</a><span class="url">city.koto.lg.jp/281011</span></div>
+      <div class="ref-card"><a href="https://www.city.koto.lg.jp/281011/kodomo/kosodate/teate/5844.html" target="_blank">江東区「子ども医療費助成」</a><span class="url">city.koto.lg.jp/281011</span></div>
+      <div class="ref-card"><a href="https://www.city.koto.lg.jp/281011/20171121.html" target="_blank">江東区「児童手当・子ども医療費助成の電子申請」</a><span class="url">city.koto.lg.jp/281011</span></div>
+      <div class="ref-card"><a href="https://faq.myna.go.jp/faq/show/3569?category_id=251&site_domain=default" target="_blank">マイナポータル「子供の利用登録」</a><span class="url">faq.myna.go.jp</span></div>
+      <div class="ref-card"><a href="https://www.nenkin.go.jp/service/kounen/hokenryo/menjo/sankyu-menjo/index.html" target="_blank">日本年金機構「産前産後休業期間中の保険料免除」</a><span class="url">nenkin.go.jp</span></div>
+      <div class="ref-card"><a href="https://018support.metro.tokyo.lg.jp/" target="_blank">東京都「018サポート」</a><span class="url">018support.metro.tokyo.lg.jp</span></div>
+      <div class="ref-card"><a href="https://www.city.koto.lg.jp/shussan.html" target="_blank">江東区「妊娠・出産」まとめページ</a><span class="url">city.koto.lg.jp</span></div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  制度・様式・連絡先は変更される場合があるため、各リンク先の最新情報を優先してご確認ください。窓口対応時間は平日8:30〜17:00が基本（豊洲特別出張所は水曜延長・第2日曜開設あり）。作成日：2026年7月16日時点の情報に基づく。
+</footer>
+
+</body>
+</html>
