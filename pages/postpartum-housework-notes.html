@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>産後の家事おねがいノート | YUIHAハブ</title>
+  <link rel="stylesheet" href="../assets/style.css" />
+  <style>
+    .tabs-controller input { display: none; }
+
+    .tab-nav {
+      display: flex;
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      margin: 24px 0 -1px;
+      scrollbar-width: thin;
+    }
+    .tab-nav::-webkit-scrollbar { height: 3px; }
+    .tab-nav label {
+      flex: 0 0 auto;
+      cursor: pointer;
+      padding: 10px 16px;
+      font-family: ui-monospace, "SFMono-Regular", "JetBrains Mono", Menlo,
+        Consolas, monospace;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--ink-soft);
+      border-right: 1px solid var(--line);
+      white-space: nowrap;
+      transition: color 0.12s ease, background-color 0.12s ease;
+    }
+    .tab-nav label:last-child { border-right: none; }
+    .tab-nav label:hover { color: var(--ink); background: #fafafa; }
+
+    #t-newborn:checked ~ .tab-nav label[for="t-newborn"],
+    #t-weekly:checked ~ .tab-nav label[for="t-weekly"],
+    #t-monthly:checked ~ .tab-nav label[for="t-monthly"],
+    #t-yearly:checked ~ .tab-nav label[for="t-yearly"] {
+      color: var(--accent);
+      background: #fafafa;
+    }
+
+    .panel { display: none; }
+    #t-newborn:checked ~ #p-newborn,
+    #t-weekly:checked ~ #p-weekly,
+    #t-monthly:checked ~ #p-monthly,
+    #t-yearly:checked ~ #p-yearly { display: block; }
+
+    .panel-desc {
+      color: var(--ink-soft);
+      font-size: 0.85rem;
+      margin: 0 0 20px;
+    }
+
+    .room-heading {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 32px 0 14px;
+    }
+    .room-heading:first-of-type { margin-top: 0; }
+    .room-heading h3 {
+      margin: 0;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .callout.warn { border-left-color: #b5482a; }
+  </style>
+</head>
+<body data-page="postpartum-housework-notes">
+  <div class="page">
+    <header class="site-header">
+      <div>
+        <span class="kicker">04</span>
+        <h1>産後の家事おねがいノート</h1>
+      </div>
+      <a class="back" href="../index.html">← トップへ</a>
+    </header>
+    <p class="lead">
+      普段わたしがやっている掃除・洗濯のルーティンと、赤ちゃんが来ることで新しく増える家事をまとめました。頻度ごとにタブを切り替えて見てください。「なぜやるか」「注意点」も書いてあるので、掃除に慣れていなくても順番にやれば大丈夫です。
+    </p>
+
+    <div class="callout warn">
+      <b>はじめに読んでほしいこと：</b>
+      <ul>
+        <li><b>洗剤は絶対に混ぜない。</b>特に「キッチンハイター」と酸性の洗剤（クエン酸・お風呂洗剤など）は同時に使うと有毒ガスが出て危険。掃除の種類ごとに時間をずらして行う。</li>
+        <li>ハイターや強い洗剤を使うときは<b>換気をしながら、ビニール手袋を着用</b>する。</li>
+        <li>無理にすべて完璧にやらなくてOK。<b>気づいたときにやる、で十分。</b>まずは「新生児で増える家事」タブだけでも目を通してもらえると助かります。</li>
+        <li>ゴミの収集日・分別ルールは地域のゴミカレンダーを確認してください（可燃・不燃・資源で曜日が異なります）。</li>
+      </ul>
+    </div>
+
+    <div class="tabs-controller">
+      <input type="radio" name="tab" id="t-newborn" checked>
+      <input type="radio" name="tab" id="t-weekly">
+      <input type="radio" name="tab" id="t-monthly">
+      <input type="radio" name="tab" id="t-yearly">
+
+      <nav class="tab-nav">
+        <label for="t-newborn">新生児で増える家事（7）</label>
+        <label for="t-weekly">週に1回（7）</label>
+        <label for="t-monthly">隔週・月に1回（4）</label>
+        <label for="t-yearly">年に数回（6）</label>
+      </nav>
+
+      <!-- ===== 新生児で増える家事 ===== -->
+      <section id="p-newborn" class="panel block">
+        <p class="panel-desc">赤ちゃんが家に来ることで、今までなかった家事や、頻度が急に上がる家事が出てきます。「なぜ増えるか」「気をつけたいこと」を中心にまとめました。</p>
+
+        <div class="room-heading"><span class="tag muted">洗濯</span><h3>洗濯の量・頻度が増える</h3></div>
+        <div class="task">
+          <div class="task-head">
+            <div class="task-title"><span class="num">01</span>肌着・スタイ・おくるみ・タオル類が一気に増える</div>
+          </div>
+          <div class="task-body">
+            <dl class="task-grid">
+              <dt>なぜ</dt><dd>母乳・ミルクの吐き戻しや、おむつ漏れで着替えやタオルの消費が早い。1日1回では足りず、こまめに洗濯機を回す必要が出てくる。</dd>
+            </dl>
+            <ol>
+              <li>洗剤は「ファーファ」、柔軟剤は少なめで使用する</li>
+              <li>汚れがひどい場合は、洗濯機に入れる前に洗面所か風呂場で「ウタマロ石けん」で簡単に予洗いしてから洗濯する</li>
+              <li>洗濯物がたまったらためすぎず、こまめに洗う</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="room-heading"><span class="tag muted">哺乳瓶</span><h3>哺乳瓶・搾乳用品の消毒</h3></div>
+        <div class="task">
+          <div class="task-head">
+            <div class="task-title"><span class="num">02</span>使うたびに洗浄・消毒が必要になる</div>
+          </div>
+          <div class="task-body">
+            <dl class="task-grid">
+              <dt>なぜ</dt><dd>赤ちゃんが直接口にするものなので、他の食器と同じ感覚で洗うだけでは不十分。哺乳のたびに発生する新しい家事。</dd>
+            </dl>
+            <ol>
+              <li>使用後はすぐにすすぎ、他の洗い物と分けて洗う</li>
+              <li>「ピジョン」の消毒・乾燥機を使って消毒〜乾燥まで行う</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="room-heading"><span class="tag muted">ゴミ</span><h3>ゴミの量・ニオイ対策</h3></div>
+        <div class="task">
+          <div class="task-head">
+            <div class="task-title"><span class="num">03</span>オムツゴミが毎日大量に出る</div>
+          </div>
+          <div class="task-body">
+            <dl class="task-grid">
+              <dt>なぜ</dt><dd>今まで週数回だったゴミ出しの感覚が変わるくらい、オムツゴミの量とニオイが増える。</dd>
+            </dl>
+            <ol>
+              <li>オムツは個別に袋の口を縛ってから、ゴミ箱に入れる</li>
+              <li>専用の密閉型オムツペールがあると、収集日までのニオイ漏れがかなり軽減される</li>
+              <li>地域のゴミカレンダーで可燃・不燃・資源の収集日を確認しておく</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="room-heading"><span class="tag muted">沐浴</span><h3>沐浴・スキンケア用品の管理</h3></div>
+        <div class="task">
+          <div class="task-head">
+            <div class="task-title"><span class="num">04</span>ベビーバス・ガーゼ・沐浴剤の後片付けが新たに発生</div>
+          </div>
+          <div class="task-body">
+            <dl class="task-grid">
+              <dt>なぜ</dt><dd>沐浴は毎日〜1日おきに行うことが多く、使用のたびに道具の洗浄・乾燥が必要になる。</dd>
+            </dl>
+            <ol>
+              <li>使用後のベビーバス・ガーゼは毎回洗って、しっかり乾かしてから収納する</li>
+              <li>カビやすい場所なので、水気を残さないよう意識する</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="room-heading"><span class="tag muted">寝具</span><h3>寝具まわりのケアが増える</h3></div>
+        <div class="task">
+          <div class="task-head">
+            <div class="task-title"><span class="num">05</span>吐き戻し・汗でシーツを頻繁に洗う必要がある</div>
+          </div>
+          <div class="task-body">
+            <dl class="task-grid">
+              <dt>なぜ</dt><dd>今までより寝具の汚れ・洗濯頻度が上がる。特に授乳や添い寝をする場所は清潔にしておきたい。</dd>
+            </dl>
+            <ol>
+              <li>防水シーツやおねしょシートを使うと、都度の全洗濯を減らせる</li>
+              <li>汚れたらためずにその日のうちに洗う</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="room-heading"><span class="tag muted">家電</span><h3>加湿器・空気清浄機のお手入れ頻度が上がる</h3></div>
+        <div class="task">
+          <div class="task-head">
+            <div class="task-title"><span class="num">06</span>稼働時間が長くなる分、掃除の頻度も上げたい</div>
+          </div>
+          <div class="task-body">
+            <dl class="task-grid">
+              <dt>なぜ</dt><dd>赤ちゃんのために加湿器・空気清浄機の使用時間が増えると、フィルターの汚れやタンク内のカビ・雑菌も溜まりやすくなる。</dd>
+            </dl>
+            <ol>
+              <li>加湿器のタンクは、隔週・月次のクエン酸洗浄（「年に数回」タブ）より少し高い頻度で水洗いを検討する</li>
+              <li>空気清浄機のフィルターも、通常より早めのタイミングで確認する</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="room-heading"><span class="tag muted">来客</span><h3>来客対応での片付け頻度が上がる</h3></div>
+        <div class="task">
+          <div class="task-head">
+            <div class="task-title"><span class="num">07</span>出産祝いなどで来客が増える可能性がある</div>
+          </div>
+          <div class="task-body">
+            <dl class="task-grid">
+              <dt>なぜ</dt><dd>普段より玄関・リビングを人に見せる機会が増えるタイミングがある。</dd>
+            </dl>
+            <ol>
+              <li>ゴミ袋は可能な限り交換し、ゴミが残っていない状態にする（特にリビング・洗面所）</li>
+              <li>ニオイに異常がないか確認し、ファブリックスプレーや部屋の芳香スプレーをしておく</li>
+              <li>水回り（洗面所・トイレ）は必ず掃除する</li>
+              <li>玄関の靴まわりのゴミ・ホコリをドライシートで拭き取る</li>
+              <li>玄関・洗面所・リビングに簡単に掃除機をかける</li>
+              <li>散らかっている物は、とりあえず見えない部屋に隠してしまってOK</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 週に1回 ===== -->
+      <section id="p-weekly" class="panel block">
+        <p class="panel-desc">週に1回、まとめて時間を取ってやる家事です。曜日を決めておくとやり忘れが減ります。</p>
+
+        <div class="room-heading"><span class="tag muted">洗濯</span><h3>タオル類・寝具</h3></div>
+        <div class="task">
+          <div class="task-head">
+            <div class="task-title"><span class="num">01</span>タオル類の洗濯</div>
+          </div>
+          <div class="task-body">
+            <dl class="task-grid">
+              <dt>なぜ</dt><dd>洗面所・トイレ・キッチンのタオルは湿った状態が続くため、雑菌が繁殖しやすい。</dd>
+            </dl>
+            <ol>
+              <li>洗面所のハンドタオルと足マット</li>
+              <li>トイレのタオルと足マット</li>
+              <li>キッチンの食器タオルと手拭きふきん</li>
+            </ol>
+          </div>
+        </div>
+        <div class="task">
+          <div class="task-head">
+            <div class="task-title"><span class="num">02</span>シーツ・布団カバーの洗濯</div>
+          </div>
+          <div class="task-body">
+            <dl class="task-grid">
+              <dt>なぜ</dt><dd>寝汗や皮脂で汚れがたまりやすく、特に授乳や添い寝で赤ちゃんが直接触れる場所は清潔を保ちたい。</dd>
+            </dl>
+            <ol>
+              <li>ベッドシーツ・枕カバーを外して洗濯する</li>
+              <li>乾いたら忘れずにかけ直す</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="room-heading"><span class="tag muted">洗面所</span><h3>洗面所の掃除</h3></div>
+        <div class="task">
+          <div class="task-head">
+            <div class="task-title"><span class="num">03</span>洗面ガラス・シンク周りの掃除</div>
+          </div>
+          <div class="task-body">
+            <ol>
+              <li>ガラス拭きで洗面ガラスを拭き取る</li>
+              <li>シンク周りの物をどかして拭き取り、最後にシンク内の汚れを拭き取る</li>
+              <li>時間に余裕があればメラミンスポンジやアルカリ電解水スプレーでしっかり汚れを取る</li>
+            </ol>
+            <div class="callout warn">排水周りは黒ずみやすい。隙間と水道管の入り口を確認する（放置するとニオイの原因になるので重要）。</div>
+          </div>
+        </div>
+
+        <div class="room-heading"><span class="tag muted">トイレ</span><h3>トイレの掃除</h3></div>
+        <div class="task">
+          <div class="task-head">
+            <div class="task-title"><span class="num">04</span>トイレ掃除シートでの拭き掃除</div>
+          </div>
+          <div class="task-body">
+            <ol>
+              <li>1枚目：蛇口まわり、便器の蓋の表裏（裏が時々汚れている）、右側のボタン周りのほこりを拭き、使ったシートはトイレに流す</li>
+              <li>2枚目：便座の表・裏・内・外を拭き、便座を持ち上げてトイレ本体（特にウォシュレット周辺は汚れやすい）も拭き、シートを流す</li>
+            </ol>
+          </div>
+        </div>
+        <div class="task">
+          <div class="task-head">
+            <div class="task-title"><span class="num">05</span>ブラシでの仕上げ</div>
+          </div>
+          <div class="task-body">
+            <ol>
+              <li>流せるトイレブラシ（スクラビングバブルなど）で便器の縁から水際までこすり、ブラシは流す。本体は水を切ってしまう</li>
+              <li>普段使いの白いブラシで水際と奥の見えない部分をこする</li>
+              <li>トイレを開いたまま洗浄し、洗浄水でブラシをきれいにしてからしまう</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="room-heading"><span class="tag muted">キッチン</span><h3>コンロ周りの掃除</h3></div>
+        <div class="task">
+          <div class="task-head">
+            <div class="task-title"><span class="num">06</span>コンロの拭き掃除</div>
+          </div>
+          <div class="task-body">
+            <ol>
+              <li>コンロの金属部分（五徳）を外し、コンロ掃除シート（オレンジオイル配合）で拭く</li>
+              <li>拭き足りない部分はアルカリ電解水スプレーか重曹スプレーで濡らして拭き取る</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="room-heading"><span class="tag muted">リビング</span><h3>掃除機がけ</h3></div>
+        <div class="task">
+          <div class="task-head">
+            <div class="task-title"><span class="num">07</span>部屋全体の掃除機がけ</div>
+          </div>
+          <div class="task-body">
+            <ol>
+              <li>リビング、ソファの上、ソファをどかした後の床</li>
+              <li>キッチン、玄関、洗面所</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="room-heading"><span class="tag muted">浴室</span><h3>お風呂の掃除（簡易）</h3></div>
+        <div class="task">
+          <div class="task-head">
+            <div class="task-title"><span class="num">08</span>鏡・カビ・床の簡易掃除</div>
+          </div>
+          <div class="task-body">
+            <ol>
+              <li>鏡をウロコ取りで水に濡らしながらこすり落とす</li>
+              <li>先が青色・柄が黒色の使い捨てブラシ（カビ落とし）でピンクカビ周りを掃除する</li>
+              <li>掃除用スプレーを浴室の四隅にかけてこすり洗浄する</li>
+              <li>風呂釜にも掃除用スプレーを全体的にかけて掃除する</li>
+            </ol>
+            <div class="callout warn">他の洗浄（丁寧掃除など）と同時にやると洗剤が混ざって危険。必ず別のタイミングで行う。</div>
+          </div>
+        </div>
+
+        <div class="room-heading"><span class="tag muted">生活習慣</span><h3>換気</h3></div>
+        <div class="task">
+          <div class="task-head">
+            <div class="task-title"><span class="num">09</span>部屋の換気</div>
+          </div>
+          <div class="task-body">
+            <dl class="task-grid">
+              <dt>なぜ</dt><dd>換気扇の掃除だけでなく、日常的に窓を開けて空気を入れ替えることがカビ・ニオイ対策になる。</dd>
+            </dl>
+            <ol>
+              <li>天気のいい日は数分でも窓を開けて空気を入れ替える</li>
+              <li>浴室は入浴後、換気扇を回しっぱなしにしておく</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 隔週・月に1回 ===== -->
+      <section id="p-monthly" class="panel block">
+        <p class="panel-desc">2週間に1回〜月に1回のペースでやる家事です。カレンダーにメモしておくと管理しやすいです。</p>
+
+        <div class="room-heading"><span class="tag muted">浴室</span><h3>お風呂の掃除（丁寧）</h3></div>
+        <div class="task">
+          <div class="task-body">
+            <ol>
+              <li>ルックみがき洗いで浴室全体に洗剤をつけ、ブラシでこすり洗浄する</li>
+              <li>水の蛇口周りにも洗剤をかけてブラシでこする（ピカピカになる）</li>
+              <li>排水溝周りにも洗剤をつけてこする</li>
+            </ol>
+            <div class="callout warn">簡易掃除と同時に行うと洗剤が混ざって危険なので、必ず別のタイミングで実施する。</div>
+          </div>
+        </div>
+
+        <div class="room-heading"><span class="tag muted">キッチン</span><h3>水洗い場の掃除</h3></div>
+        <div class="task">
+          <div class="task-body">
+            <ol>
+              <li>蛇口の水垢掃除</li>
+              <li>洗剤置きの下の錆拭き取り・トレイ洗浄</li>
+              <li>ビニール袋置きの下の錆拭き取り</li>
+              <li>排水口の黒ずみの洗浄</li>
+            </ol>
+            <div class="callout warn">洗浄には「キッチンハイター」と掃除用の黒たわしを使用。ハイター使用時は必ずビニール手袋を着用し、換気しながら行う。</div>
+          </div>
+        </div>
+
+        <div class="room-heading"><span class="tag muted">全体</span><h3>細かい汚れ・ホコリ拭き</h3></div>
+        <div class="task">
+          <div class="task-body">
+            <ol>
+              <li>リビングテーブル、キッチンカウンター、キッチンサイドテーブル</li>
+              <li>洗面所の棚のホコリ、壁の下の縁部分のホコリ</li>
+              <li>気づいたタイミングで簡単に（ドライシート、重曹／セスキシート、またはアルカリ電解水をつけたペーパータオルを使用）</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="room-heading"><span class="tag muted">家電</span><h3>エアコンフィルターの掃除</h3></div>
+        <div class="task">
+          <div class="task-head">
+            <div class="task-title">フィルターのホコリ取り</div>
+          </div>
+          <div class="task-body">
+            <dl class="task-grid">
+              <dt>なぜ</dt><dd>フィルターにホコリがたまると空気の汚れ・カビの原因になり、赤ちゃんのいる部屋では特に清潔にしておきたい。</dd>
+            </dl>
+            <ol>
+              <li>フィルターを取り外し、掃除機でホコリを吸い取る</li>
+              <li>汚れがひどい場合は水洗いしてしっかり乾かしてから戻す</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 年に数回 ===== -->
+      <section id="p-yearly" class="panel block">
+        <p class="panel-desc">年に数回でよい家事です。気づいたときにやる、くらいの気持ちで大丈夫です。</p>
+
+        <div class="room-heading"><span class="tag muted">排水口</span><h3>排水口クリーナー</h3></div>
+        <div class="task">
+          <div class="task-body">
+            <ol>
+              <li>洗面所の排水口、風呂場の風呂釜と浴室の排水口、キッチンの排水口にパウチ1つを分配する（頑張らず複数使ってもよい）</li>
+              <li>粉をかけるときはプラスチックの排水カバーやネットを外した状態で行う</li>
+              <li>少量の水をかけて2時間ほど放置後、洗い流す</li>
+            </ol>
+            <div class="callout warn">他の洗剤を使った掃除の直後には絶対に行わないこと。非常に危険。</div>
+          </div>
+        </div>
+
+        <div class="room-heading"><span class="tag muted">補充</span><h3>消耗品の補充</h3></div>
+        <div class="task">
+          <div class="task-head">
+            <div class="task-title">洗剤類の補充</div>
+          </div>
+          <div class="task-body">
+            <ol><li>掃除用品でなくなってきたものを適宜購入・補充する</li></ol>
+          </div>
+        </div>
+        <div class="task">
+          <div class="task-head">
+            <div class="task-title">トイレットペーパー・紙類の補充</div>
+          </div>
+          <div class="task-body">
+            <ol>
+              <li>玄関前にストックがあれば整理し、適宜購入・補充する</li>
+              <li>トイレットペーパーは一定数をトイレの棚に収納しておく</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="room-heading"><span class="tag muted">換気扇</span><h3>換気扇の埃取り</h3></div>
+        <div class="task">
+          <div class="task-body">
+            <ol>
+              <li>天井の換気扇のカバーを外す</li>
+              <li>換気扇のネットをドライシートで拭き取り、ホコリを除去する</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="room-heading"><span class="tag muted">洗濯機</span><h3>洗濯機の洗浄</h3></div>
+        <div class="task">
+          <div class="task-body">
+            <ol>
+              <li>上部のホコリ取り：奥と右の取り外し可能なパーツを外し、こびりついたホコリを取る</li>
+              <li>下部の汚れ取り：上からの穴部分にピンクカビが生えることがあるのでしっかり拭き取る</li>
+              <li>ドラム式用の1本使い切り洗浄液を入れて洗浄モードを実行し、完了後にドラム乾燥を追加実行する</li>
+            </ol>
+            <div class="callout warn">洗浄には1日ほどかかるので、時間に余裕があるタイミングで行う。</div>
+          </div>
+        </div>
+
+        <div class="room-heading"><span class="tag muted">家電</span><h3>家電のヨゴレ・ホコリ拭き</h3></div>
+        <div class="task">
+          <div class="task-body">
+            <ol>
+              <li>電子レンジ、冷蔵庫、炊飯器、エアフライヤー、コーヒーメーカー、電気調理鍋、テレビ・スピーカー、洗濯機を、重曹スプレーかアルカリ電解水スプレーとペーパータオルで拭く（重曹シート／セスキシートでもよい）</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="room-heading"><span class="tag muted">クエン酸</span><h3>クエン酸洗浄</h3></div>
+        <div class="task">
+          <div class="task-body">
+            <ol>
+              <li>T-falケトルと（ある場合は）加湿器に適量のお湯とクエン酸を入れて放置する</li>
+              <li>放置後に水洗いする</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer class="site-footer">いつもありがとう。無理せず、できる範囲でお願いします。</footer>
+  </div>
+</body>
+</html>
