@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>株式日次分析 2026年07月26日</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+/* ═══ Design Tokens ═══ */
+:root {
+  --bg:       #060d1c;
+  --sf1:      #0c1628;
+  --sf2:      #112039;
+  --sf3:      #1a2f50;
+  --bd:       rgba(255,255,255,0.07);
+  --bds:      rgba(255,255,255,0.14);
+  --t1:       #eaf0f8;
+  --t2:       #7a9ab5;
+  --t3:       #3d5470;
+  --green:    #00c9a7;
+  --red:      #ff4466;
+  --blue:     #4d9eff;
+  --amber:    #ffb340;
+  --r:        8px;
+  --shadow:   0 4px 24px rgba(0,0,0,.4);
+}
+
+/* ═══ Base ═══ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 14px; }
+body {
+  font-family: "Inter","Noto Sans JP",sans-serif;
+  background: var(--bg);
+  color: var(--t1);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ═══ Header ═══ */
+.hdr {
+  height: 52px;
+  background: rgba(6,13,28,.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--bd);
+  display: flex; align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+  position: sticky; top: 0; z-index: 200;
+}
+.hdr-l { display: flex; align-items: center; gap: 14px; }
+.logo {
+  font-size: 13px; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--t2);
+  padding: 4px 10px;
+  border: 1px solid var(--bd);
+  border-radius: 5px;
+}
+.hdr-title { font-size: 14px; font-weight: 600; color: var(--t1); }
+.hdr-date  { font-size: 12px; color: var(--t3); font-variant-numeric: tabular-nums; }
+.hdr-meta  { font-size: 11px; color: var(--t3); text-align: right; line-height: 1.5; }
+
+/* ═══ Tab Nav ═══ */
+.tab-nav {
+  display: flex;
+  background: var(--bg);
+  border-bottom: 1px solid var(--bd);
+  padding: 0 28px;
+  overflow-x: auto; gap: 0;
+}
+.tab-nav::-webkit-scrollbar { display: none; }
+.tab-btn {
+  display: flex; align-items: center; gap: 7px;
+  padding: 0 16px; height: 42px;
+  border: none; background: transparent;
+  color: var(--t3); font-size: 12px; font-weight: 600;
+  font-family: inherit; letter-spacing: 0.05em;
+  text-transform: uppercase; white-space: nowrap;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  position: relative; bottom: -1px;
+  transition: color 150ms, border-color 150ms;
+  min-height: 44px;
+}
+.tab-btn:hover { color: var(--t2); }
+.tab-btn.active { color: var(--t1); border-bottom-color: var(--blue); }
+.tab-icon { width: 15px; height: 15px; display: inline-flex; flex-shrink: 0; }
+.tab-icon svg { width: 15px; height: 15px; display: block; }
+.tab-label { }
+
+/* ═══ Tab Content ═══ */
+.tab-content { display: none; }
+.tab-content.active { display: block; animation: fadeUp 200ms ease-out; }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.ca { max-width: 1200px; margin: 0 auto; padding: 28px 28px 64px; }
+
+/* ═══ Prose (分析本文) ═══ */
+.prose h2 {
+  font-size: 15px; font-weight: 700; color: var(--t1);
+  margin: 28px 0 14px; padding-bottom: 8px;
+  border-bottom: 1px solid var(--bd);
+  letter-spacing: 0.02em;
+}
+.prose h3 { font-size: 12px; font-weight: 700; color: var(--t3);
+             margin: 18px 0 8px; letter-spacing: 0.08em; text-transform: uppercase; }
+.prose p  { color: var(--t2); margin-bottom: 8px; font-size: 14px; }
+.prose ul { list-style: none; padding: 0; margin-bottom: 8px; }
+.prose li { color: var(--t2); font-size: 14px;
+             padding: 6px 0 6px 14px; position: relative;
+             border-bottom: 1px solid var(--bd); }
+.prose li::before { content: "·"; position: absolute; left: 0; color: var(--t3); font-size: 18px; line-height: 1.4; }
+.prose strong { color: var(--t1); font-weight: 600; }
+.prose hr { border: none; border-top: 1px solid var(--bd); margin: 16px 0; }
+
+/* ═══ Markdown Table ═══ */
+.md-table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 13px; }
+.md-table th {
+  background: var(--bg); color: var(--t3);
+  font-weight: 700; font-size: 10px;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 8px 12px; border-bottom: 2px solid var(--bd);
+  text-align: left;
+}
+.md-table td { padding: 8px 12px; border-bottom: 1px solid var(--bd); color: var(--t2); }
+.md-table tr:hover td { background: var(--sf1); }
+
+/* ═══ Color Util ═══ */
+em.up  { color: var(--green); font-style: normal; font-weight: 600; }
+em.dn  { color: var(--red);   font-style: normal; font-weight: 600; }
+.up    { color: var(--green); }
+.dn    { color: var(--red);   }
+.blue  { color: var(--blue);  }
+.mono  { font-family: "JetBrains Mono", monospace; }
+.star  { font-style: normal; }
+.badge { display: inline-block; padding: 2px 8px; border-radius: 20px;
+          font-size: 10px; font-weight: 700; white-space: nowrap; letter-spacing: 0.04em; }
+.imp-badge { display: inline-flex; align-items: center; gap: 4px;
+              padding: 2px 9px; border-radius: 4px;
+              font-size: 10px; font-weight: 800; letter-spacing: 0.1em; }
+
+/* ═══ Market Tab Layout ═══ */
+.market-layout { display: grid; grid-template-columns: 1fr 360px; gap: 24px; }
+.news-stream { min-width: 0; }
+.signals-panel { }
+.panel-label {
+  font-size: 10px; font-weight: 800; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--t3);
+  margin-bottom: 12px; padding-bottom: 8px;
+  border-bottom: 1px solid var(--bd);
+}
+
+/* ═══ News Card ═══ */
+.nc {
+  background: var(--sf1);
+  border: 1px solid var(--bd);
+  border-radius: var(--r);
+  padding: 20px 22px;
+  margin-bottom: 12px;
+  transition: border-color 200ms, box-shadow 200ms;
+}
+.nc:hover { border-color: var(--bds); box-shadow: var(--shadow); }
+.nc-meta   { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+.nc-title  { font-size: 15px; font-weight: 700; color: var(--t1);
+              margin-bottom: 10px; line-height: 1.45; }
+.nc-body   { }
+.nc-body p { font-size: 13px; color: var(--t2); margin-bottom: 4px; }
+.nc-body li{ font-size: 13px; }
+.nc-body strong { color: var(--t1); }
+.nc-chips  { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px;
+              align-items: center; }
+.nc-chips-label { font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+                   text-transform: uppercase; color: var(--t3); margin-right: 2px; }
+.stk-chip  {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 3px 10px; border-radius: 20px;
+  font-size: 12px; font-weight: 600;
+  border: 1px solid var(--bd);
+  transition: border-color 150ms;
+  text-decoration: none !important;
+}
+.stk-chip:hover { border-color: var(--bds); }
+.stk-chip code { font-family: "JetBrains Mono",monospace; font-size: 11px; }
+.chip-up  { border-color: rgba(0,201,167,.3); background: rgba(0,201,167,.07); color: var(--green); }
+.chip-dn  { border-color: rgba(255,68,102,.3); background: rgba(255,68,102,.07); color: var(--red); }
+.chip-n   { background: var(--sf2); color: var(--t2); }
+.nc-rss-wrap { margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--bd); }
+.nc-rss  { display: block; font-size: 12px; color: var(--blue);
+            padding: 3px 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.nc-rss:hover { text-decoration: underline; }
+.nc-rss-src { display: inline-block; font-size: 10px; background: var(--sf2);
+               color: var(--t3); padding: 1px 6px; border-radius: 3px; margin-right: 6px; }
+
+/* ═══ Signal Cards ═══ */
+.sig-card {
+  background: var(--sf1); border: 1px solid var(--bd);
+  border-radius: var(--r); padding: 14px 16px; margin-bottom: 8px;
+  transition: border-color 200ms;
+}
+.sig-card:hover { border-color: var(--bds); }
+.sig-buy   { border-left: 3px solid rgba(0,201,167,.5); }
+.sig-watch { border-left: 3px solid rgba(255,68,102,.5); }
+.sig-head  { display: flex; align-items: center; gap: 8px; margin-bottom: 7px; }
+.sig-name  { font-weight: 700; font-size: 14px; }
+.sig-code  { font-family: "JetBrains Mono",monospace; font-size: 11px; }
+.sig-arr   { font-size: 16px; margin-left: auto; }
+.sig-desc  { font-size: 12px; color: var(--t2); line-height: 1.6; }
+.rn-wrap   { margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--bd); }
+.rn-lbl    { font-size: 9px; font-weight: 800; letter-spacing: 0.1em;
+              text-transform: uppercase; color: var(--t3); margin-bottom: 5px; }
+.rn-link   { display: block; font-size: 11px; color: var(--blue);
+              padding: 2px 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.rn-src    { display: inline-block; font-size: 9px; background: var(--sf2);
+              color: var(--t3); padding: 1px 4px; border-radius: 3px; margin-right: 5px; }
+
+/* ═══ RSS News List (in news stream) ═══ */
+.rss-section { margin-top: 28px; border-top: 1px solid var(--bd); padding-top: 20px; }
+.rss-lbl { font-size: 10px; font-weight: 800; letter-spacing: 0.12em;
+             text-transform: uppercase; color: var(--t3); margin-bottom: 10px; }
+a.rss-item {
+  display: flex; align-items: baseline; gap: 10px;
+  padding: 8px 10px; border-radius: 6px;
+  color: var(--t2); font-size: 13px;
+  transition: background 150ms;
+  margin-bottom: 2px;
+}
+a.rss-item:hover { background: var(--sf1); text-decoration: none; color: var(--t1); }
+.rss-src { flex-shrink: 0; font-size: 10px; font-weight: 600; color: var(--t3);
+            background: var(--sf1); padding: 1px 6px; border-radius: 3px; }
+
+/* ═══ Ranking ═══ */
+.rank-toggle { display: flex; gap: 8px; margin-bottom: 20px; }
+.rank-btn {
+  padding: 6px 18px; border-radius: 6px;
+  border: 1px solid var(--bd); background: transparent;
+  color: var(--t3); font-size: 12px; font-weight: 700;
+  font-family: inherit; letter-spacing: 0.06em;
+  cursor: pointer; transition: all 200ms; min-height: 40px;
+}
+.rbg { border-color: var(--green); color: var(--green); }
+.rbr { border-color: var(--red);   color: var(--red);   }
+
+.tbl-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.rtbl { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 13px; }
+.rtbl thead tr { background: var(--bg); }
+.rtbl th {
+  padding: 10px 14px; text-align: left;
+  color: var(--t3); font-size: 10px; font-weight: 800;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  border-bottom: 2px solid var(--bd); white-space: nowrap;
+}
+.trow { transition: background 150ms; }
+.trow:hover { background: var(--sf1); }
+.rtbl td { padding: 9px 14px; border-bottom: 1px solid var(--bd); vertical-align: middle; }
+.col-r { color: var(--t3); font-size: 11px; width: 40px; }
+.col-agm { color: var(--t3); font-size: 12px; font-family: "JetBrains Mono",monospace; }
+.tbl-btn {
+  display: inline-block; padding: 2px 8px;
+  border-radius: 4px; background: transparent;
+  border: 1px solid var(--bd); color: var(--t3);
+  font-size: 11px; transition: border-color 150ms, color 150ms;
+}
+.tbl-btn:hover { border-color: var(--blue); color: var(--blue); text-decoration: none; }
+
+/* ═══ Utility ═══ */
+.text-muted { color: var(--t3); }
+.no-data    { color: var(--t3); padding: 24px 0; }
+.disclaimer {
+  font-size: 11px; color: var(--t3); text-align: center;
+  padding: 40px 0 12px; border-top: 1px solid var(--bd); margin-top: 40px;
+}
+.sec-label {
+  font-size: 10px; font-weight: 800; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--t3);
+  margin-bottom: 16px; padding-bottom: 8px;
+  border-bottom: 1px solid var(--bd);
+}
+
+/* ═══ Responsive ═══ */
+@media (max-width: 1023px) {
+  .market-layout { grid-template-columns: 1fr; }
+  .rtbl th:nth-child(5), .rtbl td:nth-child(5) { display: none; } /* 株価 */
+}
+@media (max-width: 767px) {
+  .hdr { padding: 0 14px; height: 46px; }
+  .hdr-meta { display: none; }
+  .tab-label { display: none; }
+  .tab-btn { padding: 0 13px; gap: 0; }
+  .tab-icon { width: 18px; height: 18px; }
+  .tab-icon svg { width: 18px; height: 18px; }
+  .ca { padding: 16px 14px 48px; }
+  .nc { padding: 14px 16px; }
+  .market-layout { gap: 16px; }
+  .rtbl th:nth-child(4), .rtbl td:nth-child(4) { display: none; } /* 業種 */
+  .rtbl th:nth-child(7), .rtbl td:nth-child(7) { display: none; } /* 総会 */
+}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="hdr-l">
+    <span class="logo">株式分析</span>
+    <span class="hdr-title">日次レポート</span>
+    <span class="hdr-date">｜ 2026年07月26日</span>
+  </div>
+  <div class="hdr-meta">生成: 2026/07/26 05:49<br>kabutan / Yahoo / Reuters / NHK</div>
+</header>
+
+<nav class="tab-nav"><button class="tab-btn active" data-tab="t-market"><span class="tab-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span><span class="tab-label">マーケット</span></button>
+<button class="tab-btn " data-tab="t-trend"><span class="tab-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></span><span class="tab-label">相場動向</span></button>
+<button class="tab-btn " data-tab="t-agm"><span class="tab-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span><span class="tab-label">総会・配当</span></button>
+<button class="tab-btn " data-tab="t-rank"><span class="tab-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></span><span class="tab-label">ランキング</span></button>
+</nav>
+
+<!-- マーケット -->
+<div class="tab-content active" id="t-market">
+  <div class="ca">
+<div class="market-layout">
+  <div class="news-stream">
+    <div class="sec-label">Market Drivers</div>
+    <article class="nc">
+  <div class="nc-meta"><span class="imp-badge" style="color:#ef4444;background:#ef444418;border:1px solid #ef444430">CRITICAL</span></div>
+  <h3 class="nc-title">ニチレイ（2871）サイバー攻撃からシステム全面復旧・業界横断的なセキュリティ懸念波及</h3>
+  <div class="nc-body"><ul>
+<li><strong>要点：</strong> 冷凍食品大手ニチレイがサイバー攻撃によるシステム障害から出荷業務を含めすべての業務を復旧した。一方、この被害を受けて都内の情報セキュリティ企業には大企業・中小問わず相談が急増しており、食品・物流業界全体でのサイバーリスク対応コストが増大する構図が鮮明になっている。</li>
+<li><strong>市場への影響：</strong> ニチレイ株は「最悪期脱出」として短期リリーフ買いの可能性がある一方、来期以降のIT投資増加が収益圧迫要因になりうる。より重要なのはサイバーセキュリティ関連銘柄への資金流入継続であり、同セクターは中期テーマとして引き続き注目されやすい。</li>
+<li><strong>関連銘柄：</strong></li>
+</ul>
+<p>  - ニチレイ(<span class="mono blue">2871</span>)：復旧完了でアク抜け <em class="up">↑</em>（ただし信頼回復にはやや時間）</p>
+<p>  - トレンドマイクロ(<span class="mono blue">4704</span>)：企業からの引き合い急増、国内最大手のサイバーセキュリティ企業として直接恩恵 <em class="up">↑↑</em></p>
+<p>  - 富士通(<span class="mono blue">6702</span>)：セキュリティソリューション事業の受注拡大期待 <em class="up">↑</em></p>
+<p>  - NTTデータグループ(<span class="mono blue">9613</span>)：大企業向けセキュリティ運用・監視サービス需要増 <em class="up">↑</em></p>
+<p>  - マクニカホールディングス(<span class="mono blue">3132</span>)：海外セキュリティ製品の国内流通最大手として商機拡大 <em class="up">↑</em></p>
+
+<hr></div>
+  <div class="nc-chips"><span class="nc-chips-label">関連銘柄</span><a href="https://kabutan.jp/stock/?code=2871" target="_blank" class="stk-chip chip-dn"><code>2871</code><span>ニチレイ ↓</span></a><a href="https://kabutan.jp/stock/?code=4704" target="_blank" class="stk-chip chip-up"><code>4704</code><span>トレンドマイクロ ↑</span></a><a href="https://kabutan.jp/stock/?code=6702" target="_blank" class="stk-chip chip-n"><code>6702</code></a><a href="https://kabutan.jp/stock/?code=9613" target="_blank" class="stk-chip chip-up"><code>9613</code><span>NTTデータグループ ↑</span></a><a href="https://kabutan.jp/stock/?code=3132" target="_blank" class="stk-chip chip-dn"><code>3132</code><span>マクニカホールディングス ↓</span></a></div>
+  
+</article><article class="nc">
+  <div class="nc-meta"></div>
+  <h3 class="nc-title">「全東信」経営破綻・決済代行業の信用リスク表面化（重要度：★★★★☆）</h3>
+  <div class="nc-body"><ul>
+<li><strong>要点：</strong> クレジットカード決済代行サービスを手掛ける「全東信」が経営破綻し、利用していた飲食店を中心に売上代金の回収不能リスクが広がっている。経済産業省・金融庁が調査を開始しており、決済代行業全体への規制強化議論が再燃する可能性がある。</li>
+<li><strong>市場への影響：</strong> 決済代行の信用不安は、中小飲食店が多数加盟する大手決済インフラへの信頼性再評価につながりやすい。大手・上場決済企業には「安全・安心」の観点から一定の需要シフトが期待される一方、中小決済代行業者全般には不信感が広がるリスクがある。金融庁の調査次第では業界再編の触媒となりうる。</li>
+<li><strong>関連銘柄：</strong></li>
+</ul>
+<p>  - GMOペイメントゲートウェイ(<span class="mono blue">3769</span>)：国内決済代行最大手、信用力の相対的優位が際立つ <em class="up">↑</em></p>
+<p>  - インフォマート(<span class="mono blue">2492</span>)：飲食業向けSaaSで代替決済ソリューション需要の恩恵可能性 <em class="up">↑</em></p>
+<p>  - 全東信と取引のある地方金融機関：不良債権化リスク <em class="dn">↓</em>（個別要精査）</p>
+<p>  - 飲食チェーン関連（ゼンショーHD(<span class="mono blue">7550</span>)・すかいらーくHD(<span class="mono blue">3197</span>)等）：被害規模次第では一時的な売上計上遅延リスク、影響軽微の公算だが<em class="dn">注意</em> →</p>
+
+<hr></div>
+  <div class="nc-chips"><span class="nc-chips-label">関連銘柄</span><a href="https://kabutan.jp/stock/?code=3769" target="_blank" class="stk-chip chip-up"><code>3769</code><span>GMOペイメントゲートウェイ ↑</span></a><a href="https://kabutan.jp/stock/?code=2492" target="_blank" class="stk-chip chip-n"><code>2492</code></a><a href="https://kabutan.jp/stock/?code=7550" target="_blank" class="stk-chip chip-up"><code>7550</code><span>ゼンショーHD ↑</span></a><a href="https://kabutan.jp/stock/?code=3197" target="_blank" class="stk-chip chip-n"><code>3197</code></a></div>
+  
+</article><article class="nc">
+  <div class="nc-meta"></div>
+  <h3 class="nc-title">セブン＆アイ・ホールディングス（3382）東欧企業への出資見送り（重要度：★★★☆☆）</h3>
+  <div class="nc-body"><ul>
+<li><strong>要点：</strong> セブン＆アイが東欧企業への出資を見送った。コンビニ事業の選択と集中を進める方針が改めて確認された形で、同社が現在進めている事業再編（コンビニ事業への回帰・非コア事業売却）の方向性と整合的だ。</li>
+<li><strong>市場への影響：</strong> アリマンタシォン・クシュタール（ACT）による買収提案を巡る攻防の中、不要なリスクテイクを避ける経営姿勢は株主・市場からある程度評価されよう。ただし抜本的な企業価値向上施策とは言い難く、株価への影響は限定的。</li>
+<li><strong>関連銘柄：</strong></li>
+</ul>
+<p>  - セブン＆アイ・ホールディングス(<span class="mono blue">3382</span>)：方向性は無難、株価インパクト軽微 →<em class="up">↑</em></p>
+<p>  - イトーヨーカ堂関連（3382傘下）：引き続き売却・再編観測 →</p>
+
+<hr></div>
+  <div class="nc-chips"><span class="nc-chips-label">関連銘柄</span><a href="https://kabutan.jp/stock/?code=3382" target="_blank" class="stk-chip chip-dn"><code>3382</code><span>セブン＆アイHD ↓</span></a></div>
+  
+</article><article class="nc">
+  <div class="nc-meta"></div>
+  <h3 class="nc-title">コメ民間在庫が過去最大の243万トン・新米価格下落リスク（重要度：★★★☆☆）</h3>
+  <div class="nc-body"><ul>
+<li><strong>要点：</strong> 農林水産省によると6月末時点の民間コメ在庫量は243万トンと過去最大を記録し、適正水準を大幅に上回った。昨年の「令和の米不足」から一転して需給が緩んでおり、今秋の新米価格下落が農家・JAの収益を圧迫しうる。</li>
+<li><strong>市場への影響：</strong> 食品メーカーのうちコメを主要原料とする企業にはコスト低下による利益率改善の期待がある。一方、農業関連・コメ流通企業には価格下落の逆風。外食チェーンのうちコメ消費比率が高い企業（牛丼・おにぎりチェーン等）は間接的な恩恵。</li>
+<li><strong>関連銘柄：</strong></li>
+</ul>
+<p>  - ゼンショーHD(<span class="mono blue">7550</span>)：吉野家HD(<span class="mono blue">9861</span>)・すき家等の牛丼チェーン、コメ安はコスト低減 <em class="up">↑</em></p>
+<p>  - 永谷園ホールディングス(<span class="mono blue">2899</span>)：ふりかけ・お茶漬けにコメが絡む消費環境に注目 →</p>
+<p>  - アキタコマチ生産農家組合等の非上場・農協関連：直接打撃（参考情報）</p>
+<p>  - パン・洋食寄りの食品企業（山崎製パン(<span class="mono blue">2212</span>)等）：コメとの競合食材の間接影響 →</p>
+
+<hr></div>
+  <div class="nc-chips"><span class="nc-chips-label">関連銘柄</span><a href="https://kabutan.jp/stock/?code=7550" target="_blank" class="stk-chip chip-up"><code>7550</code><span>ゼンショーHD ↑</span></a><a href="https://kabutan.jp/stock/?code=9861" target="_blank" class="stk-chip chip-n"><code>9861</code></a><a href="https://kabutan.jp/stock/?code=2899" target="_blank" class="stk-chip chip-n"><code>2899</code></a><a href="https://kabutan.jp/stock/?code=2212" target="_blank" class="stk-chip chip-n"><code>2212</code></a></div>
+  
+</article><article class="nc">
+  <div class="nc-meta"></div>
+  <h3 class="nc-title">経団連「投資けん引型経済」総括・フィジカルAI推進を明示（重要度：★★★★☆）</h3>
+  <div class="nc-body"><ul>
+<li><strong>要点：</strong> 経団連の夏季フォーラムが閉会し、「投資けん引型経済」の実現に向けてフィジカルAI（ロボット・自動化・製造DX）など国際競争力の高い分野への研究開発加速を促す総括文書を採択した。政策サイドからの設備投資・R&D投資促進の追い風として市場は好感しやすい。</li>
+<li><strong>市場への影響：</strong> 製造業向けFA・ロボット、産業用AI、半導体製造装置、精密機器といったセクターに対して中長期の追い風。設備投資減税・補助金拡充への期待も相まって、日本株の主要テーマとなり続けている分野。</li>
+<li><strong>関連銘柄：</strong></li>
+</ul>
+<p>  - ファナック(<span class="mono blue">6954</span>)：FA・産業ロボットの最大手、フィジカルAI投資の直接受益 <em class="up">↑</em></p>
+<p>  - 安川電機(<span class="mono blue">6506</span>)：モーション制御・ロボット <em class="up">↑</em></p>
+<p>  - 東京エレクトロン(<span class="mono blue">8035</span>)：半導体製造装置 <em class="up">↑</em></p>
+<p>  - キーエンス(<span class="mono blue">6861</span>)：産業向けセンサー・AIソリューション <em class="up">↑</em></p>
+<p>  - 日立製作所(<span class="mono blue">6501</span>)：産業DX・フィジカルAIシステムインテグレーター <em class="up">↑</em></p>
+
+<hr></div>
+  <div class="nc-chips"><span class="nc-chips-label">関連銘柄</span><a href="https://kabutan.jp/stock/?code=6954" target="_blank" class="stk-chip chip-up"><code>6954</code><span>ファナック ↑</span></a><a href="https://kabutan.jp/stock/?code=6506" target="_blank" class="stk-chip chip-n"><code>6506</code></a><a href="https://kabutan.jp/stock/?code=8035" target="_blank" class="stk-chip chip-up"><code>8035</code><span>東京エレクトロン ↑</span></a><a href="https://kabutan.jp/stock/?code=6861" target="_blank" class="stk-chip chip-n"><code>6861</code></a><a href="https://kabutan.jp/stock/?code=6501" target="_blank" class="stk-chip chip-n"><code>6501</code></a></div>
+  
+</article>
+    <div class="rss-section">
+      <div class="rss-lbl">参照ニュース</div>
+      <a class="rss-item" href="https://news.yahoo.co.jp/pickup/6589235?source=rss" target="_blank"><span class="rss-src">Yahoo!ニュース 経済</span><span>セブン&i 東欧企業への出資見送り</span></a><a class="rss-item" href="https://news.yahoo.co.jp/pickup/6589173?source=rss" target="_blank"><span class="rss-src">Yahoo!ニュース 経済</span><span>ニチレイ 出荷業務などすべて復旧</span></a><a class="rss-item" href="https://news.yahoo.co.jp/pickup/6589279?source=rss" target="_blank"><span class="rss-src">Yahoo!ニュース 経済</span><span>最賃で競争「チキンレース」の声</span></a><a class="rss-item" href="https://news.yahoo.co.jp/pickup/6589309?source=rss" target="_blank"><span class="rss-src">Yahoo!ニュース 経済</span><span>ジャングリア1年 経済効果494億円</span></a><a class="rss-item" href="https://news.yahoo.co.jp/pickup/6589275?source=rss" target="_blank"><span class="rss-src">Yahoo!ニュース 経済</span><span>Trip.comGに1250億円処分 中国</span></a><a class="rss-item" href="https://news.yahoo.co.jp/pickup/6589261?source=rss" target="_blank"><span class="rss-src">Yahoo!ニュース 経済</span><span>商社→タクシー運転手 給料倍以上</span></a><a class="rss-item" href="https://news.web.nhk/newsweb/na/na-k10015186161000" target="_blank"><span class="rss-src">NHK 経済</span><span>ジャングリア沖縄 開業1年 運営会社“思うような数字 至らず”</span></a><a class="rss-item" href="https://news.web.nhk/newsweb/na/na-k10015186141000" target="_blank"><span class="rss-src">NHK 経済</span><span>韓国大統領府 “米韓企業が155兆円規模のAI半導体協力”</span></a><a class="rss-item" href="https://news.web.nhk/newsweb/na/na-k10015185721000" target="_blank"><span class="rss-src">NHK 経済</span><span>「全東信」経営破綻 経産省と金融庁が調査を開始</span></a><a class="rss-item" href="https://news.web.nhk/newsweb/na/na-k10015185671000" target="_blank"><span class="rss-src">NHK 経済</span><span>コメの民間在庫量 243万トン 6月末時点で過去最大に</span></a><a class="rss-item" href="https://news.web.nhk/newsweb/na/na-k10015185661000" target="_blank"><span class="rss-src">NHK 経済</span><span>情報セキュリティー会社 企業から相談相次ぐ ニチレイ障害受け</span></a><a class="rss-item" href="https://news.web.nhk/newsweb/na/na-k10015185761000" target="_blank"><span class="rss-src">NHK 経済</span><span>経団連 夏のフォーラム 「投資けん引型経済」実現へ総括文書</span></a>
+    </div>
+  </div>
+  <div class="signals-panel">
+    <div class="panel-label">Buy Signals</div>
+    <div class="sig-card sig-buy">
+  <div class="sig-head">
+    <span class="sig-name">トレンドマイクロ</span>
+    <code class="sig-code blue">4704</code>
+    <em class="up sig-arr">↑</em>
+  </div>
+  <p class="sig-desc"><em class="up">↑↑</em>　ニチレイ事件を契機に国内企業のセキュリティ相談が急増。国内EPP・XDR市場の最大手として企業向け受注拡大の直接恩恵。中長期のサイバーテーマ継続。</p>
+  
+</div><div class="sig-card sig-buy">
+  <div class="sig-head">
+    <span class="sig-name">GMOペイメントゲートウェイ</span>
+    <code class="sig-code blue">3769</code>
+    <em class="up sig-arr">↑</em>
+  </div>
+  <p class="sig-desc"><em class="up">↑</em>　全東信破綻で中小決済代行への不信が高まり、大手・上場企業への集中が進むとみられる。信用力の相対的な高さが競争優位に。</p>
+  
+</div><div class="sig-card sig-buy">
+  <div class="sig-head">
+    <span class="sig-name">東京エレクトロン</span>
+    <code class="sig-code blue">8035</code>
+    <em class="up sig-arr">↑</em>
+  </div>
+  <p class="sig-desc"><em class="up">↑</em>　経団連フォーラムの投資推進方針＋韓国・米国間のAI半導体協力（155兆円規模）が、半導体製造装置への需要継続を裏付ける追い風。</p>
+  
+</div><div class="sig-card sig-buy">
+  <div class="sig-head">
+    <span class="sig-name">ファナック</span>
+    <code class="sig-code blue">6954</code>
+    <em class="up sig-arr">↑</em>
+  </div>
+  <p class="sig-desc"><em class="up">↑</em>　フィジカルAI推進方針で産業用ロボット・FAの政策後押し鮮明。中国向け受注回復基調との相乗効果に期待。</p>
+  
+</div><div class="sig-card sig-buy">
+  <div class="sig-head">
+    <span class="sig-name">ゼンショーHD</span>
+    <code class="sig-code blue">7550</code>
+    <em class="up sig-arr">↑</em>
+  </div>
+  <p class="sig-desc"><em class="up">↑</em>　コメ在庫過去最大→新米価格下落見通しでコスト低減期待。最低賃金引き上げの逆風はあるが、材料費低下で一定相殺。</p>
+  
+</div><div class="sig-card sig-buy">
+  <div class="sig-head">
+    <span class="sig-name">NTTデータグループ</span>
+    <code class="sig-code blue">9613</code>
+    <em class="up sig-arr">↑</em>
+  </div>
+  <p class="sig-desc"><em class="up">↑</em>　サイバーセキュリティのSOC（監視センター）・マネージドサービス需要増。ニチレイ事件が業界全体のリスク意識を高め、企業の外部委託促進につながる。</p>
+  
+</div><div class="sig-card sig-buy">
+  <div class="sig-head">
+    <span class="sig-name">ANAホールディングス</span>
+    <code class="sig-code blue">9202</code>
+    <em class="up sig-arr">↑</em>
+  </div>
+  <p class="sig-desc"><em class="up">↑</em>　ジャングリア沖縄の1年・経済効果494億円の実績と知名度上昇で、沖縄路線の需要継続に寄与。夏休み・観光シーズン入りも追い風。</p>
+  
+</div>
+    <div class="panel-label" style="margin-top:24px">Watch / Sell</div>
+    <div class="sig-card sig-watch">
+  <div class="sig-head">
+    <span class="sig-name">ニチレイ</span>
+    <code class="sig-code blue">2871</code>
+    <em class="dn sig-arr">↓</em>
+  </div>
+  <p class="sig-desc">→<em class="dn">↓</em>　短期のアク抜け期待はあるが、サイバー被害の詳細・情報漏洩の有無が未確認段階では信頼回復に時間を要する。来期以降のIT投資増加が利益率圧迫要因に。</p>
+  <div class="rn-wrap"><div class="rn-lbl">参照ニュース</div><a class="rn-link" href="https://news.yahoo.co.jp/pickup/6589173?source=rss" target="_blank"><span class="rn-src">Yahoo!ニュース 経済</span>ニチレイ 出荷業務などすべて復旧</a><a class="rn-link" href="https://news.web.nhk/newsweb/na/na-k10015185661000" target="_blank"><span class="rn-src">NHK 経済</span>情報セキュリティー会社 企業から相談相次ぐ ニチレイ障害受け</a></div>
+</div><div class="sig-card sig-watch">
+  <div class="sig-head">
+    <span class="sig-name">セブン＆アイHD</span>
+    <code class="sig-code blue">3382</code>
+    <em class="dn sig-arr">↓</em>
+  </div>
+  <p class="sig-desc">→　東欧出資見送りは無難な判断だが株価インパクトは軽微。ACTとの買収交渉進捗・コンビニ本体の既存店売上動向が主な株価ドライバーであり、積極的な買い材料には欠ける。</p>
+  <div class="rn-wrap"><div class="rn-lbl">参照ニュース</div><a class="rn-link" href="https://news.yahoo.co.jp/pickup/6589235?source=rss" target="_blank"><span class="rn-src">Yahoo!ニュース 経済</span>セブン&i 東欧企業への出資見送り</a></div>
+</div><div class="sig-card sig-watch">
+  <div class="sig-head">
+    <span class="sig-name">マクニカホールディングス</span>
+    <code class="sig-code blue">3132</code>
+    <em class="dn sig-arr">↓</em>
+  </div>
+  <p class="sig-desc"><em class="up">↑</em>→　サイバーセキュリティ製品の卸・流通として恩恵があるが、トレンドマイクロほど直接性が高くなく、市場の評価は限定的の可能性。業績・受注動向の確認が先決。</p>
+  
+</div>
+  </div>
+</div>
+    <p class="disclaimer">※ 本レポートはAIによる情報提供のみを目的とし、投資助言ではありません。</p>
+  </div>
+</div>
+
+<!-- 相場動向 -->
+<div class="tab-content" id="t-trend">
+  <div class="ca"><div class="prose">
+
+<h3>セクターローテーション・資金の流れ</h3>
+
+<p><strong>7月下旬の資金フロー傾向（2026年文脈）：</strong></p>
+
+<ul>
+<li><strong>グロース→バリューの揺り戻し</strong>：年初来で上昇していたAI・半導体関連グロース株には利益確定売りが出やすいタイミング。一方、割安PBRのある製造業・金融には中長期の資金が移行しやすい局面。</li>
+<li><strong>内需ディフェンシブへの資金流入</strong>：最低賃金引き上げ・賃金上昇ムードは消費関連の「強い内需」銘柄に追い風。食品・医薬品・日用品セクターへの資金流入に<em class="dn">注意</em>。</li>
+<li><strong>インバウンド関連の再評価</strong>：ジャングリアの経済効果報道・夏休みシーズン突入で、沖縄・地方観光関連（ホテル・航空・鉄道）への注目が再燃しやすい。</li>
+<li><strong>サイバーセキュリティテーマの持続</strong>：ニチレイ事件を受けてIT・セキュリティへの関心が高まっており、テーマ株的な資金流入が継続する可能性。</li>
+</ul>
+
+<h3>日経平均・主要銘柄のテクニカル的節目</h3>
+
+<p>> ※ 以下は直近の市場動向から推計する参考節目です。実際の水準はリアルタイムデータでご確認ください。</p>
+
+<ul>
+<li><strong>日経平均（225）</strong>：3万8,000〜3万9,000円台が当面の攻防ゾーン。4万円台回復には米国市場との連動性が鍵。25日移動平均線の位置が短期方向感を占う指標として注目。</li>
+<li><strong>TOPIX</strong>：2,700〜2,800ポイント帯が中期サポート。PBR1倍水準の修復が引き続き意識される。</li>
+<li><strong>グロース250指数</strong>：AI・スタートアップ関連の値動きが荒く、直近高値からの調整を確認したい。</li>
+<li><strong>東京エレクトロン(<span class="mono blue">8035</span>)</strong>：半導体サイクルの先行指標として注目度高い。25,000円前後の節目を維持できるかがセクター全体の地合いに影響。</li>
+<li><strong>ソフトバンクグループ(<span class="mono blue">9984</span>)</strong>：AI投資持ち株会社として相場全体の雰囲気を映しやすい。孫正義氏の講演・発言が出るたびに思惑的な動きに<em class="dn">注意</em>。</li>
+</ul>
+
+<h3>出来高急増・異変に<em class="dn">注意</em>したい銘柄カテゴリ</h3>
+
+<ul>
+<li><strong>決済・FinTech中小株</strong>：全東信破綻を受けて、類似の中小決済代行・前払式支払手段発行業者への売り圧力が出る可能性がある。</li>
+<li><strong>食品製造業のサイバーリスク関連開示</strong>：ニチレイ事件後、食品業界の同業他社がサイバー被害を開示するケースが追随して出る場合、関連銘柄に急落リスク。</li>
+<li><strong>観光・ホテルのインバウンド関連</strong>：夏休みシーズンの予約状況・訪日外客統計の発表に対して短期的に反応しやすい。</li>
+</ul>
+
+<hr>
+
+</div>
+    <p class="disclaimer">※ 投資助言ではありません。</p>
+  </div>
+</div>
+
+<!-- 総会・配当 -->
+<div class="tab-content" id="t-agm">
+  <div class="ca"><div class="prose">
+
+<h3>7〜9月の総会・決算スケジュール概観</h3>
+
+<p>7月末〜8月は日本株にとって<strong>第1四半期（4〜6月期）決算発表の最盛期</strong>です。3月期決算企業の多くが7月下旬〜8月初旬にかけてQ1業績を開示します。</p>
+
+<p>#### 直近の注目決算発表予定（参考・変更の可能性あり）</p>
+
+<table class="md-table"><thead><tr><th>時期</th><th>企業例</th><th>注目ポイント</th></tr></thead><tbody><tr><td>7月下旬〜8月上旬</td><td>ソニーグループ(<span class="mono blue">6758</span>)</td><td>ゲーム・映画・半導体の各セグメント動向</td></tr><tr><td>7月下旬〜8月上旬</td><td>日立製作所(<span class="mono blue">6501</span>)</td><td>産業DX・エネルギー事業の受注状況</td></tr><tr><td>7月下旬〜8月上旬</td><td>ファナック(<span class="mono blue">6954</span>)</td><td>中国向けFA受注の回復度合い</td></tr><tr><td>8月上旬</td><td>トヨタ自動車(<span class="mono blue">7203</span>)</td><td>為替感応度・EV戦略の進捗</td></tr><tr><td>8月上旬</td><td>キーエンス(<span class="mono blue">6861</span>)</td><td>国内外の設備投資動向の先行指標</td></tr><tr><td>8月中旬</td><td>ニチレイ(<span class="mono blue">2871</span>)</td><td>サイバー被害の損失額・業績修正有無</td></tr></tbody></table>
+
+<h3>配当関連スケジュール（3月期決算企業・2026年）</h3>
+
+<table class="md-table"><thead><tr><th>イベント</th><th>時期</th><th>内容</th></tr></thead><tbody><tr><td>期末配当支払い</td><td>6月〜7月（完了分多数）</td><td>3月期末配当は多くが6〜7月支払い</td></tr><tr><td>中間配当権利確定日</td><td>2026年9月30日</td><td>9月末を権利確定日とする3月期企業の中間配当</td></tr><tr><td>中間配当落ち日</td><td>2026年9月28日（月）頃</td><td>3連休等の暦確認が必要</td></tr><tr><td>9月期決算企業・期末配当権利</td><td>2026年9月30日</td><td>9月期企業は期末配当の権利確定</td></tr></tbody></table>
+
+<p>> <strong>ポイント：</strong> 9月末の配当権利確定に向けて、8月後半から配当利回りの高い高配当銘柄（銀行・商社・通信等）に権利取り目的の買いが集まりやすくなります。三菱UFJフィナンシャル・グループ(<span class="mono blue">8306</span>)、三菱商事(<span class="mono blue">8058</span>)、NTT(<span class="mono blue">9432</span>)、KDDI(<span class="mono blue">9433</span>)などは毎年この時期に注目されます。</p>
+
+<h3>9月権利取り・高配当戦略の留意点</h3>
+
+<ul>
+<li><strong>権利付き最終売買日（2026年）</strong>：9月権利確定の場合、9月26日（金）が権利付き最終日の見込み（暦要確認）</li>
+<li><strong>配当落ちの影響</strong>：日経平均・TOPIXは配当落ち分だけ指数上で下落するため、9月末前後は配当落ち分の「自然な下落」と実質的な値動きを区別して判断する必要あり</li>
+<li><strong>配当再投資の需要</strong>：機関投資家・インデックスファンドによる配当再投資の買いが9月末〜10月初旬にかけて入りやすく、配当落ち後の下値を支える効果が期待される</li>
+</ul>
+
+<h3>今後2ヶ月の総会シーズンの傾向と投資戦略</h3>
+
+<ul>
+<li><strong>8月は決算発表集中期</strong>：好決算・業績上方修正を発表した銘柄は翌営業日に大きく反応しやすい。事前のコンセンサス予想との比較が重要。</li>
+<li><strong>最低賃金・人件費見通しへの感応度</strong>：企業の通期ガイダンスに最賃引き上げ影響が織り込まれているかが焦点。下方修正リスクのある業種（サービス・飲食・小売）には引き続き<em class="dn">注意</em>。</li>
+<li><strong>9月権利取りに向けた戦略</strong>：高配当銘柄への早めの仕込みは8月中旬以降が例年の目安。ただし業績悪化による減配リスクの確認が先決。</li>
+</ul>
+
+<hr>
+
+<p>> <strong>編集後記：</strong> 本日のニュースで最も投資テーマとして持続力があるのは「<strong>サイバーセキュリティ</strong>」と「<strong>フィジカルAI・製造DX</strong>」の2テーマです。ニチレイのサイバー攻撃は個別事案に留まらず、食品・物流・インフラ全体のリスク意識を高める触媒となっており、トレンドマイクロ(<span class="mono blue">4704</span>)を筆頭とするセキュリティ銘柄の中期的な需要拡大は継続が見込まれます。また7月下旬〜8月は第1四半期決算の発表ラッシュ本番。個別の決算内容が株価を大きく動かすシーズンとなりますので、保有銘柄の決算発表日と事前コンセンサスの確認を怠らないようにしましょう。</p>
+
+<hr>
+<p>*本レポートは情報提供目的のみです。個別銘柄への投資は自己責任のもとでご判断ください。*</p></div>
+    <p class="disclaimer">※ 投資助言ではありません。</p>
+  </div>
+</div>
+
+<!-- ランキング -->
+<div class="tab-content" id="t-rank">
+  <div class="ca">
+    <div class="rank-toggle">
+      <button class="rank-btn rbg" data-rt="g">▲ 値上がり Top15</button>
+      <button class="rank-btn"     data-rt="l">▼ 値下がり Top15</button>
+    </div>
+    <div id="rt-g"><div class="tbl-wrap"><table class="rtbl"><thead><tr><th>順位</th><th>コード</th><th>銘柄名</th><th>業種</th><th>株価</th><th>変化率</th><th>次回総会</th><th></th></tr></thead><tbody><tr class="trow"><td class="col-r text-muted">1</td><td class="col-c"><a href="https://kabutan.jp/stock/?code=1518" target="_blank" class="mono blue">1518</a></td><td class="col-n"><a href="https://kabutan.jp/stock/?code=1518" target="_blank">三井松島ホールディングス</a></td><td class="col-i"><span class="badge" style="color:#374151;background:#3741511a;border:1px solid #37415130">その他</span></td><td class="col-p mono">1518</td><td class="col-pct mono up">+14.75%</td><td class="col-agm text-muted">—</td><td class="col-lk"><a href="https://kabutan.jp/stock/news?code=1518" target="_blank" class="tbl-btn">IR</a></td></tr><tr class="trow"><td class="col-r text-muted">2</td><td class="col-c"><a href="https://kabutan.jp/stock/?code=7034" target="_blank" class="mono blue">7034</a></td><td class="col-n"><a href="https://kabutan.jp/stock/?code=7034" target="_blank">プロレド・パートナーズ</a></td><td class="col-i"><span class="badge" style="color:#374151;background:#3741511a;border:1px solid #37415130">その他</span></td><td class="col-p mono">7034</td><td class="col-pct mono up">+13.53%</td><td class="col-agm text-muted">—</td><td class="col-lk"><a href="https://kabutan.jp/stock/news?code=7034" target="_blank" class="tbl-btn">IR</a></td></tr><tr class="trow"><td class="col-r text-muted">3</td><td class="col-c"><a href="https://kabutan.jp/stock/?code=6999" target="_blank" class="mono blue">6999</a></td><td class="col-n"><a href="https://kabutan.jp/stock/?code=6999" target="_blank">ＫＯＡ</a></td><td class="col-i"><span class="badge" style="color:#7c3aed;background:#7c3aed1a;border:1px solid #7c3aed30">半導体・電子部品</span></td><td class="col-p mono">6999</td><td class="col-pct mono up">+11.55%</td><td class="col-agm text-muted">—</td><td class="col-lk"><a href="https://kabutan.jp/stock/news?code=6999" target="_blank" class="tbl-btn">IR</a></td></tr><tr class="trow"><td class="col-r text-muted">4</td><td class="col-c"><a href="https://kabutan.jp/stock/?code=8541" target="_blank" class="mono blue">8541</a></td><td class="col-n"><a href="https://kabutan.jp/stock/?code=8541" target="_blank">愛媛銀行</a></td><td class="col-i"><span class="badge" style="color:#0891b2;background:#0891b21a;border:1px solid #0891b230">金融・保険</span></td><td class="col-p mono">8541</td><td class="col-pct mono up">+11.40%</td><td class="col-agm text-muted">—</td><td class="col-lk"><a href="https://kabutan.jp/stock/news?code=8541" target="_blank" class="tbl-btn">IR</a></td></tr><tr class="trow"><td class="col-r text-muted">5</td><td class="col-c"><a href="https://kabutan.jp/stock/?code=4733" target="_blank" class="mono blue">4733</a></td><td class="col-n"><a href="https://kabutan.jp/stock/?code=4733" target="_blank">オービックビジネスコンサルタント</a></td><td class="col-i"><span class="badge" style="color:#2563eb;background:#2563eb1a;border:1px solid #2563eb30">AI・ソフトウェア</span></td><td class="col-p mono">4733</td><td class="col-pct mono up">+8.88%</td><td class="col-agm text-muted">—</td><td class="col-lk"><a href="https://kabutan.jp/stock/news?code=4733" target="_blank" class="tbl-btn">IR</a></td></tr><tr class="trow"><td class="col-r text-muted">6</td><td class="col-c"><a href="https://kabutan.jp/stock/?code=3697" target="_blank" class="mono blue">3697</a></td><td class="col-n"><a href="https://kabutan.jp/stock/?code=3697" target="_blank">ＳＨＩＦＴ</a></td><td class="col-i"><span class="badge" style="color:#2563eb;background:#2563eb1a;border:1px solid #2563eb30">AI・ソフトウェア</span></td><td class="col-p mono">3697</td><td class="col-pct mono up">+8.21%</td><td class="col-agm text-muted">—</td><td class="col-lk"><a href="https://kabutan.jp/stock/news?code=3697" target="_blank" class="tbl-btn">IR</a></td></tr><tr class="trow"><td class="col-r text-muted">7</td><td class="col-c"><a href="https://kabutan.jp/stock/?code=9602" target="_blank" class="mono blue">9602</a></td><td class="col-n"><a href="https://kabutan.jp/stock/?code=9602" target="_blank">東宝</a></td><td class="col-i"><span class="badge" style="color:#2563eb;background:#2563eb1a;border:1px solid #2563eb30">AI・ソフトウェア</span></td><td class="col-p mono">9602</td><td class="col-pct mono up">+6.48%</td><td class="col-agm text-muted">—</td><td class="col-lk"><a href="https://kabutan.jp/stock/news?code=9602" target="_blank" class="tbl-btn">IR</a></td></tr><tr class="trow"><td class="col-r text-muted">8</td><td class="col-c"><a href="https://kabutan.jp/stock/?code=3046" target="_blank" class="mono blue">3046</a></td><td class="col-n"><a href="https://kabutan.jp/stock/?code=3046" target="_blank">ジンズホールディングス</a></td><td class="col-i"><span class="badge" style="color:#059669;background:#0596691a;border:1px solid #05966930">商社・流通</span></td><td class="col-p mono">3046</td><td class="col-pct mono up">+5.82%</td><td class="col-agm text-muted">—</td><td class="col-lk"><a href="https://kabutan.jp/stock/news?code=3046" target="_blank" class="tbl-btn">IR</a></td></tr><tr class="trow"><td class="col-r text-muted">9</td><td class="col-c"><a href="https://kabutan.jp/stock/?code=3994" target="_blank" class="mono blue">3994</a></td><td class="col-n"><a href="https://kabutan.jp/stock/?code=3994" target="_blank">マネーフォワード</a></td><td class="col-i"><span class="badge" style="color:#2563eb;background:#2563eb1a;border:1px solid #2563eb30">AI・ソフトウェア</span></td><td class="col-p mono">3994</td><td class="col-pct mono up">+5.69%</td><td class="col-agm text-muted">—</td><td class="col-lk"><a href="https://kabutan.jp/stock/news?code=3994" target="_blank" class="tbl-btn">IR</a></td></tr><tr class="trow"><td class="col-r text-muted">10</td><td class="col-c"><a href="https://kabutan.jp/stock/?code=6532" target="_blank" class="mono blue">6532</a></td><td class="col-n"><a href="https://kabutan.jp/stock/?code=6532" target="_blank">ベイカレント</a></td><td class="col-i"><span class="badge" style="color:#374151;background:#3741511a;border:1px solid #37415130">その他</span></td><td class="col-p mono">6532</td><td class="col-pct mono up">+4.69%</td><td class="col-agm text-muted">—</td><td class="col-lk"><a href="https://kabutan.jp/stock/news?code=6532" target="_blank" class="tbl-btn">IR</a></td></tr><tr class="trow"><td class="col-r text-muted">11</td><td class="col-c"><a href="https://kabutan.jp/stock/?code=4997" target="_blank" class="mono blue">4997</a></td><td class="col-n"><a href="https://kabutan.jp/stock/?code=4997" target="_blank">日本農薬</a></td><td class="col-i"><span class="badge" style="color:#92400e;background:#92400e1a;border:1px solid #92400e30">化学・素材</span></td><td class="col-p mono">4997</td><td class="col-pct mono up">+4.63%</td><td class="col-agm text-muted">—</td><td class="col-lk"><a href="https://kabutan.jp/stock/news?code=4997" target="_blank" class="tbl-btn">IR</a></td></tr><tr class="trow"><td class="col-r text-muted">12</td><td class="col-c"><a href="https://kabutan.jp/stock/?code=8387" target="_blank" class="mono blue">8387</a></td><td class="col-n"><a href="https://kabutan.jp/stock/?code=8387" target="_blank">四国銀行</a></td><td class="col-i"><span class="badge" style="color:#0891b2;background:#0891b21a;border:1px solid #0891b230">金融・保険</span></td><td class="col-p mono">8387</td><td class="col-pct mono up">+4.52%</td><td class="col-agm text-muted">—</td><td class="col-lk"><a href="https://kabutan.jp/stock/news?code=8387" target="_blank" class="tbl-btn">IR</a></td></tr><tr class="trow"><td class="col-r text-muted">13</td><td class="col-c"><a href="https://kabutan.jp/stock/?code=8343" target="_blank" class="mono blue">8343</a></td><td class="col-n"><a href="https://kabutan.jp/stock/?code=8343" target="_blank">秋田銀行</a></td><td class="col-i"><span class="badge" style="color:#0891b2;background:#0891b21a;border:1px solid #0891b230">金融・保険</span></td><td class="col-p mono">8343</td><td class="col-pct mono up">+4.50%</td><td class="col-agm text-muted">—</td><td class="col-lk"><a href="https://kabutan.jp/stock/news?code=8343" target="_blank" class="tbl-btn">IR</a></td></tr><tr class="trow"><td class="col-r text-muted">14</td><td class="col-c"><a href="https://kabutan.jp/stock/?code=8362" target="_blank" class="mono blue">8362</a></td><td class="col-n"><a href="https://kabutan.jp/stock/?code=8362" target="_blank">福井銀行</a></td><td class="col-i"><span class="badge" style="color:#0891b2;background:#0891b21a;border:1px solid #0891b230">金融・保険</span></td><td class="col-p mono">8362</td><td class="col-pct mono up">+4.22%</td><td class="col-agm text-muted">—</td><td class="col-lk"><a href="https://kabutan.jp/stock/news?code=8362" target="_blank" class="tbl-btn">IR</a></td></tr><tr class="trow"><td class="col-r text-muted">15</td><td class="col-c"><a href="https://kabutan.jp/stock/?code=8388" target="_blank" class="mono blue">8388</a></td><td class="col-n"><a href="https://kabutan.jp/stock/?code=8388" target="_blank">阿波銀行</a></td><td class="col-i"><span class="badge" style="color:#0891b2;background:#0891b21a;border:1px solid #0891b230">金融・保険</span></td><td class="col-p mono">8388</td><td class="col-pct mono up">+4.08%</td><td class="col-agm text-muted">—</td><td class="col-lk"><a href="https://kabutan.jp/stock/news?code=8388" target="_blank" class="tbl-btn">IR</a></td></tr></tbody></table></div></div>
+    <div id="rt-l" style="display:none"><div class="tbl-wrap"><table class="rtbl"><thead><tr><th>順位</th><th>コード</th><th>銘柄名</th><th>業種</th><th>株価</th><th>変化率</th><th>次回総会</th><th></th></tr></thead><tbody><tr class="trow"><td class="col-r text-muted">1</td><td class="col-c"><a href="https://kabutan.jp/stock/?code=285A" target="_blank" class="mono blue">285A</a></td><td class="col-n"><a href="https://kabutan.jp/stock/?code=285A" target="_blank">キオクシアホールディングス</a></td><td class="col-i"><span class="badge" style="color:#7c3aed;background:#7c3aed1a;border:1px solid #7c3aed30">半導体・電子部品</span></td><td class="col-p mono">56,010</td><td class="col-pct mono dn">-9.49%</td><td class="col-agm text-muted">—</td><td class="col-lk"><a href="https://kabutan.jp/stock/news?code=285A" target="_blank" class="tbl-btn">IR</a></td></tr><tr class="trow"><td class="col-r text-muted">2</td><td class="col-c"><a href="https://kabutan.jp/stock/?code=6146" target="_blank" class="mono blue">6146</a></td><td class="col-n"><a href="https://kabutan.jp/stock/?code=6146" target="_blank">ディスコ</a></td><td class="col-i"><span class="badge" style="color:#374151;background:#3741511a;border:1px solid #37415130">その他</span></td><td class="col-p mono">6146</td><td class="col-pct mono dn">-12.27%</td><td class="col-agm text-muted">—</td><td class="col-lk"><a href="https://kabutan.jp/stock/news?code=6146" target="_blank" class="tbl-btn">IR</a></td></tr><tr class="trow"><td class="col-r text-muted">3</td><td class="col-c"><a href="https://kabutan.jp/stock/?code=6857" target="_blank" class="mono blue">6857</a></td><td class="col-n"><a href="https://kabutan.jp/stock/?code=6857" target="_blank">アドバンテスト</a></td><td class="col-i"><span class="badge" style="color:#7c3aed;background:#7c3aed1a;border:1px solid #7c3aed30">半導体・電子部品</span></td><td class="col-p mono">6857</td><td class="col-pct mono dn">-6.02%</td><td class="col-agm text-muted">—</td><td class="col-lk"><a href="https://kabutan.jp/stock/news?code=6857" target="_blank" class="tbl-btn">IR</a></td></tr><tr class="trow"><td class="col-r text-muted">4</td><td class="col-c"><a href="https://kabutan.jp/stock/?code=8035" target="_blank" class="mono blue">8035</a></td><td class="col-n"><a href="https://kabutan.jp/stock/?code=8035" target="_blank">東京エレクトロン</a></td><td class="col-i"><span class="badge" style="color:#7c3aed;background:#7c3aed1a;border:1px solid #7c3aed30">半導体・電子部品</span></td><td class="col-p mono">8035</td><td class="col-pct mono dn">-4.99%</td><td class="col-agm text-muted">—</td><td class="col-lk"><a href="https://kabutan.jp/stock/news?code=8035" target="_blank" class="tbl-btn">IR</a></td></tr><tr class="trow"><td class="col-r text-muted">5</td><td class="col-c"><a href="https://kabutan.jp/stock/?code=9984" target="_blank" class="mono blue">9984</a></td><td class="col-n"><a href="https://kabutan.jp/stock/?code=9984" target="_blank">ソフトバンクグループ</a></td><td class="col-i"><span class="badge" style="color:#2563eb;background:#2563eb1a;border:1px solid #2563eb30">AI・ソフトウェア</span></td><td class="col-p mono">9984</td><td class="col-pct mono dn">-7.06%</td><td class="col-agm text-muted">—</td><td class="col-lk"><a href="https://kabutan.jp/stock/news?code=9984" target="_blank" class="tbl-btn">IR</a></td></tr><tr class="trow"><td class="col-r text-muted">6</td><td class="col-c"><a href="https://kabutan.jp/stock/?code=6976" target="_blank" class="mono blue">6976</a></td><td class="col-n"><a href="https://kabutan.jp/stock/?code=6976" target="_blank">太陽誘電</a></td><td class="col-i"><span class="badge" style="color:#7c3aed;background:#7c3aed1a;border:1px solid #7c3aed30">半導体・電子部品</span></td><td class="col-p mono">6976</td><td class="col-pct mono dn">-6.09%</td><td class="col-agm text-muted">—</td><td class="col-lk"><a href="https://kabutan.jp/stock/news?code=6976" target="_blank" class="tbl-btn">IR</a></td></tr><tr class="trow"><td class="col-r text-muted">7</td><td class="col-c"><a href="https://kabutan.jp/stock/?code=1570" target="_blank" class="mono blue">1570</a></td><td class="col-n"><a href="https://kabutan.jp/stock/?code=1570" target="_blank">ＮＥＸＴ</a></td><td class="col-i"><span class="badge" style="color:#0891b2;background:#0891b21a;border:1px solid #0891b230">金融・保険</span></td><td class="col-p mono">1570</td><td class="col-pct mono dn">-5.25%</td><td class="col-agm text-muted">—</td><td class="col-lk"><a href="https://kabutan.jp/stock/news?code=1570" target="_blank" class="tbl-btn">IR</a></td></tr><tr class="trow"><td class="col-r text-muted">8</td><td class="col-c"><a href="https://kabutan.jp/stock/?code=6981" target="_blank" class="mono blue">6981</a></td><td class="col-n"><a href="https://kabutan.jp/stock/?code=6981" target="_blank">村田製作所</a></td><td class="col-i"><span class="badge" style="color:#7c3aed;background:#7c3aed1a;border:1px solid #7c3aed30">半導体・電子部品</span></td><td class="col-p mono">6981</td><td class="col-pct mono dn">-2.66%</td><td class="col-agm text-muted">—</td><td class="col-lk"><a href="https://kabutan.jp/stock/news?code=6981" target="_blank" class="tbl-btn">IR</a></td></tr><tr class="trow"><td class="col-r text-muted">9</td><td class="col-c"><a href="https://kabutan.jp/stock/?code=4062" target="_blank" class="mono blue">4062</a></td><td class="col-n"><a href="https://kabutan.jp/stock/?code=4062" target="_blank">イビデン</a></td><td class="col-i"><span class="badge" style="color:#7c3aed;background:#7c3aed1a;border:1px solid #7c3aed30">半導体・電子部品</span></td><td class="col-p mono">4062</td><td class="col-pct mono dn">-3.90%</td><td class="col-agm text-muted">—</td><td class="col-lk"><a href="https://kabutan.jp/stock/news?code=4062" target="_blank" class="tbl-btn">IR</a></td></tr><tr class="trow"><td class="col-r text-muted">10</td><td class="col-c"><a href="https://kabutan.jp/stock/?code=8306" target="_blank" class="mono blue">8306</a></td><td class="col-n"><a href="https://kabutan.jp/stock/?code=8306" target="_blank">三菱ＵＦＪフィナンシャル・グループ</a></td><td class="col-i"><span class="badge" style="color:#0891b2;background:#0891b21a;border:1px solid #0891b230">金融・保険</span></td><td class="col-p mono">8306</td><td class="col-pct mono up">+0.11%</td><td class="col-agm text-muted">—</td><td class="col-lk"><a href="https://kabutan.jp/stock/news?code=8306" target="_blank" class="tbl-btn">IR</a></td></tr><tr class="trow"><td class="col-r text-muted">11</td><td class="col-c"><a href="https://kabutan.jp/stock/?code=5803" target="_blank" class="mono blue">5803</a></td><td class="col-n"><a href="https://kabutan.jp/stock/?code=5803" target="_blank">フジクラ</a></td><td class="col-i"><span class="badge" style="color:#374151;background:#3741511a;border:1px solid #37415130">その他</span></td><td class="col-p mono">5803</td><td class="col-pct mono dn">-2.83%</td><td class="col-agm text-muted">—</td><td class="col-lk"><a href="https://kabutan.jp/stock/news?code=5803" target="_blank" class="tbl-btn">IR</a></td></tr><tr class="trow"><td class="col-r text-muted">12</td><td class="col-c"><a href="https://kabutan.jp/stock/?code=6920" target="_blank" class="mono blue">6920</a></td><td class="col-n"><a href="https://kabutan.jp/stock/?code=6920" target="_blank">レーザーテック</a></td><td class="col-i"><span class="badge" style="color:#7c3aed;background:#7c3aed1a;border:1px solid #7c3aed30">半導体・電子部品</span></td><td class="col-p mono">6920</td><td class="col-pct mono dn">-4.34%</td><td class="col-agm text-muted">—</td><td class="col-lk"><a href="https://kabutan.jp/stock/news?code=6920" target="_blank" class="tbl-btn">IR</a></td></tr><tr class="trow"><td class="col-r text-muted">13</td><td class="col-c"><a href="https://kabutan.jp/stock/?code=8411" target="_blank" class="mono blue">8411</a></td><td class="col-n"><a href="https://kabutan.jp/stock/?code=8411" target="_blank">みずほフィナンシャルグループ</a></td><td class="col-i"><span class="badge" style="color:#0891b2;background:#0891b21a;border:1px solid #0891b230">金融・保険</span></td><td class="col-p mono">8411</td><td class="col-pct mono dn">-1.30%</td><td class="col-agm text-muted">—</td><td class="col-lk"><a href="https://kabutan.jp/stock/news?code=8411" target="_blank" class="tbl-btn">IR</a></td></tr><tr class="trow"><td class="col-r text-muted">14</td><td class="col-c"><a href="https://kabutan.jp/stock/?code=9983" target="_blank" class="mono blue">9983</a></td><td class="col-n"><a href="https://kabutan.jp/stock/?code=9983" target="_blank">ファーストリテイリング</a></td><td class="col-i"><span class="badge" style="color:#059669;background:#0596691a;border:1px solid #05966930">商社・流通</span></td><td class="col-p mono">9983</td><td class="col-pct mono dn">-1.13%</td><td class="col-agm text-muted">—</td><td class="col-lk"><a href="https://kabutan.jp/stock/news?code=9983" target="_blank" class="tbl-btn">IR</a></td></tr><tr class="trow"><td class="col-r text-muted">15</td><td class="col-c"><a href="https://kabutan.jp/stock/?code=8316" target="_blank" class="mono blue">8316</a></td><td class="col-n"><a href="https://kabutan.jp/stock/?code=8316" target="_blank">三井住友フィナンシャルグループ</a></td><td class="col-i"><span class="badge" style="color:#0891b2;background:#0891b21a;border:1px solid #0891b230">金融・保険</span></td><td class="col-p mono">8316</td><td class="col-pct mono dn">-0.08%</td><td class="col-agm text-muted">—</td><td class="col-lk"><a href="https://kabutan.jp/stock/news?code=8316" target="_blank" class="tbl-btn">IR</a></td></tr></tbody></table></div></div>
+    <p class="disclaimer">※ 投資助言ではありません。</p>
+  </div>
+</div>
+
+<script>
+  // Tab switching
+  document.querySelectorAll('.tab-btn').forEach(b => {
+    b.addEventListener('click', () => {
+      document.querySelectorAll('.tab-btn').forEach(x => x.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(x => x.classList.remove('active'));
+      b.classList.add('active');
+      const el = document.getElementById(b.dataset.tab);
+      if (el) el.classList.add('active');
+    });
+  });
+  // Ranking toggle
+  document.querySelectorAll('.rank-btn').forEach(b => {
+    b.addEventListener('click', () => {
+      document.querySelectorAll('.rank-btn').forEach(x => x.classList.remove('rbg','rbr'));
+      const t = b.dataset.rt;
+      b.classList.add(t === 'g' ? 'rbg' : 'rbr');
+      document.getElementById('rt-g').style.display = t === 'g' ? '' : 'none';
+      document.getElementById('rt-l').style.display = t === 'l' ? '' : 'none';
+    });
+  });
+</script>
+</body>
+</html>
