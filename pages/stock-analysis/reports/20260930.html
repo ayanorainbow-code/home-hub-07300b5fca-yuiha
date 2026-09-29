@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="ja" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <script>document.documentElement.classList.remove('no-js');</script>
+  <title>株式日次分析 2026年09月30日</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+/* ═══ Design Tokens ═══ */
+:root {
+  --bg:       #060d1c;
+  --sf1:      #0c1628;
+  --sf2:      #112039;
+  --sf3:      #1a2f50;
+  --bd:       rgba(255,255,255,0.07);
+  --bds:      rgba(255,255,255,0.14);
+  --t1:       #eaf0f8;
+  --t2:       #7a9ab5;
+  --t3:       #3d5470;
+  --green:    #00c9a7;
+  --red:      #ff4466;
+  --blue:     #4d9eff;
+  --amber:    #ffb340;
+  --r:        8px;
+  --shadow:   0 4px 24px rgba(0,0,0,.4);
+}
+
+/* ═══ Base ═══ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 14px; }
+body {
+  font-family: "Inter","Noto Sans JP",sans-serif;
+  background: var(--bg);
+  color: var(--t1);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ═══ Header ═══ */
+.hdr {
+  height: 52px;
+  background: rgba(6,13,28,.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--bd);
+  display: flex; align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+  position: sticky; top: 0; z-index: 200;
+}
+.hdr-l { display: flex; align-items: center; gap: 14px; }
+.logo {
+  font-size: 13px; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--t2);
+  padding: 4px 10px;
+  border: 1px solid var(--bd);
+  border-radius: 5px;
+}
+.hdr-title { font-size: 14px; font-weight: 600; color: var(--t1); }
+.hdr-date  { font-size: 12px; color: var(--t3); font-variant-numeric: tabular-nums; }
+.hdr-meta  { font-size: 11px; color: var(--t3); text-align: right; line-height: 1.5; }
+
+/* ═══ Tab Nav ═══ */
+.tab-nav {
+  display: flex;
+  background: var(--bg);
+  border-bottom: 1px solid var(--bd);
+  padding: 0 28px;
+  overflow-x: auto; gap: 0;
+}
+.tab-nav::-webkit-scrollbar { display: none; }
+.tab-btn {
+  display: flex; align-items: center; gap: 7px;
+  padding: 0 16px; height: 42px;
+  border: none; background: transparent;
+  color: var(--t3); font-size: 12px; font-weight: 600;
+  font-family: inherit; letter-spacing: 0.05em;
+  text-transform: uppercase; white-space: nowrap;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  position: relative; bottom: -1px;
+  transition: color 150ms, border-color 150ms;
+  min-height: 44px;
+}
+.tab-btn:hover { color: var(--t2); }
+.tab-btn.active { color: var(--t1); border-bottom-color: var(--blue); }
+.tab-icon { width: 15px; height: 15px; display: inline-flex; flex-shrink: 0; }
+.tab-icon svg { width: 15px; height: 15px; display: block; }
+.tab-label { }
+
+/* ═══ Tab Content ═══ */
+.tab-content { display: none; }
+/* JS が動かない環境（メール添付のプレビュー等）では全タブを縦に並べる */
+.tab-h { display: none; }
+.no-js .tab-nav { display: none; }
+.no-js .tab-content { display: block; border-bottom: 1px solid var(--bd); }
+.no-js .tab-h { display: block; max-width: 1200px; margin: 0 auto; padding: 24px 28px 0;
+  font-size: 18px; color: var(--t1); }
+.tab-content.active { display: block; animation: fadeUp 200ms ease-out; }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.ca { max-width: 1200px; margin: 0 auto; padding: 28px 28px 64px; }
+
+/* ═══ Prose (分析本文) ═══ */
+.prose h2 {
+  font-size: 15px; font-weight: 700; color: var(--t1);
+  margin: 28px 0 14px; padding-bottom: 8px;
+  border-bottom: 1px solid var(--bd);
+  letter-spacing: 0.02em;
+}
+.prose h3 { font-size: 12px; font-weight: 700; color: var(--t3);
+             margin: 18px 0 8px; letter-spacing: 0.08em; text-transform: uppercase; }
+.prose p  { color: var(--t2); margin-bottom: 8px; font-size: 14px; }
+.prose ul { list-style: none; padding: 0; margin-bottom: 8px; }
+.prose li { color: var(--t2); font-size: 14px;
+             padding: 6px 0 6px 14px; position: relative;
+             border-bottom: 1px solid var(--bd); }
+.prose li::before { content: "·"; position: absolute; left: 0; color: var(--t3); font-size: 18px; line-height: 1.4; }
+.prose strong { color: var(--t1); font-weight: 600; }
+.prose hr { border: none; border-top: 1px solid var(--bd); margin: 16px 0; }
+
+/* ═══ Markdown Table ═══ */
+.md-table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 13px; }
+.md-table th {
+  background: var(--bg); color: var(--t3);
+  font-weight: 700; font-size: 10px;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 8px 12px; border-bottom: 2px solid var(--bd);
+  text-align: left;
+}
+.md-table td { padding: 8px 12px; border-bottom: 1px solid var(--bd); color: var(--t2); }
+.md-table tr:hover td { background: var(--sf1); }
+
+/* ═══ Color Util ═══ */
+em.up  { color: var(--green); font-style: normal; font-weight: 600; }
+em.dn  { color: var(--red);   font-style: normal; font-weight: 600; }
+.up    { color: var(--green); }
+.dn    { color: var(--red);   }
+.blue  { color: var(--blue);  }
+.mono  { font-family: "JetBrains Mono", monospace; }
+.star  { font-style: normal; }
+.badge { display: inline-block; padding: 2px 8px; border-radius: 20px;
+          font-size: 10px; font-weight: 700; white-space: nowrap; letter-spacing: 0.04em; }
+.imp-badge { display: inline-flex; align-items: center; gap: 4px;
+              padding: 2px 9px; border-radius: 4px;
+              font-size: 10px; font-weight: 800; letter-spacing: 0.1em; }
+
+/* ═══ Market Tab Layout ═══ */
+.market-layout { display: grid; grid-template-columns: 1fr 360px; gap: 24px; }
+.news-stream { min-width: 0; }
+.signals-panel { }
+.panel-label {
+  font-size: 10px; font-weight: 800; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--t3);
+  margin-bottom: 12px; padding-bottom: 8px;
+  border-bottom: 1px solid var(--bd);
+}
+
+/* ═══ News Card ═══ */
+.nc {
+  background: var(--sf1);
+  border: 1px solid var(--bd);
+  border-radius: var(--r);
+  padding: 20px 22px;
+  margin-bottom: 12px;
+  transition: border-color 200ms, box-shadow 200ms;
+}
+.nc:hover { border-color: var(--bds); box-shadow: var(--shadow); }
+.nc-meta   { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+.nc-title  { font-size: 15px; font-weight: 700; color: var(--t1);
+              margin-bottom: 10px; line-height: 1.45; }
+.nc-body   { }
+.nc-body p { font-size: 13px; color: var(--t2); margin-bottom: 4px; }
+.nc-body li{ font-size: 13px; }
+.nc-body strong { color: var(--t1); }
+.nc-chips  { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px;
+              align-items: center; }
+.nc-chips-label { font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+                   text-transform: uppercase; color: var(--t3); margin-right: 2px; }
+.stk-chip  {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 3px 10px; border-radius: 20px;
+  font-size: 12px; font-weight: 600;
+  border: 1px solid var(--bd);
+  transition: border-color 150ms;
+  text-decoration: none !important;
+}
+.stk-chip:hover { border-color: var(--bds); }
+.stk-chip code { font-family: "JetBrains Mono",monospace; font-size: 11px; }
+.chip-up  { border-color: rgba(0,201,167,.3); background: rgba(0,201,167,.07); color: var(--green); }
+.chip-dn  { border-color: rgba(255,68,102,.3); background: rgba(255,68,102,.07); color: var(--red); }
+.chip-n   { background: var(--sf2); color: var(--t2); }
+.nc-rss-wrap { margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--bd); }
+.nc-rss  { display: block; font-size: 12px; color: var(--blue);
+            padding: 3px 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.nc-rss:hover { text-decoration: underline; }
+.nc-rss-src { display: inline-block; font-size: 10px; background: var(--sf2);
+               color: var(--t3); padding: 1px 6px; border-radius: 3px; margin-right: 6px; }
+
+/* ═══ Signal Cards ═══ */
+.sig-card {
+  background: var(--sf1); border: 1px solid var(--bd);
+  border-radius: var(--r); padding: 14px 16px; margin-bottom: 8px;
+  transition: border-color 200ms;
+}
+.sig-card:hover { border-color: var(--bds); }
+.sig-buy   { border-left: 3px solid rgba(0,201,167,.5); }
+.sig-watch { border-left: 3px solid rgba(255,68,102,.5); }
+.sig-head  { display: flex; align-items: center; gap: 8px; margin-bottom: 7px; }
+.sig-name  { font-weight: 700; font-size: 14px; }
+.sig-code  { font-family: "JetBrains Mono",monospace; font-size: 11px; }
+.sig-arr   { font-size: 16px; margin-left: auto; }
+.sig-desc  { font-size: 12px; color: var(--t2); line-height: 1.6; }
+.rn-wrap   { margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--bd); }
+.rn-lbl    { font-size: 9px; font-weight: 800; letter-spacing: 0.1em;
+              text-transform: uppercase; color: var(--t3); margin-bottom: 5px; }
+.rn-link   { display: block; font-size: 11px; color: var(--blue);
+              padding: 2px 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.rn-src    { display: inline-block; font-size: 9px; background: var(--sf2);
+              color: var(--t3); padding: 1px 4px; border-radius: 3px; margin-right: 5px; }
+
+/* ═══ RSS News List (in news stream) ═══ */
+.rss-section { margin-top: 28px; border-top: 1px solid var(--bd); padding-top: 20px; }
+.rss-lbl { font-size: 10px; font-weight: 800; letter-spacing: 0.12em;
+             text-transform: uppercase; color: var(--t3); margin-bottom: 10px; }
+a.rss-item {
+  display: flex; align-items: baseline; gap: 10px;
+  padding: 8px 10px; border-radius: 6px;
+  color: var(--t2); font-size: 13px;
+  transition: background 150ms;
+  margin-bottom: 2px;
+}
+a.rss-item:hover { background: var(--sf1); text-decoration: none; color: var(--t1); }
+.rss-src { flex-shrink: 0; font-size: 10px; font-weight: 600; color: var(--t3);
+            background: var(--sf1); padding: 1px 6px; border-radius: 3px; }
+
+/* ═══ Ranking ═══ */
+.rank-toggle { display: flex; gap: 8px; margin-bottom: 20px; }
+.rank-btn {
+  padding: 6px 18px; border-radius: 6px;
+  border: 1px solid var(--bd); background: transparent;
+  color: var(--t3); font-size: 12px; font-weight: 700;
+  font-family: inherit; letter-spacing: 0.06em;
+  cursor: pointer; transition: all 200ms; min-height: 40px;
+}
+.rbg { border-color: var(--green); color: var(--green); }
+.rbr { border-color: var(--red);   color: var(--red);   }
+
+.tbl-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.rtbl { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 13px; }
+.rtbl thead tr { background: var(--bg); }
+.rtbl th {
+  padding: 10px 14px; text-align: left;
+  color: var(--t3); font-size: 10px; font-weight: 800;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  border-bottom: 2px solid var(--bd); white-space: nowrap;
+}
+.trow { transition: background 150ms; }
+.trow:hover { background: var(--sf1); }
+.rtbl td { padding: 9px 14px; border-bottom: 1px solid var(--bd); vertical-align: middle; }
+.col-r { color: var(--t3); font-size: 11px; width: 40px; }
+.col-agm { color: var(--t3); font-size: 12px; font-family: "JetBrains Mono",monospace; }
+.tbl-btn {
+  display: inline-block; padding: 2px 8px;
+  border-radius: 4px; background: transparent;
+  border: 1px solid var(--bd); color: var(--t3);
+  font-size: 11px; transition: border-color 150ms, color 150ms;
+}
+.tbl-btn:hover { border-color: var(--blue); color: var(--blue); text-decoration: none; }
+
+/* ═══ Utility ═══ */
+.text-muted { color: var(--t3); }
+.no-data    { color: var(--t3); padding: 24px 0; }
+.disclaimer {
+  font-size: 11px; color: var(--t3); text-align: center;
+  padding: 40px 0 12px; border-top: 1px solid var(--bd); margin-top: 40px;
+}
+.sec-label {
+  font-size: 10px; font-weight: 800; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--t3);
+  margin-bottom: 16px; padding-bottom: 8px;
+  border-bottom: 1px solid var(--bd);
+}
+
+/* ═══ Responsive ═══ */
+@media (max-width: 1023px) {
+  .market-layout { grid-template-columns: 1fr; }
+  .rtbl th:nth-child(5), .rtbl td:nth-child(5) { display: none; } /* 株価 */
+}
+@media (max-width: 767px) {
+  .hdr { padding: 0 14px; height: 46px; }
+  .hdr-meta { display: none; }
+  .tab-label { display: none; }
+  .tab-btn { padding: 0 13px; gap: 0; }
+  .tab-icon { width: 18px; height: 18px; }
+  .tab-icon svg { width: 18px; height: 18px; }
+  .ca { padding: 16px 14px 48px; }
+  .nc { padding: 14px 16px; }
+  .market-layout { gap: 16px; }
+  .rtbl th:nth-child(4), .rtbl td:nth-child(4) { display: none; } /* 業種 */
+  .rtbl th:nth-child(7), .rtbl td:nth-child(7) { display: none; } /* 総会 */
+}
+
+/* ═══ マクロ・資金フロー ═══ */
+.mf-summary { margin-bottom: 8px; }
+.mf-sec { margin-top: 28px; }
+.mf-sec .sec-label, .mf-summary + .mf-sec .sec-label { margin-bottom: 12px; }
+.mf-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+.mf-card { background: var(--sf1); border: 1px solid var(--bd); border-radius: var(--r);
+  padding: 16px 18px 14px; min-width: 0; }
+.mf-card.mf-warn { border-color: rgba(255,179,64,.55); box-shadow: inset 3px 0 0 var(--amber); }
+.mf-head { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; margin-bottom: 6px; }
+.mf-label { font-size: 12px; font-weight: 700; color: var(--t2); margin-right: auto; }
+.mf-badge { font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 20px; border: 1px solid; }
+.mf-b-warn   { color: var(--amber); border-color: rgba(255,179,64,.4); background: rgba(255,179,64,.1); }
+.mf-b-closed { color: var(--t2); border-color: var(--bds); background: var(--sf2); }
+.mf-b-stale  { color: var(--amber); border-color: rgba(255,179,64,.3); background: transparent; }
+.mf-b-info   { color: var(--t2); border-color: var(--bds); }
+.mf-val { font-size: 28px; font-weight: 700; color: var(--t1); font-variant-numeric: tabular-nums;
+  font-family: "JetBrains Mono", monospace; line-height: 1.2; }
+.mf-val.mf-na { font-size: 16px; color: var(--t3); }
+.mf-chg { font-size: 13px; font-weight: 600; margin: 2px 0 10px; color: var(--t2);
+  font-variant-numeric: tabular-nums; }
+.mf-chg.up { color: var(--green); } .mf-chg.dn { color: var(--red); }
+.mf-spark { width: 100%; height: 48px; display: block; overflow: visible; }
+.mf-line { fill: none; stroke: var(--blue); stroke-width: 2; vector-effect: non-scaling-stroke;
+  stroke-linejoin: round; stroke-linecap: round; }
+.mf-end  { fill: var(--blue); stroke: var(--sf1); stroke-width: 2; vector-effect: non-scaling-stroke; }
+.mf-thr  { stroke: var(--amber); stroke-width: 1; stroke-dasharray: 4 3; vector-effect: non-scaling-stroke; }
+.mf-hit  { fill: transparent; }
+.mf-hit:hover { fill: rgba(77,158,255,.35); }
+.mf-range { display: flex; justify-content: space-between; font-size: 10px; color: var(--t3);
+  font-variant-numeric: tabular-nums; margin-top: 2px; }
+.mf-foot { font-size: 10.5px; color: var(--t3); margin-top: 10px; padding-top: 8px;
+  border-top: 1px solid var(--bd); line-height: 1.6; }
+.mf-note { font-size: 12px; color: var(--t2); line-height: 1.7; margin-bottom: 10px; }
+.mf-err  { font-size: 11px; color: var(--amber); margin-top: 6px; }
+.mf-private { color: var(--amber); }
+.dim { color: var(--t3); }
+/* 投資部門別：4部門の小さな棒グラフ（縦軸共通） */
+.flow-legend { display: flex; flex-wrap: wrap; gap: 14px; font-size: 11px; color: var(--t2); margin-bottom: 10px; }
+.flow-legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 5px; vertical-align: -1px; }
+.lg-up { background: var(--green); } .lg-dn { background: var(--red); }
+.lg-na { background: repeating-linear-gradient(45deg, var(--sf3) 0 2px, transparent 2px 4px); border: 1px solid var(--bds); }
+.flow-chart { background: var(--sf1); border: 1px solid var(--bd); border-radius: var(--r); padding: 12px 14px 8px; }
+.fr { display: grid; grid-template-columns: 120px 1fr; gap: 10px; align-items: center; }
+.fr + .fr { margin-top: 6px; }
+.fr-name { font-size: 12px; font-weight: 600; color: var(--t1); display: flex; flex-direction: column; line-height: 1.35; }
+.fr-last { font-size: 11px; font-weight: 600; color: var(--t2); font-variant-numeric: tabular-nums; }
+.fr-last.up { color: var(--green); } .fr-last.dn { color: var(--red); }
+.fr-bars { display: grid; grid-template-columns: repeat(12, 1fr); gap: 2px; height: 64px; }
+.fb { display: flex; flex-direction: column; min-width: 0; cursor: default; }
+.fb-pos, .fb-neg { flex: 1; display: flex; padding: 0 18%; }
+.fb-pos { align-items: flex-end; border-bottom: 1px solid var(--bds); }
+.fb-neg { align-items: flex-start; }
+.fb i { display: block; width: 100%; min-height: 1px; }
+.fb-pos i { background: var(--green); border-radius: 4px 4px 0 0; }
+.fb-neg i { background: var(--red);   border-radius: 0 0 4px 4px; }
+.fb:hover { background: var(--sf2); border-radius: 3px; }
+.fb-na .fb-pos, .fb-na .fb-neg { background: repeating-linear-gradient(45deg, var(--sf2) 0 2px, transparent 2px 5px); }
+.fr-axis { display: grid; grid-template-columns: repeat(12, 1fr); gap: 2px; font-size: 10px;
+  color: var(--t3); text-align: center; font-variant-numeric: tabular-nums; }
+.mf-table { margin-top: 10px; }
+.mf-table summary { font-size: 12px; color: var(--blue); cursor: pointer; }
+.tbl-wrap { overflow-x: auto; }
+.mf-table td.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.mf-table td.up { color: var(--green); } .mf-table td.dn { color: var(--red); }
+.mf-table tr.na td { color: var(--t3); }
+@media (max-width: 640px) {
+  .fr { grid-template-columns: 1fr; gap: 4px; }
+  .fr-name { flex-direction: row; justify-content: space-between; }
+  .fr-axis span:nth-child(even) { visibility: hidden; }
+  .mf-val { font-size: 24px; }
+}
+
+/* ═══ 業種トレンド ═══ */
+.st-tools { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; font-size: 12px; }
+.st-sort { background: var(--sf1); color: var(--t2); border: 1px solid var(--bd); border-radius: 6px;
+  padding: 4px 10px; font-size: 12px; cursor: pointer; font-family: inherit; }
+.st-sort.active { color: var(--t1); border-color: var(--blue); }
+.st-hm-wrap { overflow-x: auto; border: 1px solid var(--bd); border-radius: var(--r); }
+.st-hm { border-collapse: separate; border-spacing: 2px; font-size: 11.5px; width: 100%; min-width: 640px;
+  font-variant-numeric: tabular-nums; }
+.st-hm th { font-weight: 600; color: var(--t2); text-align: right; padding: 4px 6px; white-space: nowrap; }
+.st-hm tbody th { text-align: left; color: var(--t1); position: sticky; left: 0; background: var(--bg); z-index: 1; }
+.st-hm thead th:first-child { text-align: left; position: sticky; left: 0; background: var(--bg); z-index: 1; }
+.st-hm td.hm { text-align: right; padding: 4px 6px; color: var(--t1); border-radius: 3px; min-width: 44px; }
+.st-hm td.hm sup { color: var(--amber); }
+.st-hm tr.st-total th, .st-per tr.st-total th { color: var(--blue); }
+.st-hm tr.st-hl th, .st-per tr.st-hl th, .st-short tr.st-hl th { color: var(--amber); }
+.st-per th, .st-short th { text-align: left; font-weight: 600; color: var(--t1); white-space: nowrap; }
+.st-per td.num, .st-short td.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.st-per td.up, .st-short td.up { color: var(--green); } .st-per td.dn, .st-short td.dn { color: var(--red); }
+.st-rate th, .st-rate td { background: var(--sf1); }
+.st-spark { width: 90px; height: 22px; display: block; }
+.st-spark polyline { fill: none; stroke: var(--blue); stroke-width: 1.5; }
+.st-spark circle { fill: var(--blue); }
+.st-spark.rate polyline { stroke: var(--amber); } .st-spark.rate circle { fill: var(--amber); }
+.st-bar { width: 80px; height: 6px; background: var(--sf2); border-radius: 3px; overflow: hidden; }
+.st-bar i { display: block; height: 100%; background: var(--t3); }
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="hdr-l">
+    <span class="logo">株式分析</span>
+    <span class="hdr-title">日次レポート</span>
+    <span class="hdr-date">｜ 2026年09月30日</span>
+  </div>
+  <div class="hdr-meta">生成: 2026/09/30 07:48<br>kabutan / Yahoo / Reuters / NHK / 米財務省 / 財務省 / 日銀</div>
+</header>
+
+<nav class="tab-nav"><button class="tab-btn active" data-tab="t-market"><span class="tab-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span><span class="tab-label">マーケット</span></button>
+<button class="tab-btn " data-tab="t-macro"><span class="tab-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></span><span class="tab-label">マクロ・資金フロー</span></button>
+<button class="tab-btn " data-tab="t-sector"><span class="tab-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></span><span class="tab-label">業種トレンド</span></button>
+<button class="tab-btn " data-tab="t-trend"><span class="tab-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></span><span class="tab-label">相場動向</span></button>
+<button class="tab-btn " data-tab="t-agm"><span class="tab-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span><span class="tab-label">総会・配当</span></button>
+<button class="tab-btn " data-tab="t-rank"><span class="tab-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></span><span class="tab-label">ランキング</span></button>
+</nav>
+
+<!-- マーケット -->
+<div class="tab-content active" id="t-market">
+  <h2 class="tab-h">マーケット</h2>
+  <div class="ca">
+<div class="market-layout">
+  <div class="news-stream">
+    <div class="sec-label">Market Drivers</div>
+    <article class="nc">
+  <div class="nc-meta"><span class="imp-badge" style="color:#ef4444;background:#ef444418;border:1px solid #ef444430">CRITICAL</span></div>
+  <h3 class="nc-title">ニデック（6594）：岸田社長辞任・電子部品子会社を1000億円規模で売却へ</h3>
+  <div class="nc-body"><ul>
+<li><strong>要点：</strong> 不正会計・品質不適切行為が相次いで発覚したニデックで岸田稔社長が辞任。巨額損失計上が見込まれるなか、経営立て直しの一環として電子部品子会社をアメリカの投資ファンドに1000億円規模で売却することを決定。</li>
+<li><strong>市場への影響：</strong> コーポレートガバナンス不全による信頼失墜は機関投資家の売り圧力を招きやすい。売却で財務改善の一手を打った形だが、不正問題の全容解明が進むまで株価は上値が重い展開が続く見込み。精密部品・電子部品セクター全体へも一時的な警戒ムードが波及する可能性がある。</li>
+<li><strong>関連銘柄：</strong></li>
+</ul>
+<p>  - ニデック(<span class="mono blue">6594</span>)<em class="dn">↓</em>（辞任・損失計上・事業売却リスク）</p>
+<p>  - 日本電産系取引先（村田製作所(<span class="mono blue">6981</span>)、TDK(<span class="mono blue">6762</span>)）<em class="dn">↓</em>方向に<em class="dn">注意</em></p>
+
+<hr></div>
+  <div class="nc-chips"><span class="nc-chips-label">関連銘柄</span><a href="https://kabutan.jp/stock/?code=6594" target="_blank" class="stk-chip chip-dn"><code>6594</code><span>ニデック ↓</span></a><a href="https://kabutan.jp/stock/?code=6981" target="_blank" class="stk-chip chip-n"><code>6981</code></a><a href="https://kabutan.jp/stock/?code=6762" target="_blank" class="stk-chip chip-n"><code>6762</code></a></div>
+  
+</article><article class="nc">
+  <div class="nc-meta"></div>
+  <h3 class="nc-title">パン・パシフィック・インターナショナルHD（7532）：トイザらス日本事業を買収へ（重要度：★★★★☆）</h3>
+  <div class="nc-body"><ul>
+<li><strong>要点：</strong> ドンキホーテを傘下に持つPPIHがトイザらスの日本事業を買収する方向で調整に入った。玩具・育児用品領域への本格参入で、ディスカウント業態との相乗効果を狙う。</li>
+<li><strong>市場への影響：</strong> PPIHにとっては子育て世代の集客強化・客単価向上の観点でプラス評価になりやすい。一方、買収費用が財務に与える影響は規模次第。競合する玩具・ベビー用品専門店は顧客流出リスクで警戒されやすい。</li>
+<li><strong>関連銘柄：</strong></li>
+</ul>
+<p>  - パン・パシフィック・インターナショナルHD(<span class="mono blue">7532</span>)<em class="up">↑</em>（成長戦略評価、ただし買収コスト精査待ち）</p>
+<p>  - バンダイナムコHD(<span class="mono blue">7832</span>)↔（玩具供給元として取引拡大期待）</p>
+<p>  - ハピネット(<span class="mono blue">7552</span>)<em class="dn">↓</em>（玩具卸の競合強化懸念）</p>
+
+<hr></div>
+  <div class="nc-chips"><span class="nc-chips-label">関連銘柄</span><a href="https://kabutan.jp/stock/?code=7532" target="_blank" class="stk-chip chip-n"><code>7532</code></a><a href="https://kabutan.jp/stock/?code=7832" target="_blank" class="stk-chip chip-n"><code>7832</code></a><a href="https://kabutan.jp/stock/?code=7552" target="_blank" class="stk-chip chip-n"><code>7552</code></a></div>
+  
+</article><article class="nc">
+  <div class="nc-meta"></div>
+  <h3 class="nc-title">三菱商事（8058）：カナダLNG事業に約5000億円の追加投資（重要度：★★★★☆）</h3>
+  <div class="nc-body"><ul>
+<li><strong>要点：</strong> 三菱商事がカナダ西部で手がけるLNG生産事業の拡大に向け、追加で約5000億円を投資すると発表。中東情勢を受けた原油・ガス調達の多角化戦略の一環で、国策とも方向性が一致。</li>
+<li><strong>市場への影響：</strong> 政府が臨時国会に調達多角化の新法案提出を予定しており、LNG関連の商社・エネルギー株全体に追い風。ただし三菱商事は大型投資の財務負担増も意識される。</li>
+<li><strong>関連銘柄：</strong></li>
+</ul>
+<p>  - 三菱商事(<span class="mono blue">8058</span>)<em class="up">↑</em>（LNG戦略強化・政策追い風）</p>
+<p>  - 三井物産(<span class="mono blue">8031</span>)<em class="up">↑</em>（LNG・エネルギー事業保有）</p>
+<p>  - INPEX(<span class="mono blue">1605</span>)<em class="up">↑</em>（原油・LNG開発大手、政策恩恵）</p>
+<p>  - ENEOSホールディングス(<span class="mono blue">5020</span>)<em class="up">↑</em>（調達多角化の受益企業）</p>
+
+<hr></div>
+  <div class="nc-chips"><span class="nc-chips-label">関連銘柄</span><a href="https://kabutan.jp/stock/?code=8058" target="_blank" class="stk-chip chip-up"><code>8058</code><span>三菱商事 ↑</span></a><a href="https://kabutan.jp/stock/?code=8031" target="_blank" class="stk-chip chip-n"><code>8031</code></a><a href="https://kabutan.jp/stock/?code=1605" target="_blank" class="stk-chip chip-up"><code>1605</code><span>INPEX ↑</span></a><a href="https://kabutan.jp/stock/?code=5020" target="_blank" class="stk-chip chip-n"><code>5020</code></a></div>
+  
+</article><article class="nc">
+  <div class="nc-meta"></div>
+  <h3 class="nc-title">10月から電気・ガス料金が全国的に値上がり（重要度：★★★☆☆）</h3>
+  <div class="nc-body"><ul>
+<li><strong>要点：</strong> 10月より電力・都市ガスの料金が全国的に値上がりする。補助金の縮小・燃料費調整の影響が主因。家庭・企業の実質コスト増となる。</li>
+<li><strong>市場への影響：</strong> エネルギーコスト増は製造業・外食・小売などの収益圧迫要因。一方で電力・ガス会社は料金収入増となる。個人消費マインドへの悪影響も限定的ながら存在する。</li>
+<li><strong>関連銘柄：</strong></li>
+</ul>
+<p>  - 東京電力HD(<span class="mono blue">9501</span>)<em class="up">↑</em>、東京ガス(<span class="mono blue">9531</span>)<em class="up">↑</em>（料金収入増の恩恵）</p>
+<p>  - 関西電力(<span class="mono blue">9503</span>)<em class="up">↑</em>、大阪ガス(<span class="mono blue">9532</span>)<em class="up">↑</em>（同上）</p>
+<p>  - 外食大手（吉野家HD(<span class="mono blue">9861</span>)、すかいらーくHD(<span class="mono blue">3197</span>)）<em class="dn">↓</em>（コスト増懸念）</p>
+
+<hr></div>
+  <div class="nc-chips"><span class="nc-chips-label">関連銘柄</span><a href="https://kabutan.jp/stock/?code=9501" target="_blank" class="stk-chip chip-up"><code>9501</code><span>東京電力HD ↑</span></a><a href="https://kabutan.jp/stock/?code=9531" target="_blank" class="stk-chip chip-n"><code>9531</code></a><a href="https://kabutan.jp/stock/?code=9503" target="_blank" class="stk-chip chip-n"><code>9503</code></a><a href="https://kabutan.jp/stock/?code=9532" target="_blank" class="stk-chip chip-n"><code>9532</code></a><a href="https://kabutan.jp/stock/?code=9861" target="_blank" class="stk-chip chip-n"><code>9861</code></a></div>
+  
+</article><article class="nc">
+  <div class="nc-meta"></div>
+  <h3 class="nc-title">民間の平均給与が過去最高の487万円（重要度：★★★☆☆）</h3>
+  <div class="nc-body"><ul>
+<li><strong>要点：</strong> 国税庁調査で民間の平均給与が487万円と過去最高を記録。実質賃金が前向きに転じれば個人消費の底上げにつながる。</li>
+<li><strong>市場への影響：</strong> 消費関連セクター（百貨店・旅行・外食・EC）へのポジティブ材料。ただし物価高との綱引きであり、実感ベースの消費増加を確認するまでは慎重な評価が残る。</li>
+<li><strong>関連銘柄：</strong></li>
+</ul>
+<p>  - 三越伊勢丹HD(<span class="mono blue">3099</span>)<em class="up">↑</em>、高島屋(<span class="mono blue">8233</span>)<em class="up">↑</em>（高額消費の回復期待）</p>
+<p>  - 楽天グループ(<span class="mono blue">4755</span>)<em class="up">↑</em>、アマゾンジャパン（非上場）（EC消費拡大）</p>
+<p>  - リクルートHD(<span class="mono blue">6098</span>)<em class="up">↑</em>（転職・採用市場の活性化）</p>
+
+<hr></div>
+  <div class="nc-chips"><span class="nc-chips-label">関連銘柄</span><a href="https://kabutan.jp/stock/?code=3099" target="_blank" class="stk-chip chip-n"><code>3099</code></a><a href="https://kabutan.jp/stock/?code=8233" target="_blank" class="stk-chip chip-n"><code>8233</code></a><a href="https://kabutan.jp/stock/?code=4755" target="_blank" class="stk-chip chip-n"><code>4755</code></a><a href="https://kabutan.jp/stock/?code=6098" target="_blank" class="stk-chip chip-n"><code>6098</code></a></div>
+  
+</article>
+    <div class="rss-section">
+      <div class="rss-lbl">参照ニュース</div>
+      <a class="rss-item" href="https://news.yahoo.co.jp/pickup/6596995?source=rss" target="_blank"><span class="rss-src">Yahoo!ニュース 経済</span><span>ドンキ トイザらス日本事業買収へ</span></a><a class="rss-item" href="https://news.yahoo.co.jp/pickup/6596980?source=rss" target="_blank"><span class="rss-src">Yahoo!ニュース 経済</span><span>ニデック岸田社長が辞任 不正巡り</span></a><a class="rss-item" href="https://news.yahoo.co.jp/pickup/6596960?source=rss" target="_blank"><span class="rss-src">Yahoo!ニュース 経済</span><span>10月の電気ガス 全国的に値上がり</span></a><a class="rss-item" href="https://news.yahoo.co.jp/pickup/6596963?source=rss" target="_blank"><span class="rss-src">Yahoo!ニュース 経済</span><span>民間の平均給与 過去最高487万円</span></a><a class="rss-item" href="https://news.yahoo.co.jp/pickup/6597009?source=rss" target="_blank"><span class="rss-src">Yahoo!ニュース 経済</span><span>東京メトロ東西線 運転を再開</span></a><a class="rss-item" href="https://news.yahoo.co.jp/pickup/6596978?source=rss" target="_blank"><span class="rss-src">Yahoo!ニュース 経済</span><span>伊藤園 株主優待制度を廃止</span></a><a class="rss-item" href="https://news.web.nhk/newsweb/na/nd-20260929de53224" target="_blank"><span class="rss-src">NHK 経済</span><span>ローソン 大雨による店舗の浸水対策で止水板の導入拡大へ</span></a><a class="rss-item" href="https://news.web.nhk/newsweb/na/nd-20260929de53226" target="_blank"><span class="rss-src">NHK 経済</span><span>原油の調達多角化に向け新法案 臨時国会に提出へ</span></a><a class="rss-item" href="https://news.web.nhk/newsweb/na/nd-20260930de53227" target="_blank"><span class="rss-src">NHK 経済</span><span>ニデック 再建に向け電子部品子会社を売却へ 1000億円規模か</span></a><a class="rss-item" href="https://news.web.nhk/newsweb/na/nd-20260929de53221" target="_blank"><span class="rss-src">NHK 経済</span><span>三菱商事 カナダのLNG生産事業に追加投資</span></a><a class="rss-item" href="https://news.web.nhk/newsweb/na/nd-20260929de53211" target="_blank"><span class="rss-src">NHK 経済</span><span>YKK AP “経費不正の額は約1億3300万円”調査結果公表</span></a><a class="rss-item" href="https://news.web.nhk/newsweb/na/nd-20260929de53212" target="_blank"><span class="rss-src">NHK 経済</span><span>自動車各社の8月海外販売台数 8社中6社で去年同月を下回る</span></a>
+    </div>
+  </div>
+  <div class="signals-panel">
+    <div class="panel-label">Buy Signals</div>
+    <div class="sig-card sig-buy">
+  <div class="sig-head">
+    <span class="sig-name">三菱商事</span>
+    <code class="sig-code blue">8058</code>
+    <em class="up sig-arr">↑</em>
+  </div>
+  <p class="sig-desc"><em class="up">↑</em>　カナダLNG追加投資発表＋政策支援法案。エネルギー安保の文脈で中長期成長期待が高まる</p>
+  <div class="rn-wrap"><div class="rn-lbl">参照ニュース</div><a class="rn-link" href="https://news.web.nhk/newsweb/na/nd-20260929de53221" target="_blank"><span class="rn-src">NHK 経済</span>三菱商事 カナダのLNG生産事業に追加投資</a></div>
+</div><div class="sig-card sig-buy">
+  <div class="sig-head">
+    <span class="sig-name">INPEX</span>
+    <code class="sig-code blue">1605</code>
+    <em class="up sig-arr">↑</em>
+  </div>
+  <p class="sig-desc"><em class="up">↑</em>　経産省の原油調達多角化新法案の直接的恩恵。LNG・原油開発への国策資金流入期待</p>
+  
+</div><div class="sig-card sig-buy">
+  <div class="sig-head">
+    <span class="sig-name">東京電力HD</span>
+    <code class="sig-code blue">9501</code>
+    <em class="up sig-arr">↑</em>
+  </div>
+  <p class="sig-desc"><em class="up">↑</em>　10月の電力料金値上げによる収益改善期待</p>
+  
+</div><div class="sig-card sig-buy">
+  <div class="sig-head">
+    <span class="sig-name">ローソン</span>
+    <code class="sig-code blue">2651</code>
+    <em class="up sig-arr">↑</em>
+  </div>
+  <p class="sig-desc"><em class="up">↑</em>（中立寄り）　止水板導入拡大は気候変動対応の先進事例としてESG評価向上。BCP対応強化でブランド価値増</p>
+  <div class="rn-wrap"><div class="rn-lbl">参照ニュース</div><a class="rn-link" href="https://news.web.nhk/newsweb/na/nd-20260929de53224" target="_blank"><span class="rn-src">NHK 経済</span>ローソン 大雨による店舗の浸水対策で止水板の導入拡大へ</a></div>
+</div>
+    <div class="panel-label" style="margin-top:24px">Watch / Sell</div>
+    <div class="sig-card sig-watch">
+  <div class="sig-head">
+    <span class="sig-name">ニデック</span>
+    <code class="sig-code blue">6594</code>
+    <em class="dn sig-arr">↓</em>
+  </div>
+  <p class="sig-desc"><em class="dn">↓</em>　社長辞任＋巨額損失計上見込み＋子会社売却。不正問題の全容解明まで買い手不在が続く可能性大</p>
+  <div class="rn-wrap"><div class="rn-lbl">参照ニュース</div><a class="rn-link" href="https://news.yahoo.co.jp/pickup/6596980?source=rss" target="_blank"><span class="rn-src">Yahoo!ニュース 経済</span>ニデック岸田社長が辞任 不正巡り</a><a class="rn-link" href="https://news.web.nhk/newsweb/na/nd-20260930de53227" target="_blank"><span class="rn-src">NHK 経済</span>ニデック 再建に向け電子部品子会社を売却へ 1000億円規模か</a></div>
+</div><div class="sig-card sig-watch">
+  <div class="sig-head">
+    <span class="sig-name">伊藤園</span>
+    <code class="sig-code blue">2593</code>
+    <em class="dn sig-arr">↓</em>
+  </div>
+  <p class="sig-desc"><em class="dn">↓</em>短期　株主優待廃止で個人投資家の失望売りが出やすい。優待目的保有者の整理が一巡するまで上値が重い</p>
+  <div class="rn-wrap"><div class="rn-lbl">参照ニュース</div><a class="rn-link" href="https://news.yahoo.co.jp/pickup/6596978?source=rss" target="_blank"><span class="rn-src">Yahoo!ニュース 経済</span>伊藤園 株主優待制度を廃止</a></div>
+</div><div class="sig-card sig-watch">
+  <div class="sig-head">
+    <span class="sig-name">トヨタ自動車</span>
+    <code class="sig-code blue">7203</code>
+    <em class="dn sig-arr">↓</em>
+  </div>
+  <p class="sig-desc"><em class="dn">↓</em>　8月海外販売が前年同月比減少（8社中6社減）。中国市場の不振が継続しており、来期業績修正リスクを意識</p>
+  
+</div><div class="sig-card sig-watch">
+  <div class="sig-head">
+    <span class="sig-name">ホンダ</span>
+    <code class="sig-code blue">7267</code>
+    <em class="dn sig-arr">↓</em>
+  </div>
+  <p class="sig-desc"><em class="dn">↓</em>　同上。中国・北米の販売動向に引き続き<em class="dn">注意</em></p>
+  
+</div><div class="sig-card sig-watch">
+  <div class="sig-head">
+    <span class="sig-name">日産自動車</span>
+    <code class="sig-code blue">7201</code>
+    <em class="dn sig-arr">↓</em>
+  </div>
+  <p class="sig-desc"><em class="dn">↓</em>　同上。財務体質も弱く、販売減は株価への直撃度が高い</p>
+  
+</div>
+  </div>
+</div>
+    <p class="disclaimer">※ 本レポートはAIによる情報提供のみを目的とし、投資助言ではありません。</p>
+  </div>
+</div>
+
+<!-- マクロ・資金フロー -->
+<div class="tab-content" id="t-macro">
+  <h2 class="tab-h">マクロ・資金フロー</h2>
+  <div class="ca"><div class="prose mf-summary"><h2>マクロ・資金フロー</h2>
+
+<ul>
+<li><strong>米10年国債利回り</strong>: 5.26%（前日比 <em class="up">+2</em>bp／基準日 2026/09/29）</li>
+<li><strong>日本10年国債利回り</strong>: 3.082%（前日比 <em class="up">+1.1</em>bp／基準日 2026/09/28）</li>
+<li><strong>ドル円</strong>: 158.10円（前日比 <em class="dn">−0.12円</em>・<em class="dn">−0.08%</em>／基準日 2026/09/25）</li>
+<li><strong>業種別 週間騰落（上位・下位3業種）</strong>: データ未取得（データソース選定中）</li>
+<li><strong>NT倍率</strong>: データ未取得（データソース選定中）</li>
+</ul></div>
+<section class="mf-sec">
+  <div class="sec-label">金利・為替</div>
+  <div class="mf-grid"><div class="mf-card mf-warn">
+  <div class="mf-head"><span class="mf-label">米10年国債利回り</span><span class="mf-badge mf-b-warn">⚠ 5.00%以上</span></div>
+  <div class="mf-val">5.26%</div><div class="mf-chg up">前日比 +2bp</div><svg class="mf-spark" viewBox="0 0 240 48" preserveAspectRatio="none" role="img" aria-label="米10年国債利回り 直近3か月の推移"><line x1="4" x2="236" y1="15.8" y2="15.8" class="mf-thr"/><polyline points="4.0,44.0 6.5,41.3 9.0,39.5 11.6,39.0 21.7,39.5 24.2,36.3 26.7,35.8 29.2,36.7 31.7,35.8 39.3,33.1 41.8,34.9 44.3,36.3 46.9,35.4 49.4,36.3 57.0,34.0 59.5,32.6 62.0,30.8 64.5,29.0 67.0,29.9 74.6,31.7 77.1,33.5 79.7,30.8 82.2,30.4 84.7,27.2 92.3,29.5 94.8,32.6 97.3,32.6 99.8,29.9 102.3,31.7 109.9,28.5 112.4,29.5 115.0,30.4 117.5,32.6 120.0,30.4 127.6,28.5 130.1,29.0 132.6,31.7 135.1,29.9 137.7,27.6 145.2,29.5 147.7,32.2 150.3,31.3 152.8,30.8 155.3,28.1 162.9,27.2 165.4,25.4 167.9,25.4 170.4,26.3 173.0,25.8 183.0,24.9 185.6,23.5 188.1,18.1 190.6,17.6 198.2,17.2 200.7,15.8 203.2,15.4 205.7,18.5 208.3,15.4 215.8,17.6 218.3,17.6 220.9,10.8 223.4,7.6 225.9,8.1 233.5,4.9 236.0,4.0" class="mf-line"/><circle cx="236.0" cy="4.0" r="3" class="mf-end"/><circle cx="4.0" cy="44.0" r="5" class="mf-hit"><title>2026/06/29  4.38%</title></circle><circle cx="6.5" cy="41.3" r="5" class="mf-hit"><title>2026/06/30  4.44%</title></circle><circle cx="9.0" cy="39.5" r="5" class="mf-hit"><title>2026/07/01  4.48%</title></circle><circle cx="11.6" cy="39.0" r="5" class="mf-hit"><title>2026/07/02  4.49%</title></circle><circle cx="21.7" cy="39.5" r="5" class="mf-hit"><title>2026/07/06  4.48%</title></circle><circle cx="24.2" cy="36.3" r="5" class="mf-hit"><title>2026/07/07  4.55%</title></circle><circle cx="26.7" cy="35.8" r="5" class="mf-hit"><title>2026/07/08  4.56%</title></circle><circle cx="29.2" cy="36.7" r="5" class="mf-hit"><title>2026/07/09  4.54%</title></circle><circle cx="31.7" cy="35.8" r="5" class="mf-hit"><title>2026/07/10  4.56%</title></circle><circle cx="39.3" cy="33.1" r="5" class="mf-hit"><title>2026/07/13  4.62%</title></circle><circle cx="41.8" cy="34.9" r="5" class="mf-hit"><title>2026/07/14  4.58%</title></circle><circle cx="44.3" cy="36.3" r="5" class="mf-hit"><title>2026/07/15  4.55%</title></circle><circle cx="46.9" cy="35.4" r="5" class="mf-hit"><title>2026/07/16  4.57%</title></circle><circle cx="49.4" cy="36.3" r="5" class="mf-hit"><title>2026/07/17  4.55%</title></circle><circle cx="57.0" cy="34.0" r="5" class="mf-hit"><title>2026/07/20  4.6%</title></circle><circle cx="59.5" cy="32.6" r="5" class="mf-hit"><title>2026/07/21  4.63%</title></circle><circle cx="62.0" cy="30.8" r="5" class="mf-hit"><title>2026/07/22  4.67%</title></circle><circle cx="64.5" cy="29.0" r="5" class="mf-hit"><title>2026/07/23  4.71%</title></circle><circle cx="67.0" cy="29.9" r="5" class="mf-hit"><title>2026/07/24  4.69%</title></circle><circle cx="74.6" cy="31.7" r="5" class="mf-hit"><title>2026/07/27  4.65%</title></circle><circle cx="77.1" cy="33.5" r="5" class="mf-hit"><title>2026/07/28  4.61%</title></circle><circle cx="79.7" cy="30.8" r="5" class="mf-hit"><title>2026/07/29  4.67%</title></circle><circle cx="82.2" cy="30.4" r="5" class="mf-hit"><title>2026/07/30  4.68%</title></circle><circle cx="84.7" cy="27.2" r="5" class="mf-hit"><title>2026/07/31  4.75%</title></circle><circle cx="92.3" cy="29.5" r="5" class="mf-hit"><title>2026/08/03  4.7%</title></circle><circle cx="94.8" cy="32.6" r="5" class="mf-hit"><title>2026/08/04  4.63%</title></circle><circle cx="97.3" cy="32.6" r="5" class="mf-hit"><title>2026/08/05  4.63%</title></circle><circle cx="99.8" cy="29.9" r="5" class="mf-hit"><title>2026/08/06  4.69%</title></circle><circle cx="102.3" cy="31.7" r="5" class="mf-hit"><title>2026/08/07  4.65%</title></circle><circle cx="109.9" cy="28.5" r="5" class="mf-hit"><title>2026/08/10  4.72%</title></circle><circle cx="112.4" cy="29.5" r="5" class="mf-hit"><title>2026/08/11  4.7%</title></circle><circle cx="115.0" cy="30.4" r="5" class="mf-hit"><title>2026/08/12  4.68%</title></circle><circle cx="117.5" cy="32.6" r="5" class="mf-hit"><title>2026/08/13  4.63%</title></circle><circle cx="120.0" cy="30.4" r="5" class="mf-hit"><title>2026/08/14  4.68%</title></circle><circle cx="127.6" cy="28.5" r="5" class="mf-hit"><title>2026/08/17  4.72%</title></circle><circle cx="130.1" cy="29.0" r="5" class="mf-hit"><title>2026/08/18  4.71%</title></circle><circle cx="132.6" cy="31.7" r="5" class="mf-hit"><title>2026/08/19  4.65%</title></circle><circle cx="135.1" cy="29.9" r="5" class="mf-hit"><title>2026/08/20  4.69%</title></circle><circle cx="137.7" cy="27.6" r="5" class="mf-hit"><title>2026/08/21  4.74%</title></circle><circle cx="145.2" cy="29.5" r="5" class="mf-hit"><title>2026/08/24  4.7%</title></circle><circle cx="147.7" cy="32.2" r="5" class="mf-hit"><title>2026/08/25  4.64%</title></circle><circle cx="150.3" cy="31.3" r="5" class="mf-hit"><title>2026/08/26  4.66%</title></circle><circle cx="152.8" cy="30.8" r="5" class="mf-hit"><title>2026/08/27  4.67%</title></circle><circle cx="155.3" cy="28.1" r="5" class="mf-hit"><title>2026/08/28  4.73%</title></circle><circle cx="162.9" cy="27.2" r="5" class="mf-hit"><title>2026/08/31  4.75%</title></circle><circle cx="165.4" cy="25.4" r="5" class="mf-hit"><title>2026/09/01  4.79%</title></circle><circle cx="167.9" cy="25.4" r="5" class="mf-hit"><title>2026/09/02  4.79%</title></circle><circle cx="170.4" cy="26.3" r="5" class="mf-hit"><title>2026/09/03  4.77%</title></circle><circle cx="173.0" cy="25.8" r="5" class="mf-hit"><title>2026/09/04  4.78%</title></circle><circle cx="183.0" cy="24.9" r="5" class="mf-hit"><title>2026/09/08  4.8%</title></circle><circle cx="185.6" cy="23.5" r="5" class="mf-hit"><title>2026/09/09  4.83%</title></circle><circle cx="188.1" cy="18.1" r="5" class="mf-hit"><title>2026/09/10  4.95%</title></circle><circle cx="190.6" cy="17.6" r="5" class="mf-hit"><title>2026/09/11  4.96%</title></circle><circle cx="198.2" cy="17.2" r="5" class="mf-hit"><title>2026/09/14  4.97%</title></circle><circle cx="200.7" cy="15.8" r="5" class="mf-hit"><title>2026/09/15  5%</title></circle><circle cx="203.2" cy="15.4" r="5" class="mf-hit"><title>2026/09/16  5.01%</title></circle><circle cx="205.7" cy="18.5" r="5" class="mf-hit"><title>2026/09/17  4.94%</title></circle><circle cx="208.3" cy="15.4" r="5" class="mf-hit"><title>2026/09/18  5.01%</title></circle><circle cx="215.8" cy="17.6" r="5" class="mf-hit"><title>2026/09/21  4.96%</title></circle><circle cx="218.3" cy="17.6" r="5" class="mf-hit"><title>2026/09/22  4.96%</title></circle><circle cx="220.9" cy="10.8" r="5" class="mf-hit"><title>2026/09/23  5.11%</title></circle><circle cx="223.4" cy="7.6" r="5" class="mf-hit"><title>2026/09/24  5.18%</title></circle><circle cx="225.9" cy="8.1" r="5" class="mf-hit"><title>2026/09/25  5.17%</title></circle><circle cx="233.5" cy="4.9" r="5" class="mf-hit"><title>2026/09/28  5.24%</title></circle><circle cx="236.0" cy="4.0" r="5" class="mf-hit"><title>2026/09/29  5.26%</title></circle></svg><div class="mf-range"><span>06/29</span><span>安 4.38 ／ 高 5.26</span><span>09/29</span></div>
+  <div class="mf-foot">基準日 <span class="mono">2026/09/29</span> ・ 取得 <span class="mono">2026/09/30 07:48</span><br>
+    出典 <a href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve" target="_blank" rel="noopener">米国財務省 Daily Treasury Par Yield Curve Rates</a></div>
+</div><div class="mf-card">
+  <div class="mf-head"><span class="mf-label">日本10年国債利回り</span></div>
+  <div class="mf-val">3.082%</div><div class="mf-chg up">前日比 +1.1bp</div><svg class="mf-spark" viewBox="0 0 240 48" preserveAspectRatio="none" role="img" aria-label="日本10年国債利回り 直近3か月の推移"><polyline points="4.0,44.0 6.5,39.8 9.1,37.9 11.6,31.8 14.2,32.7 21.8,27.7 24.4,26.6 26.9,24.6 29.5,23.7 32.0,33.3 39.7,31.0 42.2,37.7 44.8,39.2 47.3,37.2 49.9,37.5 60.1,36.1 62.6,34.8 65.2,31.9 67.7,28.4 75.4,31.8 77.9,31.3 80.5,33.7 83.0,29.7 85.6,29.7 93.2,27.6 95.8,25.4 98.3,28.6 100.9,32.2 103.4,29.4 111.1,28.4 116.2,24.6 118.7,23.1 121.3,22.6 128.9,18.9 131.5,17.5 134.0,21.2 136.6,24.8 139.1,22.3 146.8,21.8 149.3,20.9 151.9,21.4 154.4,20.9 157.0,17.9 164.6,16.7 167.2,12.7 169.7,10.9 172.3,14.6 174.8,19.7 182.5,17.4 185.0,21.0 187.6,21.4 190.1,18.8 192.7,12.7 200.3,12.6 202.9,8.9 205.4,11.7 208.0,12.1 210.5,13.2 225.8,4.8 228.4,5.0 236.0,4.0" class="mf-line"/><circle cx="236.0" cy="4.0" r="3" class="mf-end"/><circle cx="4.0" cy="44.0" r="5" class="mf-hit"><title>2026/06/29  2.644%</title></circle><circle cx="6.5" cy="39.8" r="5" class="mf-hit"><title>2026/06/30  2.69%</title></circle><circle cx="9.1" cy="37.9" r="5" class="mf-hit"><title>2026/07/01  2.711%</title></circle><circle cx="11.6" cy="31.8" r="5" class="mf-hit"><title>2026/07/02  2.778%</title></circle><circle cx="14.2" cy="32.7" r="5" class="mf-hit"><title>2026/07/03  2.768%</title></circle><circle cx="21.8" cy="27.7" r="5" class="mf-hit"><title>2026/07/06  2.823%</title></circle><circle cx="24.4" cy="26.6" r="5" class="mf-hit"><title>2026/07/07  2.834%</title></circle><circle cx="26.9" cy="24.6" r="5" class="mf-hit"><title>2026/07/08  2.856%</title></circle><circle cx="29.5" cy="23.7" r="5" class="mf-hit"><title>2026/07/09  2.866%</title></circle><circle cx="32.0" cy="33.3" r="5" class="mf-hit"><title>2026/07/10  2.761%</title></circle><circle cx="39.7" cy="31.0" r="5" class="mf-hit"><title>2026/07/13  2.786%</title></circle><circle cx="42.2" cy="37.7" r="5" class="mf-hit"><title>2026/07/14  2.713%</title></circle><circle cx="44.8" cy="39.2" r="5" class="mf-hit"><title>2026/07/15  2.697%</title></circle><circle cx="47.3" cy="37.2" r="5" class="mf-hit"><title>2026/07/16  2.719%</title></circle><circle cx="49.9" cy="37.5" r="5" class="mf-hit"><title>2026/07/17  2.715%</title></circle><circle cx="60.1" cy="36.1" r="5" class="mf-hit"><title>2026/07/21  2.731%</title></circle><circle cx="62.6" cy="34.8" r="5" class="mf-hit"><title>2026/07/22  2.745%</title></circle><circle cx="65.2" cy="31.9" r="5" class="mf-hit"><title>2026/07/23  2.776%</title></circle><circle cx="67.7" cy="28.4" r="5" class="mf-hit"><title>2026/07/24  2.815%</title></circle><circle cx="75.4" cy="31.8" r="5" class="mf-hit"><title>2026/07/27  2.778%</title></circle><circle cx="77.9" cy="31.3" r="5" class="mf-hit"><title>2026/07/28  2.783%</title></circle><circle cx="80.5" cy="33.7" r="5" class="mf-hit"><title>2026/07/29  2.757%</title></circle><circle cx="83.0" cy="29.7" r="5" class="mf-hit"><title>2026/07/30  2.801%</title></circle><circle cx="85.6" cy="29.7" r="5" class="mf-hit"><title>2026/07/31  2.801%</title></circle><circle cx="93.2" cy="27.6" r="5" class="mf-hit"><title>2026/08/03  2.824%</title></circle><circle cx="95.8" cy="25.4" r="5" class="mf-hit"><title>2026/08/04  2.848%</title></circle><circle cx="98.3" cy="28.6" r="5" class="mf-hit"><title>2026/08/05  2.813%</title></circle><circle cx="100.9" cy="32.2" r="5" class="mf-hit"><title>2026/08/06  2.773%</title></circle><circle cx="103.4" cy="29.4" r="5" class="mf-hit"><title>2026/08/07  2.804%</title></circle><circle cx="111.1" cy="28.4" r="5" class="mf-hit"><title>2026/08/10  2.815%</title></circle><circle cx="116.2" cy="24.6" r="5" class="mf-hit"><title>2026/08/12  2.856%</title></circle><circle cx="118.7" cy="23.1" r="5" class="mf-hit"><title>2026/08/13  2.873%</title></circle><circle cx="121.3" cy="22.6" r="5" class="mf-hit"><title>2026/08/14  2.878%</title></circle><circle cx="128.9" cy="18.9" r="5" class="mf-hit"><title>2026/08/17  2.919%</title></circle><circle cx="131.5" cy="17.5" r="5" class="mf-hit"><title>2026/08/18  2.934%</title></circle><circle cx="134.0" cy="21.2" r="5" class="mf-hit"><title>2026/08/19  2.894%</title></circle><circle cx="136.6" cy="24.8" r="5" class="mf-hit"><title>2026/08/20  2.854%</title></circle><circle cx="139.1" cy="22.3" r="5" class="mf-hit"><title>2026/08/21  2.882%</title></circle><circle cx="146.8" cy="21.8" r="5" class="mf-hit"><title>2026/08/24  2.887%</title></circle><circle cx="149.3" cy="20.9" r="5" class="mf-hit"><title>2026/08/25  2.897%</title></circle><circle cx="151.9" cy="21.4" r="5" class="mf-hit"><title>2026/08/26  2.892%</title></circle><circle cx="154.4" cy="20.9" r="5" class="mf-hit"><title>2026/08/27  2.897%</title></circle><circle cx="157.0" cy="17.9" r="5" class="mf-hit"><title>2026/08/28  2.93%</title></circle><circle cx="164.6" cy="16.7" r="5" class="mf-hit"><title>2026/08/31  2.943%</title></circle><circle cx="167.2" cy="12.7" r="5" class="mf-hit"><title>2026/09/01  2.987%</title></circle><circle cx="169.7" cy="10.9" r="5" class="mf-hit"><title>2026/09/02  3.006%</title></circle><circle cx="172.3" cy="14.6" r="5" class="mf-hit"><title>2026/09/03  2.966%</title></circle><circle cx="174.8" cy="19.7" r="5" class="mf-hit"><title>2026/09/04  2.91%</title></circle><circle cx="182.5" cy="17.4" r="5" class="mf-hit"><title>2026/09/07  2.935%</title></circle><circle cx="185.0" cy="21.0" r="5" class="mf-hit"><title>2026/09/08  2.896%</title></circle><circle cx="187.6" cy="21.4" r="5" class="mf-hit"><title>2026/09/09  2.891%</title></circle><circle cx="190.1" cy="18.8" r="5" class="mf-hit"><title>2026/09/10  2.92%</title></circle><circle cx="192.7" cy="12.7" r="5" class="mf-hit"><title>2026/09/11  2.987%</title></circle><circle cx="200.3" cy="12.6" r="5" class="mf-hit"><title>2026/09/14  2.988%</title></circle><circle cx="202.9" cy="8.9" r="5" class="mf-hit"><title>2026/09/15  3.028%</title></circle><circle cx="205.4" cy="11.7" r="5" class="mf-hit"><title>2026/09/16  2.998%</title></circle><circle cx="208.0" cy="12.1" r="5" class="mf-hit"><title>2026/09/17  2.993%</title></circle><circle cx="210.5" cy="13.2" r="5" class="mf-hit"><title>2026/09/18  2.981%</title></circle><circle cx="225.8" cy="4.8" r="5" class="mf-hit"><title>2026/09/24  3.073%</title></circle><circle cx="228.4" cy="5.0" r="5" class="mf-hit"><title>2026/09/25  3.071%</title></circle><circle cx="236.0" cy="4.0" r="5" class="mf-hit"><title>2026/09/28  3.082%</title></circle></svg><div class="mf-range"><span>06/29</span><span>安 2.644 ／ 高 3.082</span><span>09/28</span></div>
+  <div class="mf-foot">基準日 <span class="mono">2026/09/28</span> ・ 取得 <span class="mono">2026/09/30 07:48</span><br>
+    出典 <a href="https://www.mof.go.jp/jgbs/reference/interest_rate/index.htm" target="_blank" rel="noopener">財務省 国債金利情報</a></div>
+</div><div class="mf-card">
+  <div class="mf-head"><span class="mf-label">ドル円</span></div>
+  <div class="mf-val">158.10円</div><div class="mf-chg dn">前日比 −0.12円・−0.08%</div><svg class="mf-spark" viewBox="0 0 240 48" preserveAspectRatio="none" role="img" aria-label="ドル円 直近3か月の推移"><polyline points="4.0,11.4 6.5,12.1 14.1,11.3 16.6,9.7 19.1,8.2 21.7,12.8 24.2,15.3 31.7,10.1 34.3,10.8 36.8,9.9 39.3,9.4 41.8,11.8 49.4,10.3 51.9,9.4 54.4,9.7 57.0,10.4 59.5,9.6 69.6,8.5 72.1,7.2 74.6,5.8 77.1,4.1 84.7,5.0 87.2,4.0 89.7,4.4 92.3,4.2 94.8,17.4 102.3,30.3 104.9,26.4 107.4,26.7 109.9,26.2 112.4,24.2 120.0,23.9 125.0,20.5 127.6,20.6 130.1,21.1 137.7,22.1 140.2,19.3 142.7,21.3 145.2,24.0 147.7,22.6 155.3,21.4 157.8,20.3 160.3,21.9 162.9,20.6 165.4,20.0 173.0,19.8 175.5,18.2 178.0,19.3 180.5,29.3 183.0,32.1 190.6,34.9 193.1,41.4 195.7,44.0 198.2,42.9 200.7,39.9 208.3,39.2 210.8,37.4 213.3,37.0 215.8,34.4 218.3,27.6 233.5,24.9 236.0,25.3" class="mf-line"/><circle cx="236.0" cy="25.3" r="3" class="mf-end"/><circle cx="4.0" cy="11.4" r="5" class="mf-hit"><title>2026/06/25  161.82円</title></circle><circle cx="6.5" cy="12.1" r="5" class="mf-hit"><title>2026/06/26  161.63円</title></circle><circle cx="14.1" cy="11.3" r="5" class="mf-hit"><title>2026/06/29  161.83円</title></circle><circle cx="16.6" cy="9.7" r="5" class="mf-hit"><title>2026/06/30  162.26円</title></circle><circle cx="19.1" cy="8.2" r="5" class="mf-hit"><title>2026/07/01  162.68円</title></circle><circle cx="21.7" cy="12.8" r="5" class="mf-hit"><title>2026/07/02  161.44円</title></circle><circle cx="24.2" cy="15.3" r="5" class="mf-hit"><title>2026/07/03  160.78円</title></circle><circle cx="31.7" cy="10.1" r="5" class="mf-hit"><title>2026/07/06  162.17円</title></circle><circle cx="34.3" cy="10.8" r="5" class="mf-hit"><title>2026/07/07  161.97円</title></circle><circle cx="36.8" cy="9.9" r="5" class="mf-hit"><title>2026/07/08  162.22円</title></circle><circle cx="39.3" cy="9.4" r="5" class="mf-hit"><title>2026/07/09  162.35円</title></circle><circle cx="41.8" cy="11.8" r="5" class="mf-hit"><title>2026/07/10  161.7円</title></circle><circle cx="49.4" cy="10.3" r="5" class="mf-hit"><title>2026/07/13  162.1円</title></circle><circle cx="51.9" cy="9.4" r="5" class="mf-hit"><title>2026/07/14  162.34円</title></circle><circle cx="54.4" cy="9.7" r="5" class="mf-hit"><title>2026/07/15  162.28円</title></circle><circle cx="57.0" cy="10.4" r="5" class="mf-hit"><title>2026/07/16  162.09円</title></circle><circle cx="59.5" cy="9.6" r="5" class="mf-hit"><title>2026/07/17  162.29円</title></circle><circle cx="69.6" cy="8.5" r="5" class="mf-hit"><title>2026/07/21  162.6円</title></circle><circle cx="72.1" cy="7.2" r="5" class="mf-hit"><title>2026/07/22  162.94円</title></circle><circle cx="74.6" cy="5.8" r="5" class="mf-hit"><title>2026/07/23  163.32円</title></circle><circle cx="77.1" cy="4.1" r="5" class="mf-hit"><title>2026/07/24  163.77円</title></circle><circle cx="84.7" cy="5.0" r="5" class="mf-hit"><title>2026/07/27  163.53円</title></circle><circle cx="87.2" cy="4.0" r="5" class="mf-hit"><title>2026/07/28  163.79円</title></circle><circle cx="89.7" cy="4.4" r="5" class="mf-hit"><title>2026/07/29  163.69円</title></circle><circle cx="92.3" cy="4.2" r="5" class="mf-hit"><title>2026/07/30  163.74円</title></circle><circle cx="94.8" cy="17.4" r="5" class="mf-hit"><title>2026/07/31  160.21円</title></circle><circle cx="102.3" cy="30.3" r="5" class="mf-hit"><title>2026/08/03  156.77円</title></circle><circle cx="104.9" cy="26.4" r="5" class="mf-hit"><title>2026/08/04  157.81円</title></circle><circle cx="107.4" cy="26.7" r="5" class="mf-hit"><title>2026/08/05  157.73円</title></circle><circle cx="109.9" cy="26.2" r="5" class="mf-hit"><title>2026/08/06  157.87円</title></circle><circle cx="112.4" cy="24.2" r="5" class="mf-hit"><title>2026/08/07  158.41円</title></circle><circle cx="120.0" cy="23.9" r="5" class="mf-hit"><title>2026/08/10  158.49円</title></circle><circle cx="125.0" cy="20.5" r="5" class="mf-hit"><title>2026/08/12  159.38円</title></circle><circle cx="127.6" cy="20.6" r="5" class="mf-hit"><title>2026/08/13  159.37円</title></circle><circle cx="130.1" cy="21.1" r="5" class="mf-hit"><title>2026/08/14  159.22円</title></circle><circle cx="137.7" cy="22.1" r="5" class="mf-hit"><title>2026/08/17  158.96円</title></circle><circle cx="140.2" cy="19.3" r="5" class="mf-hit"><title>2026/08/18  159.72円</title></circle><circle cx="142.7" cy="21.3" r="5" class="mf-hit"><title>2026/08/19  159.18円</title></circle><circle cx="145.2" cy="24.0" r="5" class="mf-hit"><title>2026/08/20  158.45円</title></circle><circle cx="147.7" cy="22.6" r="5" class="mf-hit"><title>2026/08/21  158.83円</title></circle><circle cx="155.3" cy="21.4" r="5" class="mf-hit"><title>2026/08/24  159.16円</title></circle><circle cx="157.8" cy="20.3" r="5" class="mf-hit"><title>2026/08/25  159.45円</title></circle><circle cx="160.3" cy="21.9" r="5" class="mf-hit"><title>2026/08/26  159.01円</title></circle><circle cx="162.9" cy="20.6" r="5" class="mf-hit"><title>2026/08/27  159.36円</title></circle><circle cx="165.4" cy="20.0" r="5" class="mf-hit"><title>2026/08/28  159.51円</title></circle><circle cx="173.0" cy="19.8" r="5" class="mf-hit"><title>2026/08/31  159.57円</title></circle><circle cx="175.5" cy="18.2" r="5" class="mf-hit"><title>2026/09/01  159.99円</title></circle><circle cx="178.0" cy="19.3" r="5" class="mf-hit"><title>2026/09/02  159.7円</title></circle><circle cx="180.5" cy="29.3" r="5" class="mf-hit"><title>2026/09/03  157.05円</title></circle><circle cx="183.0" cy="32.1" r="5" class="mf-hit"><title>2026/09/04  156.3円</title></circle><circle cx="190.6" cy="34.9" r="5" class="mf-hit"><title>2026/09/07  155.56円</title></circle><circle cx="193.1" cy="41.4" r="5" class="mf-hit"><title>2026/09/08  153.81円</title></circle><circle cx="195.7" cy="44.0" r="5" class="mf-hit"><title>2026/09/09  153.12円</title></circle><circle cx="198.2" cy="42.9" r="5" class="mf-hit"><title>2026/09/10  153.41円</title></circle><circle cx="200.7" cy="39.9" r="5" class="mf-hit"><title>2026/09/11  154.22円</title></circle><circle cx="208.3" cy="39.2" r="5" class="mf-hit"><title>2026/09/14  154.4円</title></circle><circle cx="210.8" cy="37.4" r="5" class="mf-hit"><title>2026/09/15  154.89円</title></circle><circle cx="213.3" cy="37.0" r="5" class="mf-hit"><title>2026/09/16  154.98円</title></circle><circle cx="215.8" cy="34.4" r="5" class="mf-hit"><title>2026/09/17  155.69円</title></circle><circle cx="218.3" cy="27.6" r="5" class="mf-hit"><title>2026/09/18  157.49円</title></circle><circle cx="233.5" cy="24.9" r="5" class="mf-hit"><title>2026/09/24  158.22円</title></circle><circle cx="236.0" cy="25.3" r="5" class="mf-hit"><title>2026/09/25  158.1円</title></circle></svg><div class="mf-range"><span>06/25</span><span>安 153.12 ／ 高 163.79</span><span>09/25</span></div>
+  <div class="mf-foot">基準日 <span class="mono">2026/09/25</span> ・ 取得 <span class="mono">2026/09/30 07:48</span><br>
+    出典 <a href="https://www.stat-search.boj.or.jp/" target="_blank" rel="noopener">日本銀行 時系列統計データ（東京市場 17時時点）</a></div>
+</div></div>
+</section>
+<section class="mf-sec"><div class="sec-label">投資部門別売買状況</div><p class="mf-note">JPXの規約（再配信不可）のため公開版には掲載していません。PC内のレポートとメール版で確認できます。</p></section>
+<section class="mf-sec">
+  <div class="sec-label">準備中</div>
+  <p class="mf-note">業種別の週次騰落ヒートマップ（F2）とNT倍率（F3）は、規約に沿って使えるデータソースを選定中のため未掲載です。</p>
+</section>
+    <p class="disclaimer">※ 数値の列挙のみで、要因の解釈は含みません。投資助言ではありません。</p>
+  </div>
+</div>
+
+<!-- 業種トレンド -->
+<div class="tab-content" id="t-sector">
+  <h2 class="tab-h">業種トレンド</h2>
+  <div class="ca"><section class="mf-sec"><div class="sec-label">業種トレンド</div><p class="mf-note">JPXの規約（再配信不可）のため公開版には掲載していません。PC内のレポートとメール版で確認できます。</p></section>
+    <p class="disclaimer">※ 数値の列挙のみで、要因の解釈は含みません。投資助言ではありません。</p>
+  </div>
+</div>
+
+<!-- 相場動向 -->
+<div class="tab-content" id="t-trend">
+  <h2 class="tab-h">相場動向</h2>
+  <div class="ca"><div class="prose">
+
+<h3>セクターローテーションと資金の流れ</h3>
+
+<p>本日（9月30日）は<strong>3月決算企業の中間配当・優待の権利確定最終日（実質）</strong>にあたり、翌10月1日が配当落ち日となる銘柄が多数存在する。このため本日終値にかけて高配当銘柄への短期資金流入が見込まれる一方、明日以降は配当落ち後の売りに<em class="dn">注意</em>。</p>
+
+<ul>
+<li><strong>内需・ディフェンシブ株へのシフト：</strong> 電気料金値上がりや賃金上昇を受け、電力・ガス・通信など内需ディフェンシブへの資金流入が観測されやすい。</li>
+<li><strong>商社株：</strong> 三菱商事の追加投資発表が引き金となり、三井物産・伊藤忠商事(<span class="mono blue">8001</span>)など商社セクター全体への物色が強まる可能性。</li>
+<li><strong>自動車株：</strong> 海外販売台数悪化を背景にセクター全体にやや売り圧力。ただし円安が継続していれば下値は限定的。</li>
+</ul>
+
+<h3>日経平均・主要指数のテクニカル節目</h3>
+
+<p>（※ 実際の株価データは参照不可のため、一般的なテクニカル視点を記載）</p>
+
+<ul>
+<li>9月末のMSCIリバランスや期末・四半期末に伴うドレッシング買いが入りやすい地合いで、月末・四半期末特有の指数押し上げに<em class="dn">注意</em>。</li>
+<li>10月相場入りにあたり、9月末の高値・安値がレンジの目安として意識されやすい。</li>
+</ul>
+
+<h3>出来高急増・異変銘柄（ニュース起因）</h3>
+
+<ul>
+<li><strong>ニデック(<span class="mono blue">6594</span>)：</strong> 社長辞任・子会社売却の報道で出来高が急増する可能性。売りシグナルが点灯した場合の信用買い残の整理に<em class="dn">注意</em>。</li>
+<li><strong>パン・パシフィック・インターナショナルHD(<span class="mono blue">7532</span>)：</strong> 買収報道で短期の思惑買いが集中しやすい。材料出尽くしに<em class="dn">注意</em>。</li>
+<li><strong>伊藤園(<span class="mono blue">2593</span>)：</strong> 優待廃止で個人投資家の売りが集中する可能性。</li>
+</ul>
+
+<hr>
+
+</div>
+    <p class="disclaimer">※ 投資助言ではありません。</p>
+  </div>
+</div>
+
+<!-- 総会・配当 -->
+<div class="tab-content" id="t-agm">
+  <h2 class="tab-h">総会・配当</h2>
+  <div class="ca"><div class="prose">
+
+<h3>権利確定日・配当落ちの直近スケジュール</h3>
+
+<table class="md-table"><thead><tr><th>日付</th><th>イベント</th></tr></thead><tbody><tr><td>**2026年9月30日（本日）**</td><td>3月決算企業の中間配当・優待 権利付き最終日（実質）</td></tr><tr><td>**2026年10月1日（明）**</td><td>中間配当 権利落ち日（3月決算銘柄多数）<em class="dn">↓</em>配当落ち分の株価下落に<em class="dn">注意</em></td></tr><tr><td>**2026年10月末**</td><td>9月決算企業の本決算 権利確定日（伊藤園(<span class="mono blue">2593</span>)等）</td></tr><tr><td>**2026年11月初旬〜**</td><td>3月決算企業 中間決算発表シーズン開始</td></tr></tbody></table>
+
+<p>> <strong>9月30日（本日）保有の<em class="dn">注意</em>点：</strong> 本日の大引けまでに保有している銘柄は、3月決算企業の中間配当・優待の権利が確定します。ただし、翌日10月1日は配当落ち日となるため、配当分だけ株価が調整することを見越した売りが出やすい点に<em class="dn">注意</em>が必要です。</p>
+
+<h3>直近2ヶ月以内の株主総会スケジュール（注目企業）</h3>
+
+<table class="md-table"><thead><tr><th>企業名（コード）</th><th>総会予定時期</th><th>注目ポイント</th></tr></thead><tbody><tr><td>ニデック(<span class="mono blue">6594</span>)</td><td>2026年10月〜11月（臨時総会の可能性あり）</td><td>不正問題・新経営陣の選任が焦点。株主の信任動向に注目</td></tr><tr><td>伊藤園(<span class="mono blue">2593</span>)</td><td>2026年10月下旬（本決算前後）</td><td>優待廃止への株主反応・経営方針説明が焦点</td></tr><tr><td>三菱商事(<span class="mono blue">8058</span>)</td><td>2026年6月（本決算後）→ 次回は2027年6月</td><td>中間決算説明会（11月予定）でLNG追加投資の詳細説明に注目</td></tr></tbody></table>
+
+<h3>10月以降の臨時国会・政策イベントと投資戦略</h3>
+
+<ul>
+<li><strong>10月の臨時国会召集：</strong> 経産省が原油調達多角化新法案を提出予定。<strong>INPEX(<span class="mono blue">1605</span>)・三菱商事(<span class="mono blue">8058</span>)・三井物産(<span class="mono blue">8031</span>)</strong>など資源・エネルギー関連株は政策テーマ株として引き続き注目。</li>
+<li><strong>10月相場の傾向：</strong> 国内は3月決算企業の中間決算発表（11月上旬〜中旬）を控えた業績確認モードへ移行。決算プレビューを意識した先回り売買が活発化しやすい。</li>
+<li><strong>高配当株の戦略：</strong> 10月1日の配当落ち後、配当利回り目的の押し目買いが入りやすい。特に電力・通信・商社セクターの配当落ち後の動向に注目。</li>
+</ul>
+
+<hr>
+
+<p>> <strong>まとめ：</strong> 本日のキーワードは「ニデックリスク」「商社・エネルギー政策追い風」「9月末権利確定」の3点。ニデックは不正問題の全容解明まで手を出しにくいが、三菱商事・INPEXはエネルギー安保という国策テーマとして中長期的に評価されやすい局面。本日の9月末権利確定後、10月入り以降の資金の動きを注視してください。</p></div>
+    <p class="disclaimer">※ 投資助言ではありません。</p>
+  </div>
+</div>
+
+<!-- ランキング -->
+<div class="tab-content" id="t-rank">
+  <h2 class="tab-h">ランキング</h2>
+  <div class="ca">
+    <div class="rank-toggle">
+      <button class="rank-btn rbg" data-rt="g">▲ 値上がり Top15</button>
+      <button class="rank-btn"     data-rt="l">▼ 値下がり Top15</button>
+    </div>
+    <div id="rt-g"><div class="tbl-wrap"><table class="rtbl"><thead><tr><th>順位</th><th>コード</th><th>銘柄名</th><th>業種</th><th>株価</th><th>変化率</th><th>次回総会</th><th></th></tr></thead><tbody><tr class="trow"><td class="col-r text-muted">1</td><td class="col-c"><a href="https://kabutan.jp/stock/?code=6533" target="_blank" class="mono blue">6533</a></td><td class="col-n"><a href="https://kabutan.jp/stock/?code=6533" target="_blank">Ｏｒｃｈｅｓｔｒａ</a></td><td class="col-i"><span class="badge" style="color:#374151;background:#3741511a;border:1px solid #37415130">その他</span></td><td class="col-p mono">6533</td><td class="col-pct mono up">+25.59%</td><td class="col-agm text-muted">—</td><td class="col-lk"><a href="https://kabutan.jp/stock/news?code=6533" target="_blank" class="tbl-btn">IR</a></td></tr><tr class="trow"><td class="col-r text-muted">2</td><td class="col-c"><a href="https://kabutan.jp/stock/?code=7552" target="_blank" class="mono blue">7552</a></td><td class="col-n"><a href="https://kabutan.jp/stock/?code=7552" target="_blank">ハピネット</a></td><td class="col-i"><span class="badge" style="color:#059669;background:#0596691a;border:1px solid #05966930">商社・流通</span></td><td class="col-p mono">7552</td><td class="col-pct mono up">+12.47%</td><td class="col-agm text-muted">—</td><td class="col-lk"><a href="https://kabutan.jp/stock/news?code=7552" target="_blank" class="tbl-btn">IR</a></td></tr><tr class="trow"><td class="col-r text-muted">3</td><td class="col-c"><a href="https://kabutan.jp/stock/?code=4216" target="_blank" class="mono blue">4216</a></td><td class="col-n"><a href="https://kabutan.jp/stock/?code=4216" target="_blank">旭有機材</a></td><td class="col-i"><span class="badge" style="color:#92400e;background:#92400e1a;border:1px solid #92400e30">化学・素材</span></td><td class="col-p mono">4216</td><td class="col-pct mono up">+5.90%</td><td class="col-agm text-muted">—</td><td class="col-lk"><a href="https://kabutan.jp/stock/news?code=4216" target="_blank" class="tbl-btn">IR</a></td></tr><tr class="trow"><td class="col-r text-muted">4</td><td class="col-c"><a href="https://kabutan.jp/stock/?code=6440" target="_blank" class="mono blue">6440</a></td><td class="col-n"><a href="https://kabutan.jp/stock/?code=6440" target="_blank">ＪＵＫＩ</a></td><td class="col-i"><span class="badge" style="color:#374151;background:#3741511a;border:1px solid #37415130">その他</span></td><td class="col-p mono">6440</td><td class="col-pct mono up">+5.24%</td><td class="col-agm text-muted">—</td><td class="col-lk"><a href="https://kabutan.jp/stock/news?code=6440" target="_blank" class="tbl-btn">IR</a></td></tr><tr class="trow"><td class="col-r text-muted">5</td><td class="col-c"><a href="https://kabutan.jp/stock/?code=5301" target="_blank" class="mono blue">5301</a></td><td class="col-n"><a href="https://kabutan.jp/stock/?code=5301" target="_blank">東海カーボン</a></td><td class="col-i"><span class="badge" style="color:#374151;background:#3741511a;border:1px solid #37415130">その他</span></td><td class="col-p mono">5301</td><td class="col-pct mono up">+4.75%</td><td class="col-agm text-muted">—</td><td class="col-lk"><a href="https://kabutan.jp/stock/news?code=5301" target="_blank" class="tbl-btn">IR</a></td></tr><tr class="trow"><td class="col-r text-muted">6</td><td class="col-c"><a href="https://kabutan.jp/stock/?code=6323" target="_blank" class="mono blue">6323</a></td><td class="col-n"><a href="https://kabutan.jp/stock/?code=6323" target="_blank">ローツェ</a></td><td class="col-i"><span class="badge" style="color:#374151;background:#3741511a;border:1px solid #37415130">その他</span></td><td class="col-p mono">6323</td><td class="col-pct mono up">+4.58%</td><td class="col-agm text-muted">—</td><td class="col-lk"><a href="https://kabutan.jp/stock/news?code=6323" target="_blank" class="tbl-btn">IR</a></td></tr><tr class="trow"><td class="col-r text-muted">7</td><td class="col-c"><a href="https://kabutan.jp/stock/?code=6507" target="_blank" class="mono blue">6507</a></td><td class="col-n"><a href="https://kabutan.jp/stock/?code=6507" target="_blank">シンフォニア</a></td><td class="col-i"><span class="badge" style="color:#7c3aed;background:#7c3aed1a;border:1px solid #7c3aed30">半導体・電子部品</span></td><td class="col-p mono">6507</td><td class="col-pct mono up">+4.26%</td><td class="col-agm text-muted">—</td><td class="col-lk"><a href="https://kabutan.jp/stock/news?code=6507" target="_blank" class="tbl-btn">IR</a></td></tr><tr class="trow"><td class="col-r text-muted">8</td><td class="col-c"><a href="https://kabutan.jp/stock/?code=212A" target="_blank" class="mono blue">212A</a></td><td class="col-n"><a href="https://kabutan.jp/stock/?code=212A" target="_blank">フィットイージー</a></td><td class="col-i"><span class="badge" style="color:#374151;background:#3741511a;border:1px solid #37415130">その他</span></td><td class="col-p mono">2,922</td><td class="col-pct mono up">+4.25%</td><td class="col-agm text-muted">—</td><td class="col-lk"><a href="https://kabutan.jp/stock/news?code=212A" target="_blank" class="tbl-btn">IR</a></td></tr><tr class="trow"><td class="col-r text-muted">9</td><td class="col-c"><a href="https://kabutan.jp/stock/?code=4980" target="_blank" class="mono blue">4980</a></td><td class="col-n"><a href="https://kabutan.jp/stock/?code=4980" target="_blank">デクセリアルズ</a></td><td class="col-i"><span class="badge" style="color:#92400e;background:#92400e1a;border:1px solid #92400e30">化学・素材</span></td><td class="col-p mono">4980</td><td class="col-pct mono up">+4.20%</td><td class="col-agm text-muted">—</td><td class="col-lk"><a href="https://kabutan.jp/stock/news?code=4980" target="_blank" class="tbl-btn">IR</a></td></tr><tr class="trow"><td class="col-r text-muted">10</td><td class="col-c"><a href="https://kabutan.jp/stock/?code=6146" target="_blank" class="mono blue">6146</a></td><td class="col-n"><a href="https://kabutan.jp/stock/?code=6146" target="_blank">ディスコ</a></td><td class="col-i"><span class="badge" style="color:#374151;background:#3741511a;border:1px solid #37415130">その他</span></td><td class="col-p mono">6146</td><td class="col-pct mono up">+4.19%</td><td class="col-agm text-muted">—</td><td class="col-lk"><a href="https://kabutan.jp/stock/news?code=6146" target="_blank" class="tbl-btn">IR</a></td></tr><tr class="trow"><td class="col-r text-muted">11</td><td class="col-c"><a href="https://kabutan.jp/stock/?code=7735" target="_blank" class="mono blue">7735</a></td><td class="col-n"><a href="https://kabutan.jp/stock/?code=7735" target="_blank">ＳＣＲＥＥＮホールディングス</a></td><td class="col-i"><span class="badge" style="color:#7c3aed;background:#7c3aed1a;border:1px solid #7c3aed30">半導体・電子部品</span></td><td class="col-p mono">7735</td><td class="col-pct mono up">+4.08%</td><td class="col-agm text-muted">—</td><td class="col-lk"><a href="https://kabutan.jp/stock/news?code=7735" target="_blank" class="tbl-btn">IR</a></td></tr><tr class="trow"><td class="col-r text-muted">12</td><td class="col-c"><a href="https://kabutan.jp/stock/?code=6387" target="_blank" class="mono blue">6387</a></td><td class="col-n"><a href="https://kabutan.jp/stock/?code=6387" target="_blank">サムコ</a></td><td class="col-i"><span class="badge" style="color:#374151;background:#3741511a;border:1px solid #37415130">その他</span></td><td class="col-p mono">6387</td><td class="col-pct mono up">+4.01%</td><td class="col-agm text-muted">—</td><td class="col-lk"><a href="https://kabutan.jp/stock/news?code=6387" target="_blank" class="tbl-btn">IR</a></td></tr><tr class="trow"><td class="col-r text-muted">13</td><td class="col-c"><a href="https://kabutan.jp/stock/?code=7715" target="_blank" class="mono blue">7715</a></td><td class="col-n"><a href="https://kabutan.jp/stock/?code=7715" target="_blank">長野計器</a></td><td class="col-i"><span class="badge" style="color:#7c3aed;background:#7c3aed1a;border:1px solid #7c3aed30">半導体・電子部品</span></td><td class="col-p mono">7715</td><td class="col-pct mono up">+4.00%</td><td class="col-agm text-muted">—</td><td class="col-lk"><a href="https://kabutan.jp/stock/news?code=7715" target="_blank" class="tbl-btn">IR</a></td></tr><tr class="trow"><td class="col-r text-muted">14</td><td class="col-c"><a href="https://kabutan.jp/stock/?code=6871" target="_blank" class="mono blue">6871</a></td><td class="col-n"><a href="https://kabutan.jp/stock/?code=6871" target="_blank">日本マイクロニクス</a></td><td class="col-i"><span class="badge" style="color:#7c3aed;background:#7c3aed1a;border:1px solid #7c3aed30">半導体・電子部品</span></td><td class="col-p mono">6871</td><td class="col-pct mono up">+3.83%</td><td class="col-agm text-muted">—</td><td class="col-lk"><a href="https://kabutan.jp/stock/news?code=6871" target="_blank" class="tbl-btn">IR</a></td></tr><tr class="trow"><td class="col-r text-muted">15</td><td class="col-c"><a href="https://kabutan.jp/stock/?code=7729" target="_blank" class="mono blue">7729</a></td><td class="col-n"><a href="https://kabutan.jp/stock/?code=7729" target="_blank">東京精密</a></td><td class="col-i"><span class="badge" style="color:#7c3aed;background:#7c3aed1a;border:1px solid #7c3aed30">半導体・電子部品</span></td><td class="col-p mono">7729</td><td class="col-pct mono up">+3.66%</td><td class="col-agm text-muted">—</td><td class="col-lk"><a href="https://kabutan.jp/stock/news?code=7729" target="_blank" class="tbl-btn">IR</a></td></tr></tbody></table></div></div>
+    <div id="rt-l" style="display:none"><div class="tbl-wrap"><table class="rtbl"><thead><tr><th>順位</th><th>コード</th><th>銘柄名</th><th>業種</th><th>株価</th><th>変化率</th><th>次回総会</th><th></th></tr></thead><tbody><tr class="trow"><td class="col-r text-muted">1</td><td class="col-c"><a href="https://kabutan.jp/stock/?code=285A" target="_blank" class="mono blue">285A</a></td><td class="col-n"><a href="https://kabutan.jp/stock/?code=285A" target="_blank">キオクシアホールディングス</a></td><td class="col-i"><span class="badge" style="color:#7c3aed;background:#7c3aed1a;border:1px solid #7c3aed30">半導体・電子部品</span></td><td class="col-p mono">17,880</td><td class="col-pct mono up">+0.56%</td><td class="col-agm text-muted">—</td><td class="col-lk"><a href="https://kabutan.jp/stock/news?code=285A" target="_blank" class="tbl-btn">IR</a></td></tr><tr class="trow"><td class="col-r text-muted">2</td><td class="col-c"><a href="https://kabutan.jp/stock/?code=9984" target="_blank" class="mono blue">9984</a></td><td class="col-n"><a href="https://kabutan.jp/stock/?code=9984" target="_blank">ソフトバンクグループ</a></td><td class="col-i"><span class="badge" style="color:#2563eb;background:#2563eb1a;border:1px solid #2563eb30">AI・ソフトウェア</span></td><td class="col-p mono">9984</td><td class="col-pct mono dn">-3.35%</td><td class="col-agm text-muted">—</td><td class="col-lk"><a href="https://kabutan.jp/stock/news?code=9984" target="_blank" class="tbl-btn">IR</a></td></tr><tr class="trow"><td class="col-r text-muted">3</td><td class="col-c"><a href="https://kabutan.jp/stock/?code=6857" target="_blank" class="mono blue">6857</a></td><td class="col-n"><a href="https://kabutan.jp/stock/?code=6857" target="_blank">アドバンテスト</a></td><td class="col-i"><span class="badge" style="color:#7c3aed;background:#7c3aed1a;border:1px solid #7c3aed30">半導体・電子部品</span></td><td class="col-p mono">6857</td><td class="col-pct mono up">+0.53%</td><td class="col-agm text-muted">—</td><td class="col-lk"><a href="https://kabutan.jp/stock/news?code=6857" target="_blank" class="tbl-btn">IR</a></td></tr><tr class="trow"><td class="col-r text-muted">4</td><td class="col-c"><a href="https://kabutan.jp/stock/?code=6976" target="_blank" class="mono blue">6976</a></td><td class="col-n"><a href="https://kabutan.jp/stock/?code=6976" target="_blank">太陽誘電</a></td><td class="col-i"><span class="badge" style="color:#7c3aed;background:#7c3aed1a;border:1px solid #7c3aed30">半導体・電子部品</span></td><td class="col-p mono">6976</td><td class="col-pct mono up">+0.26%</td><td class="col-agm text-muted">—</td><td class="col-lk"><a href="https://kabutan.jp/stock/news?code=6976" target="_blank" class="tbl-btn">IR</a></td></tr><tr class="trow"><td class="col-r text-muted">5</td><td class="col-c"><a href="https://kabutan.jp/stock/?code=6920" target="_blank" class="mono blue">6920</a></td><td class="col-n"><a href="https://kabutan.jp/stock/?code=6920" target="_blank">レーザーテック</a></td><td class="col-i"><span class="badge" style="color:#7c3aed;background:#7c3aed1a;border:1px solid #7c3aed30">半導体・電子部品</span></td><td class="col-p mono">6920</td><td class="col-pct mono up">+2.50%</td><td class="col-agm text-muted">—</td><td class="col-lk"><a href="https://kabutan.jp/stock/news?code=6920" target="_blank" class="tbl-btn">IR</a></td></tr><tr class="trow"><td class="col-r text-muted">6</td><td class="col-c"><a href="https://kabutan.jp/stock/?code=1570" target="_blank" class="mono blue">1570</a></td><td class="col-n"><a href="https://kabutan.jp/stock/?code=1570" target="_blank">ＮＥＸＴ</a></td><td class="col-i"><span class="badge" style="color:#0891b2;background:#0891b21a;border:1px solid #0891b230">金融・保険</span></td><td class="col-p mono">1570</td><td class="col-pct mono dn">-0.31%</td><td class="col-agm text-muted">—</td><td class="col-lk"><a href="https://kabutan.jp/stock/news?code=1570" target="_blank" class="tbl-btn">IR</a></td></tr><tr class="trow"><td class="col-r text-muted">7</td><td class="col-c"><a href="https://kabutan.jp/stock/?code=8306" target="_blank" class="mono blue">8306</a></td><td class="col-n"><a href="https://kabutan.jp/stock/?code=8306" target="_blank">三菱ＵＦＪフィナンシャル・グループ</a></td><td class="col-i"><span class="badge" style="color:#0891b2;background:#0891b21a;border:1px solid #0891b230">金融・保険</span></td><td class="col-p mono">8306</td><td class="col-pct mono dn">-3.47%</td><td class="col-agm text-muted">—</td><td class="col-lk"><a href="https://kabutan.jp/stock/news?code=8306" target="_blank" class="tbl-btn">IR</a></td></tr><tr class="trow"><td class="col-r text-muted">8</td><td class="col-c"><a href="https://kabutan.jp/stock/?code=8035" target="_blank" class="mono blue">8035</a></td><td class="col-n"><a href="https://kabutan.jp/stock/?code=8035" target="_blank">東京エレクトロン</a></td><td class="col-i"><span class="badge" style="color:#7c3aed;background:#7c3aed1a;border:1px solid #7c3aed30">半導体・電子部品</span></td><td class="col-p mono">8035</td><td class="col-pct mono up">+2.14%</td><td class="col-agm text-muted">—</td><td class="col-lk"><a href="https://kabutan.jp/stock/news?code=8035" target="_blank" class="tbl-btn">IR</a></td></tr><tr class="trow"><td class="col-r text-muted">9</td><td class="col-c"><a href="https://kabutan.jp/stock/?code=6981" target="_blank" class="mono blue">6981</a></td><td class="col-n"><a href="https://kabutan.jp/stock/?code=6981" target="_blank">村田製作所</a></td><td class="col-i"><span class="badge" style="color:#7c3aed;background:#7c3aed1a;border:1px solid #7c3aed30">半導体・電子部品</span></td><td class="col-p mono">6981</td><td class="col-pct mono up">+1.06%</td><td class="col-agm text-muted">—</td><td class="col-lk"><a href="https://kabutan.jp/stock/news?code=6981" target="_blank" class="tbl-btn">IR</a></td></tr><tr class="trow"><td class="col-r text-muted">10</td><td class="col-c"><a href="https://kabutan.jp/stock/?code=5803" target="_blank" class="mono blue">5803</a></td><td class="col-n"><a href="https://kabutan.jp/stock/?code=5803" target="_blank">フジクラ</a></td><td class="col-i"><span class="badge" style="color:#374151;background:#3741511a;border:1px solid #37415130">その他</span></td><td class="col-p mono">5803</td><td class="col-pct mono dn">-0.52%</td><td class="col-agm text-muted">—</td><td class="col-lk"><a href="https://kabutan.jp/stock/news?code=5803" target="_blank" class="tbl-btn">IR</a></td></tr><tr class="trow"><td class="col-r text-muted">11</td><td class="col-c"><a href="https://kabutan.jp/stock/?code=6146" target="_blank" class="mono blue">6146</a></td><td class="col-n"><a href="https://kabutan.jp/stock/?code=6146" target="_blank">ディスコ</a></td><td class="col-i"><span class="badge" style="color:#374151;background:#3741511a;border:1px solid #37415130">その他</span></td><td class="col-p mono">6146</td><td class="col-pct mono up">+4.19%</td><td class="col-agm text-muted">—</td><td class="col-lk"><a href="https://kabutan.jp/stock/news?code=6146" target="_blank" class="tbl-btn">IR</a></td></tr><tr class="trow"><td class="col-r text-muted">12</td><td class="col-c"><a href="https://kabutan.jp/stock/?code=7203" target="_blank" class="mono blue">7203</a></td><td class="col-n"><a href="https://kabutan.jp/stock/?code=7203" target="_blank">トヨタ自動車</a></td><td class="col-i"><span class="badge" style="color:#64748b;background:#64748b1a;border:1px solid #64748b30">自動車・輸送</span></td><td class="col-p mono">7203</td><td class="col-pct mono dn">-3.52%</td><td class="col-agm text-muted">—</td><td class="col-lk"><a href="https://kabutan.jp/stock/news?code=7203" target="_blank" class="tbl-btn">IR</a></td></tr><tr class="trow"><td class="col-r text-muted">13</td><td class="col-c"><a href="https://kabutan.jp/stock/?code=8316" target="_blank" class="mono blue">8316</a></td><td class="col-n"><a href="https://kabutan.jp/stock/?code=8316" target="_blank">三井住友フィナンシャルグループ</a></td><td class="col-i"><span class="badge" style="color:#0891b2;background:#0891b21a;border:1px solid #0891b230">金融・保険</span></td><td class="col-p mono">8316</td><td class="col-pct mono dn">-3.95%</td><td class="col-agm text-muted">—</td><td class="col-lk"><a href="https://kabutan.jp/stock/news?code=8316" target="_blank" class="tbl-btn">IR</a></td></tr><tr class="trow"><td class="col-r text-muted">14</td><td class="col-c"><a href="https://kabutan.jp/stock/?code=627A" target="_blank" class="mono blue">627A</a></td><td class="col-n"><a href="https://kabutan.jp/stock/?code=627A" target="_blank">ａｋｉｐｐａ</a></td><td class="col-i"><span class="badge" style="color:#2563eb;background:#2563eb1a;border:1px solid #2563eb30">AI・ソフトウェア</span></td><td class="col-p mono">2,105</td><td class="col-pct mono up">+3.34%</td><td class="col-agm text-muted">—</td><td class="col-lk"><a href="https://kabutan.jp/stock/news?code=627A" target="_blank" class="tbl-btn">IR</a></td></tr><tr class="trow"><td class="col-r text-muted">15</td><td class="col-c"><a href="https://kabutan.jp/stock/?code=8411" target="_blank" class="mono blue">8411</a></td><td class="col-n"><a href="https://kabutan.jp/stock/?code=8411" target="_blank">みずほフィナンシャルグループ</a></td><td class="col-i"><span class="badge" style="color:#0891b2;background:#0891b21a;border:1px solid #0891b230">金融・保険</span></td><td class="col-p mono">8411</td><td class="col-pct mono dn">-3.72%</td><td class="col-agm text-muted">—</td><td class="col-lk"><a href="https://kabutan.jp/stock/news?code=8411" target="_blank" class="tbl-btn">IR</a></td></tr></tbody></table></div></div>
+    <p class="disclaimer">※ 投資助言ではありません。</p>
+  </div>
+</div>
+
+<script>
+  // Tab switching
+  document.querySelectorAll('.tab-btn').forEach(b => {
+    b.addEventListener('click', () => {
+      document.querySelectorAll('.tab-btn').forEach(x => x.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(x => x.classList.remove('active'));
+      b.classList.add('active');
+      const el = document.getElementById(b.dataset.tab);
+      if (el) el.classList.add('active');
+    });
+  });
+  // Ranking toggle
+  document.querySelectorAll('.rank-btn').forEach(b => {
+    b.addEventListener('click', () => {
+      document.querySelectorAll('.rank-btn').forEach(x => x.classList.remove('rbg','rbr'));
+      const t = b.dataset.rt;
+      b.classList.add(t === 'g' ? 'rbg' : 'rbr');
+      document.getElementById('rt-g').style.display = t === 'g' ? '' : 'none';
+      document.getElementById('rt-l').style.display = t === 'l' ? '' : 'none';
+    });
+  });
+</script>
+</body>
+</html>
